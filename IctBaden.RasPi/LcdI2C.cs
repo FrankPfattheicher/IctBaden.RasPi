@@ -81,8 +81,8 @@ namespace IctBaden.RasPi
             // charcter set
             // Ä
             WriteCmd(0x40 + 0);
-            WriteData(0x15);
-            WriteData(0x0A);
+            WriteData(0x11);
+            WriteData(0x0E);
             WriteData(0x11);
             WriteData(0x11);
             WriteData(0x1F);
