@@ -43,7 +43,7 @@ namespace GPIO
             var lcd = new LcdI2C();
             lcd.Open(deviceName, 0x27);
 
-            lcd.Print("Hello äöüßÄÖÜ 0°");
+            lcd.Print("äöüßgjpqyÄÖÜ 0°");
             lcd.SetCursor(1, 2);
             lcd.Print("Raspberry Pi");
 

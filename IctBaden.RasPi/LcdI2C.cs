@@ -107,15 +107,51 @@ namespace IctBaden.RasPi
             WriteData(0x11);
             WriteData(0x0E);
             WriteData(0x00);
-            // ß
-            WriteData(0x0E);
+            // g
+            WriteData(0x00);
+            WriteData(0x00);
+            WriteData(0x0F);
             WriteData(0x11);
+            WriteData(0x11);
+            WriteData(0x0F);
+            WriteData(0x01);
+            WriteData(0x1E);
+            // j
+            WriteData(0x02);
+            WriteData(0x00);
+            WriteData(0x06);
+            WriteData(0x02);
+            WriteData(0x02);
+            WriteData(0x02);
+            WriteData(0x12);
+            WriteData(0x0C);
+            // p
+            WriteData(0x00);
+            WriteData(0x00);
             WriteData(0x1E);
             WriteData(0x11);
             WriteData(0x11);
             WriteData(0x1E);
             WriteData(0x10);
+            WriteData(0x10);
+            // q
             WriteData(0x00);
+            WriteData(0x00);
+            WriteData(0x0F);
+            WriteData(0x11);
+            WriteData(0x11);
+            WriteData(0x0F);
+            WriteData(0x01);
+            WriteData(0x01);
+            // y
+            WriteData(0x00);
+            WriteData(0x00);
+            WriteData(0x11);
+            WriteData(0x11);
+            WriteData(0x11);
+            WriteData(0x0F);
+            WriteData(0x01);
+            WriteData(0x0E);
 
             WriteCmd(0x80);
         }
@@ -146,14 +182,48 @@ namespace IctBaden.RasPi
                 byte ch = (byte)txch;
                 switch(txch)
                 {
-                    case 'ä': ch = 0xE1; break;
-                    case 'ö': ch = 0xEF; break;
-                    case 'ü': ch = 0xF5; break;
-                    case 'ß': ch = 0x03; break;
                     case 'Ä': ch = 0x00; break;
                     case 'Ö': ch = 0x01; break;
                     case 'Ü': ch = 0x02; break;
+                    case 'g': ch = 0x03; break;
+                    case 'j': ch = 0x04; break;
+                    case 'p': ch = 0x05; break;
+                    case 'q': ch = 0x06; break;
+                    case 'y': ch = 0x07; break;
+
+                    case '¥': ch = 0x5C; break;
+
+                    case '`': ch = 0x60; break;
+
+                    case '→': ch = 0x7E; break;
+                    case '←': ch = 0x7F; break;
+
+                    case '⋅': ch = 0xA5; break;
+
                     case '°': ch = 0xDF; break;
+
+                    case 'α': ch = 0xE0; break;
+                    case 'ä': ch = 0xE1; break;
+                    case 'β': ch = 0xE2; break;
+                    case 'ß': ch = 0xE2; break;
+                    case 'ε': ch = 0xE3; break;
+                    case 'μ': ch = 0xE4; break;
+                    case 'δ': ch = 0xE5; break;
+                    case '√': ch = 0xE8; break;
+                    case '¢': ch = 0xEC; break;
+                    case '₵': ch = 0xEC; break;
+                    case 'ñ': ch = 0xEE; break;
+                    case 'ö': ch = 0xEF; break;
+
+                    case 'Θ': ch = 0xF2; break;
+                    case '∞': ch = 0xF3; break;
+                    case 'Ω': ch = 0xF4; break;
+                    case 'ü': ch = 0xF5; break;
+                    case 'Σ': ch = 0xF6; break;
+                    case '∑': ch = 0xF6; break;
+                    case 'π': ch = 0xF7; break;
+                    case '÷': ch = 0xFD; break;
+                    case '█': ch = 0xFF; break;
                 }
                 WriteData(ch);
             }
