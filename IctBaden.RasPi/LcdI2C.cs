@@ -173,9 +173,7 @@ namespace IctBaden.RasPi
         {
             if(backlight)
                 nibble |= LcdBl;
-            i2c.Write((byte)nibble);
-            i2c.Write((byte)(nibble | LcdEn));
-            i2c.Write((byte)nibble);
+            i2c.Write(new byte[] { nibble, (byte)(nibble | LcdEn), nibble } );
         }
 
     }
