@@ -162,6 +162,11 @@ namespace IctBaden.RasPi
             Thread.Sleep(20);
         }
 
+        public void SetContrast(int contrast)
+        {
+            // not supported
+        }
+
         public void SetCursor(int col, int row)
         {
             if((col < 1) || (col > Columns))

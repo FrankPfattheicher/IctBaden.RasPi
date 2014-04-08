@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using IctBaden.RasPi;
 
-namespace GPIO
+namespace RasPiSample
 {
     internal class Program
     {
