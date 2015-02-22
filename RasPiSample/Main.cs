@@ -8,8 +8,6 @@ namespace RasPiSample
     {
         private static void Main()
         {
-            Console.WriteLine("Digital I/O");
-
             var io = new Gpio();
             if (!io.Initialize())
             {
@@ -17,6 +15,27 @@ namespace RasPiSample
                 return;
             }
 
+
+            const string deviceName = "/dev/i2c-1";
+            var lcd = new LcdI2C();
+            if (!lcd.Open(deviceName, 0x27))
+            {
+                Console.WriteLine("Failed to open I2C");
+                return;
+            }
+
+            Console.WriteLine("I2C");
+            lcd.Print("RasPi " + ModelInfo.Name);
+            lcd.SetCursor(1, 2);
+            lcd.Print("äöüßgjpqyÄÖÜ 0°");
+
+            Thread.Sleep(500);
+            lcd.Backlight = false;
+            Thread.Sleep(500);
+            lcd.Backlight = true;
+
+
+            Console.WriteLine("Digital I/O");
             Console.WriteLine("Inputs = {0:X8}", io.GetInputs());
 
             for (var repeat = 1; repeat <= 3; repeat++)
@@ -36,21 +55,6 @@ namespace RasPiSample
                 }
             }
                 
-            Console.WriteLine("I2C");
-
-            const string deviceName = "/dev/i2c-1";  
-            
-            var lcd = new LcdI2C();
-            lcd.Open(deviceName, 0x27);
-
-            lcd.Print("äöüßgjpqyÄÖÜ 0°");
-            lcd.SetCursor(1, 2);
-            lcd.Print("Raspberry Pi");
-
-            Thread.Sleep(500);
-            lcd.Backlight = false;
-            Thread.Sleep(500);
-            lcd.Backlight = true;
 
         }
 

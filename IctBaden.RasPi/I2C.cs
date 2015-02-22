@@ -1,5 +1,10 @@
 namespace IctBaden.RasPi
 {
+    /// <summary>
+    /// Class for I2C communication.
+    /// Requres libi2c-dev to be installed (sudo apt-get install libi2c-dev).
+    /// Check weather /dev/i2c exists.
+    /// </summary>
     public class I2C
     {
         private int file = -1;
