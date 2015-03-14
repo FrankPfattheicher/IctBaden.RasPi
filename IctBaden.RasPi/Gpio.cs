@@ -9,6 +9,10 @@ namespace IctBaden.RasPi
         private int[] inputAssignment = { 17, 27, 22, 18 };
         private int[] outputAssignment = { 7, 8, 9, 10, 11, 23, 24, 25 };
 
+        /// <summary>
+        /// GPIO numbers used as digital inputs.
+        /// Call Initialize() after changing this.
+        /// </summary>
         public int[] InputAssignment
         {
             get
@@ -18,10 +22,13 @@ namespace IctBaden.RasPi
             set
             {
                 inputAssignment = value;
-                Initialize();
             }
         }
 
+        /// <summary>
+        /// GPIO numbers used as digital outputs.
+        /// Call Initialize() after changing this.
+        /// </summary>
         public int[] OutputAssignment
         {
             get
@@ -31,10 +38,13 @@ namespace IctBaden.RasPi
             set
             {
                 outputAssignment = value;
-                Initialize();
             }
         }
 
+        /// <summary>
+        /// GPIO numbers and I/O ALT-mode to use with
+        /// Call Initialize() after changing this.
+        /// </summary>
         public Dictionary<uint, uint> IoMode
         {
             get
@@ -44,7 +54,6 @@ namespace IctBaden.RasPi
             set
             {
                 ioMode = value;
-                Initialize();
             }
         }
 

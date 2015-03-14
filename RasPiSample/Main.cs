@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using IctBaden.RasPi;
 
@@ -8,6 +9,20 @@ namespace RasPiSample
     {
         private static void Main()
         {
+            Console.WriteLine("1-wire Temperature Sensors");
+            var devices = OneWireTemp.GetDevices();
+            Console.WriteLine(devices.Count + " device(s) found");
+            foreach (var device in devices)
+            {
+                var temp = OneWireTemp.GetTemperature(device);
+                Console.WriteLine(device + " = " + temp);
+            }
+            
+            
+            
+
+
+
             var io = new Gpio();
             if (!io.Initialize())
             {
@@ -54,7 +69,7 @@ namespace RasPiSample
                     Thread.Sleep(100);
                 }
             }
-                
+
 
         }
 

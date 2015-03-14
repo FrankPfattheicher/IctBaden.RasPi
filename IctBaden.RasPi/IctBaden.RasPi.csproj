@@ -41,6 +41,7 @@
     <Compile Include="I2C.cs" />
     <Compile Include="LcdI2C.cs" />
     <Compile Include="ModelInfo.cs" />
+    <Compile Include="OneWireTemp.cs" />
     <Compile Include="RawGpio.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
