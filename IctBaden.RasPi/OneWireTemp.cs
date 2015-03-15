@@ -69,16 +69,21 @@ namespace IctBaden.RasPi
         /// or -1000.0 if the given device could not be found
         /// or -1001.0 if the device readout is not valid
         /// </returns>
-        public static float GetTemperature(string deviceId)
+        public static float ReadDeviceTemperature(string deviceId)
         {
-            var response = File.ReadAllText(Path.Combine(DevicesDirectory, deviceId, "w1_slave"));
+            var deviceFile = Path.Combine(DevicesDirectory, deviceId, "w1_slave");
+            if (!File.Exists(deviceFile))
+            {
+                return -1000f;
+            }
+            var response = File.ReadAllText(deviceFile);
             var tempPos = response.IndexOf("t=", StringComparison.OrdinalIgnoreCase);
 
             if ((response.IndexOf("crc=", StringComparison.OrdinalIgnoreCase) == -1)
                 || (response.IndexOf("YES", StringComparison.OrdinalIgnoreCase) == -1)
                 || (tempPos == -1))
             {
-                return -1000f;
+                return -1001f;
             }
 
             float temp;
