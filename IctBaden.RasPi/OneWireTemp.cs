@@ -7,7 +7,15 @@ using System.Linq;
 namespace IctBaden.RasPi
 {
     /// <summary>
+    /// Connect devices1
     /// 
+    /// P1 PIN 1 (3v3)  ---+----------------+        +---------+
+    ///                    |                +----(3)-+ VDD     |
+    ///                    +---[4k7]---+             |         |
+    /// P1 PIN 9 ()     ---------------+---------(2)-+ DS18S20 |
+    ///                                              |         |
+    ///                                     +----(1)-+ GND     |
+    /// P1 PIN 6 (GND)  --------------------+        +---------+
     /// 
     /// Install drivers: /etc/modules
     /// w1-gpio pullup=1
