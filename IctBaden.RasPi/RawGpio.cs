@@ -92,6 +92,8 @@ namespace IctBaden.RasPi
       // Always use volatile pointer!
       gpio = (uint*)gpio_map;
     }
+
+      public static bool IsInitialized { get { return gpio != null; }}
   }
   // ReSharper restore InconsistentNaming
 }

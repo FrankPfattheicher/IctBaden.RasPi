@@ -97,6 +97,10 @@ namespace IctBaden.RasPi
             {
                 throw new ArgumentException("Output out of range", "index");
             }
+            if(!RawGpio.IsInitialized)
+            {
+                return;
+            }
             if (value)
             {
                 RawGpio.GPIO_SET = (uint)(1 << outputAssignment [index]);
