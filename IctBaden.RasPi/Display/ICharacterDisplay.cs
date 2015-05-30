@@ -1,6 +1,6 @@
 namespace IctBaden.RasPi
 {
-    public interface ILcd
+    public interface ICharacterDisplay
     {
         bool Backlight { get; set; }
         int Lines { get; }

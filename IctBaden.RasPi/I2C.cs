@@ -19,12 +19,7 @@ namespace IctBaden.RasPi
             }
 
             // Specify the address of the slave device.  
-            if (Libc.ioctl_dword(file, Libc.I2C_SLAVE, (ulong)address) < 0)
-            {
-                return false;
-            }
-
-            return true;
+            return (Libc.ioctl_dword(file, Libc.I2C_SLAVE, (ulong)address) >= 0);
         }
 
         public void Close()
@@ -44,11 +39,7 @@ namespace IctBaden.RasPi
         public bool Write(byte data)
         {
             byte[] buf = { data };
-            if (Libc.write(file, buf, 1) != 1)
-            {
-                return false;
-            }
-            return true;
+            return Libc.write(file, buf, 1) == 1;
         }
 
         /// <summary>
@@ -58,25 +49,36 @@ namespace IctBaden.RasPi
         /// <returns></returns>
         public bool Write(byte[] data)
         {
-            if (Libc.write(file, data, data.Length) != data.Length)
-            {
-                return false;
-            }
-            return true;
+            return Libc.write(file, data, data.Length) == data.Length;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="register"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool WriteRegister(byte register, byte data)
+        {
+            var ctrl = new Libc.i2c_smbus_ioctl_data
+                           {
+                               read_write = Libc.I2C_SMBUS_WRITE,
+                               command = register,
+                               size = Libc.I2C_SMBUS_BYTE,
+                               data = data
+                           };
+
+            return (Libc.ioctl_smbus(file, Libc.I2C_SMBUS, ref ctrl) >= 0);
         }
 
         /// <summary>
         /// Read one byte from the slave.  
         /// </summary>
-        /// <returns>Data byte raed or 0 if failed.</returns>
+        /// <returns>Data byte read or 0 if failed.</returns>
         public byte Read()
         {
             byte[] buf = { 0 };
-            if (Libc.read(file, buf, 1) != 1)
-            {
-                return 0;
-            }
-            return buf[0];
+            return (Libc.read(file, buf, 1) != 1) ? (byte)0 : buf[0];
         }
 
         /// <summary>
@@ -87,11 +89,24 @@ namespace IctBaden.RasPi
         public byte[] Read(int count)
         {
             var buf = new byte[count];
-            if (Libc.read(file, buf, count) != count)
-            {
-                return new byte[0];
-            }
-            return buf;
+            return (Libc.read(file, buf, count) != count) ? new byte[0] : buf;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="register"></param>
+        /// <returns></returns>
+        public byte ReadRegister(byte register)
+        {
+            var ctrl = new Libc.i2c_smbus_ioctl_data
+                           {
+                             read_write = Libc.I2C_SMBUS_READ,
+                             command = register,
+                             size = Libc.I2C_SMBUS_BYTE
+                           };
+
+            return (Libc.ioctl_smbus(file, Libc.I2C_SMBUS, ref ctrl) >= 0) ? ctrl.data : (byte)0;
         }
     }
 }

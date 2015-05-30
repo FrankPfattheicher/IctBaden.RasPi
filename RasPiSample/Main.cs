@@ -1,10 +1,11 @@
-using System;
-using System.Linq;
-using System.Threading;
-using IctBaden.RasPi;
-
 namespace RasPiSample
 {
+    using System;
+    using System.Threading;
+
+    using IctBaden.RasPi;
+    using IctBaden.RasPi.Display;
+
     internal class Program
     {
         private static void Main()
@@ -14,7 +15,7 @@ namespace RasPiSample
             Console.WriteLine(devices.Count + " device(s) found");
             foreach (var device in devices)
             {
-                var temp = OneWireTemp.GetTemperature(device);
+                var temp = OneWireTemp.ReadDeviceTemperature(device);
                 Console.WriteLine(device + " = " + temp);
             }
             
@@ -31,9 +32,9 @@ namespace RasPiSample
             }
 
 
-            const string deviceName = "/dev/i2c-1";
-            var lcd = new LcdI2C();
-            if (!lcd.Open(deviceName, 0x27))
+            const string DeviceName = "/dev/i2c-1";
+            var lcd = new CharacterDisplayI2C();
+            if (!lcd.Open(DeviceName, 0x27))
             {
                 Console.WriteLine("Failed to open I2C");
                 return;

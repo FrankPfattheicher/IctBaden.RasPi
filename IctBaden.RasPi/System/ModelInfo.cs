@@ -13,10 +13,10 @@ namespace IctBaden.RasPi
 
         static ModelInfo()
         {
-            const string infoFileName = "/proc/cpuinfo";
-            if (File.Exists(infoFileName))
+            const string InfoFileName = "/proc/cpuinfo";
+            if (File.Exists(InfoFileName))
             {
-                var cpuinfo = File.ReadAllText(infoFileName);
+                var cpuinfo = File.ReadAllText(InfoFileName);
                 Decode(cpuinfo);
             }
         }
@@ -24,10 +24,10 @@ namespace IctBaden.RasPi
         public static void Decode(string cpuinfo)
         {
             var hardwareInfo = new Regex(@"Hardware\s+\:\s+(.*)\s+").Match(cpuinfo);
-            Hardware = (hardwareInfo.Success) ? hardwareInfo.Groups[1].Value.ToString() : "<unknown>";
+            Hardware = (hardwareInfo.Success) ? hardwareInfo.Groups[1].Value : "<unknown>";
 
             var revInfo = new Regex(@"Revision\s+\:\s+(.*)\s+").Match(cpuinfo);
-            Revision = (revInfo.Success) ? int.Parse(revInfo.Groups[1].Value.ToString(), NumberStyles.AllowHexSpecifier) : -1;
+            Revision = (revInfo.Success) ? int.Parse(revInfo.Groups[1].Value, NumberStyles.AllowHexSpecifier) : -1;
 
             switch (Revision)
             {

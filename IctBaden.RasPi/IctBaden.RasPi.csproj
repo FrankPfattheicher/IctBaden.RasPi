@@ -36,13 +36,18 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Gpio.cs" />
-    <Compile Include="Libc.cs" />
-    <Compile Include="ILcd.cs" />
+    <Compile Include="Interop\Libc.cs" />
+    <Compile Include="Display\ICharacterDisplay.cs" />
     <Compile Include="I2C.cs" />
-    <Compile Include="LcdI2C.cs" />
-    <Compile Include="ModelInfo.cs" />
-    <Compile Include="OneWireTemp.cs" />
-    <Compile Include="RawGpio.cs" />
+    <Compile Include="Display\CharacterDisplayI2C.cs" />
+    <Compile Include="Sensor\Gyro.cs" />
+    <Compile Include="System\ModelInfo.cs" />
+    <Compile Include="Sensor\OneWireTemp.cs" />
+    <Compile Include="Interop\RawGpio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Grove\" />
+    <Folder Include="I2C\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,24 +1,25 @@
-using System;
-using System.Threading;
-
-namespace IctBaden.RasPi
+namespace IctBaden.RasPi.Display
 {
-    public class LcdI2C : ILcd
-    {
-        // SainSmart IIC LCD1602 Module Display
-        // I2C address 0x27
-        //
-        // signal assignment 
-        //        LCD - CHIP
-        //         RS - P0
-        //         RW - P1
-        //         EN - P2
-        //         BL - P3
-        //         D4 - P4
-        //         D5 - P5
-        //         D6 - P6
-        //         D7 - P7
+    using System;
+    using System.Threading;
 
+    /// <summary>
+    /// SainSmart IIC LCD1602 Module Display
+    /// I2C address 0x27
+    ///
+    /// signal assignment 
+    ///        LCD - CHIP
+    ///         RS - P0
+    ///         RW - P1
+    ///         EN - P2
+    ///         BL - P3
+    ///         D4 - P4
+    ///         D5 - P5
+    ///         D6 - P6
+    ///         D7 - P7
+    /// </summary>
+    public class CharacterDisplayI2C : ICharacterDisplay
+    {
         private const byte LcdRs = 0x01;
         private const byte LcdRw = 0x02;
         private const byte LcdEn = 0x04;
@@ -40,9 +41,10 @@ namespace IctBaden.RasPi
         public int Lines { get { return 2; } }
         public int Columns { get { return 16; } }
 
-        private I2C i2c;
+        // ReSharper disable once InconsistentNaming
+        private readonly I2C i2c;
 
-        public LcdI2C()
+        public CharacterDisplayI2C()
         {
             backlight = true;
             i2c = new I2C();
@@ -174,8 +176,8 @@ namespace IctBaden.RasPi
             if((row < 1) || (row > Lines))
                 throw new ArgumentException("invalid position", "row");
 
-            int[] row_offset = { 0x00, 0x40, 0x14, 0x54 };
-            int addr = col - 1 + row_offset[row - 1];
+            int[] rowOffset = { 0x00, 0x40, 0x14, 0x54 };
+            var addr = col - 1 + rowOffset[row - 1];
             WriteCmd((byte)(0x80 | addr));
         }
 
@@ -248,7 +250,7 @@ namespace IctBaden.RasPi
         {
             if(backlight)
                 nibble |= LcdBl;
-            i2c.Write(new byte[] { nibble, (byte)(nibble | LcdEn), nibble } );
+            i2c.Write(new[] { nibble, (byte)(nibble | LcdEn), nibble } );
         }
 
     }
