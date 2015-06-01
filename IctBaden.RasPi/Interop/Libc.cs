@@ -1,6 +1,7 @@
+using System;
 using System.Runtime.InteropServices;
 
-namespace IctBaden.RasPi
+namespace IctBaden.RasPi.Interop
 {
     // ReSharper disable InconsistentNaming
     internal static unsafe class Libc
@@ -81,16 +82,17 @@ namespace IctBaden.RasPi
         public const byte I2C_SMBUS_I2C_BLOCK_DATA = 8;
 
 
-        [DllImport("libc.so.6", EntryPoint = "ioctl")]
+        [DllImport("libc.so.6", EntryPoint = "ioctl", SetLastError = true)]
         public static extern int ioctl_smbus(int file, int command, ref i2c_smbus_ioctl_data data);
 
         // This is the structure as used in the I2C_SMBUS ioctl call
+        [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public struct i2c_smbus_ioctl_data
         {
             public byte read_write;
             public byte command;
             public ushort size;
-            public byte data;     // i2c_smbus_data
+            public IntPtr data;     // i2c_smbus_data
         };
 
         // This is the structure as used in the I2C_RDWR ioctl call
@@ -180,6 +182,9 @@ namespace IctBaden.RasPi
 
         [DllImport("libc.so.6")]
         public static extern byte* malloc(uint size);
+
+        [DllImport("libc.so.6")]
+        public static extern void free(byte* buffer);
     }
     // ReSharper restore InconsistentNaming
 }

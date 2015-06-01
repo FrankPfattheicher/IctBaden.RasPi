@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
-namespace IctBaden.RasPi
+namespace IctBaden.RasPi.Sensor
 {
     /// <summary>
     /// Connect devices1

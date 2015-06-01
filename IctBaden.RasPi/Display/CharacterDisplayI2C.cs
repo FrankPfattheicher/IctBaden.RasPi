@@ -1,8 +1,9 @@
+using System;
+using System.Threading;
+using IctBaden.RasPi.Comm;
+
 namespace IctBaden.RasPi.Display
 {
-    using System;
-    using System.Threading;
-
     /// <summary>
     /// SainSmart IIC LCD1602 Module Display
     /// I2C address 0x27
@@ -20,10 +21,12 @@ namespace IctBaden.RasPi.Display
     /// </summary>
     public class CharacterDisplayI2C : ICharacterDisplay
     {
+        // ReSharper disable UnusedMember.Local
         private const byte LcdRs = 0x01;
         private const byte LcdRw = 0x02;
         private const byte LcdEn = 0x04;
         private const byte LcdBl = 0x08;
+        // ReSharper restore UnusedMember.Local
 
         bool backlight;
         public bool Backlight

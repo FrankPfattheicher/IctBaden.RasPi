@@ -1,9 +1,16 @@
-namespace IctBaden.RasPi
+using IctBaden.RasPi.Interop;
+
+namespace IctBaden.RasPi.Comm
 {
     /// <summary>
     /// Class for I2C communication.
     /// Requres libi2c-dev to be installed (sudo apt-get install libi2c-dev).
     /// Check weather /dev/i2c exists.
+    /// 
+    /// Load drivers adding following lines to /etc/modules
+    /// i2c-bmc2708
+    /// i2c-dev
+    /// 
     /// </summary>
     public class I2C
     {
@@ -56,19 +63,24 @@ namespace IctBaden.RasPi
         /// 
         /// </summary>
         /// <param name="register"></param>
-        /// <param name="data"></param>
+        /// <param name="value"></param>
         /// <returns></returns>
-        public bool WriteRegister(byte register, byte data)
+        public bool WriteRegister(byte register, byte value)
         {
-            var ctrl = new Libc.i2c_smbus_ioctl_data
-                           {
-                               read_write = Libc.I2C_SMBUS_WRITE,
-                               command = register,
-                               size = Libc.I2C_SMBUS_BYTE,
-                               data = data
-                           };
+            //var mem = Marshal.AllocCoTaskMem(1);
+            //Marshal.WriteByte(mem, value);
+            //var ctrl = new Libc.i2c_smbus_ioctl_data
+            //               {
+            //                   read_write = Libc.I2C_SMBUS_WRITE,
+            //                   command = register,
+            //                   size = Libc.I2C_SMBUS_BYTE,
+            //                   data = mem
+            //               };
+            //var ok = (Libc.ioctl_smbus(file, Libc.I2C_SMBUS, ref ctrl) >= 0);
+            //Marshal.FreeCoTaskMem(mem);
+            //return ok;
 
-            return (Libc.ioctl_smbus(file, Libc.I2C_SMBUS, ref ctrl) >= 0);
+            return Libc.write(file, new[] { register, value }, 2) >= 0;
         }
 
         /// <summary>
@@ -99,14 +111,32 @@ namespace IctBaden.RasPi
         /// <returns></returns>
         public byte ReadRegister(byte register)
         {
-            var ctrl = new Libc.i2c_smbus_ioctl_data
-                           {
-                             read_write = Libc.I2C_SMBUS_READ,
-                             command = register,
-                             size = Libc.I2C_SMBUS_BYTE
-                           };
+            //var mem = Marshal.AllocCoTaskMem(2);
+            //Marshal.WriteByte(mem, 0, register);
+            //Marshal.WriteByte(mem, 1, 0x55);
+            //var ctrl = new Libc.i2c_smbus_ioctl_data
+            //               {
+            //                 read_write = Libc.I2C_SMBUS_READ,
+            //                 command = register,
+            //                 size = Libc.I2C_SMBUS_BYTE,
+            //                 data = mem
+            //               };
 
-            return (Libc.ioctl_smbus(file, Libc.I2C_SMBUS, ref ctrl) >= 0) ? ctrl.data : (byte)0;
+            //byte value = 0;
+            //var res = Libc.ioctl_smbus(file, Libc.I2C_SMBUS, ref ctrl);
+            //Console.WriteLine("file=" + file);
+            //Console.WriteLine("res=" + res);
+            //Console.WriteLine("errno=" + Marshal.GetLastWin32Error());
+            //if (res >= 0)
+            //{
+            //    value = Marshal.ReadByte(mem);
+            //}
+            //Marshal.FreeCoTaskMem(mem);
+
+            Libc.write(file, new[] {register}, 1);
+            var buffer = new byte[1];
+            Libc.read(file, buffer, 1);
+            return buffer[0];
         }
     }
 }

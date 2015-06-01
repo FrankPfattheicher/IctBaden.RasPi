@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace IctBaden.RasPi
+namespace IctBaden.RasPi.System
 {
     public static class ModelInfo
     {
@@ -13,10 +13,10 @@ namespace IctBaden.RasPi
 
         static ModelInfo()
         {
-            const string InfoFileName = "/proc/cpuinfo";
-            if (File.Exists(InfoFileName))
+            const string infoFileName = "/proc/cpuinfo";
+            if (File.Exists(infoFileName))
             {
-                var cpuinfo = File.ReadAllText(InfoFileName);
+                var cpuinfo = File.ReadAllText(infoFileName);
                 Decode(cpuinfo);
             }
         }

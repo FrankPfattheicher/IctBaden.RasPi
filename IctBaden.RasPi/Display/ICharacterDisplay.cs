@@ -1,4 +1,4 @@
-namespace IctBaden.RasPi
+namespace IctBaden.RasPi.Display
 {
     public interface ICharacterDisplay
     {

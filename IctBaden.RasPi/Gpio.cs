@@ -1,13 +1,18 @@
 using System;
 using System.Collections.Generic;
+using IctBaden.RasPi.Interop;
 
 namespace IctBaden.RasPi
 {
     public class Gpio
     {
+        public readonly int[] DefaultInputAssignment = { 17, 27, 22, 18 };
+        public readonly int[] DefaultOutputAssignment = { 7, 8, 9, 10, 11, 23, 24, 25 };
+
         Dictionary<uint, uint> ioMode = new Dictionary<uint, uint>();
-        private int[] inputAssignment = { 17, 27, 22, 18 };
-        private int[] outputAssignment = { 7, 8, 9, 10, 11, 23, 24, 25 };
+        private int[] inputAssignment;
+        private int[] outputAssignment;
+        private bool[] outputValues;
 
         /// <summary>
         /// GPIO numbers used as digital inputs.
@@ -38,6 +43,11 @@ namespace IctBaden.RasPi
             set
             {
                 outputAssignment = value;
+                outputValues = new bool[outputAssignment.Length];
+                for (var ix = 0; ix < outputValues.Length; ix++)
+                {
+                    outputValues[ix] = false;
+                }
             }
         }
 
@@ -60,6 +70,12 @@ namespace IctBaden.RasPi
         public int Inputs { get { return inputAssignment.Length; } }
 
         public int Outputs { get { return outputAssignment.Length; } }
+
+        public Gpio()
+        {
+            InputAssignment = DefaultInputAssignment;
+            OutputAssignment = DefaultOutputAssignment;
+        }
 
         public bool Initialize()
         {
@@ -97,17 +113,28 @@ namespace IctBaden.RasPi
             {
                 throw new ArgumentException("Output out of range", "index");
             }
-            if(!RawGpio.IsInitialized)
+            if (!RawGpio.IsInitialized)
             {
                 return;
             }
             if (value)
             {
-                RawGpio.GPIO_SET = (uint)(1 << outputAssignment [index]);
-            } else
-            {
-                RawGpio.GPIO_CLR = (uint)(1 << outputAssignment [index]);
+                RawGpio.GPIO_SET = (uint)(1 << outputAssignment[index]);
             }
+            else
+            {
+                RawGpio.GPIO_CLR = (uint)(1 << outputAssignment[index]);
+            }
+            outputValues[index] = value;
+        }
+
+        public bool GetOutput(int index)
+        {
+            if ((index < 0) || (index >= Outputs))
+            {
+                throw new ArgumentException("Output out of range", "index");
+            }
+            return RawGpio.IsInitialized && outputValues[index];
         }
 
         public bool GetInput(int index)

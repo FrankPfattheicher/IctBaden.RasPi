@@ -38,7 +38,7 @@
     <Compile Include="Gpio.cs" />
     <Compile Include="Interop\Libc.cs" />
     <Compile Include="Display\ICharacterDisplay.cs" />
-    <Compile Include="I2C.cs" />
+    <Compile Include="Comm\I2C.cs" />
     <Compile Include="Display\CharacterDisplayI2C.cs" />
     <Compile Include="Sensor\Gyro.cs" />
     <Compile Include="System\ModelInfo.cs" />
@@ -46,8 +46,8 @@
     <Compile Include="Interop\RawGpio.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Audio\" />
     <Folder Include="Grove\" />
-    <Folder Include="I2C\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

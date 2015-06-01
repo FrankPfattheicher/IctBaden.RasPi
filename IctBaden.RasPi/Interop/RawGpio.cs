@@ -1,6 +1,6 @@
 using System;
 
-namespace IctBaden.RasPi
+namespace IctBaden.RasPi.Interop
 {
   // ReSharper disable InconsistentNaming
   internal static unsafe class RawGpio
