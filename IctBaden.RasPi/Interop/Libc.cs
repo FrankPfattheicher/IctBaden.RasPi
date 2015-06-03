@@ -25,12 +25,20 @@ namespace IctBaden.RasPi.Interop
         [DllImport("libc.so.6")]
         public static extern int close(int file);
 
-        [DllImport("libc.so.6")]
+        [DllImport("libc.so.6", SetLastError = true)]
         public static extern int read(int file, [MarshalAs(UnmanagedType.LPArray)] byte[] addr, int count);
 
         [DllImport("libc.so.6")]
         public static extern int write(int file, [MarshalAs(UnmanagedType.LPArray)] byte[] addr, int count);
 
+
+        public const int SEEK_SET = 0; // Seek from beginning of file.
+        public const int SEEK_CUR = 1; // Seek from current position.
+        public const int SEEK_END = 2; // Seek from end of file.
+
+        [DllImport("libc.so.6")]
+        public static extern int lseek(int file, int offset, int whence);
+        
         //constants for ioctl (see i2c-dev.h)
         // /dev/i2c-X ioctl commands.  The ioctl's parameter is always an
         // unsigned long, except for:
@@ -170,14 +178,20 @@ namespace IctBaden.RasPi.Interop
         public const int PROT_WRITE = 0x2;     // page can be written
         public const int PROT_EXEC = 0x4;       // page can be executed 
 
+        // see /usr/include/mman-generic.h
         public static int MAP_SHARED = 0x01;   // Share changes
         public static int MAP_PRIVATE = 0x02;  // Changes are private
         public static int MAP_TYPE = 0x0F;     // Mask for type of mapping
         public static int MAP_FIXED = 0x10;    // Interpret addr exactly
-        public static int MAP_ANONYMOUS = 0x20;// don't use a file
+        public static int MAP_ANONYMOUS = 0x20; // don't use a file
 
+        // see /usr/include/mman.h
+        public static int MAP_LOCKED = 0x2000; // pages are locked
+        public static int MAP_NORESERVE = 0x4000; // don't check for reservations
+         
+        public static void* MAP_FAILED = (void*) -1; 
 
-        [DllImport("libc.so.6")]
+        [DllImport("libc.so.6", SetLastError = true)]
         public static extern void* mmap(void* addr, uint length, int prot, int flags, int fd, uint offset);
 
         [DllImport("libc.so.6")]
@@ -185,6 +199,13 @@ namespace IctBaden.RasPi.Interop
 
         [DllImport("libc.so.6")]
         public static extern void free(byte* buffer);
+
+        [DllImport("libc.so.6")]
+        public static extern void* memset(byte* buffer, byte data, uint size);
+
+
+        [DllImport("libc.so.6")]
+        public static extern int getpid();
     }
     // ReSharper restore InconsistentNaming
 }

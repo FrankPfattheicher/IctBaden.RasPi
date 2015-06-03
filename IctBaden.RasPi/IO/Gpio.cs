@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using IctBaden.RasPi.Interop;
 
-namespace IctBaden.RasPi
+namespace IctBaden.RasPi.IO
 {
     public class Gpio
     {

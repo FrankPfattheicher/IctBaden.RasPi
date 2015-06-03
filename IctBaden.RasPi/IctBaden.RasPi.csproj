@@ -35,11 +35,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Gpio.cs" />
+    <Compile Include="IO\Gpio.cs" />
     <Compile Include="Interop\Libc.cs" />
     <Compile Include="Display\ICharacterDisplay.cs" />
     <Compile Include="Comm\I2C.cs" />
     <Compile Include="Display\CharacterDisplayI2C.cs" />
+    <Compile Include="IO\HighResolutionTimer.cs" />
+    <Compile Include="IO\Pwm.cs" />
     <Compile Include="Sensor\Gyro.cs" />
     <Compile Include="System\ModelInfo.cs" />
     <Compile Include="Sensor\OneWireTemp.cs" />
