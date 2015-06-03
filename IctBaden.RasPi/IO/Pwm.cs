@@ -5,6 +5,79 @@ using IctBaden.RasPi.Interop;
 
 namespace IctBaden.RasPi.IO
 {
+    /// <summary>
+    /// 
+    /// This file is part of IctBaden.RasPi.IO
+    /// 
+    /// Copyright
+    ///
+    ///     Copyright (C)2015 Frank Pfattheicher <fpf@ict-baden.de>
+    ///
+    /// License
+    ///
+    ///     This program is free software: you can redistribute it and/or modify
+    ///     it under the terms of the GNU Lesser General Public License as published
+    ///     by the Free Software Foundation, either version 3 of the License, or
+    ///     (at your option) any later version.
+    ///
+    ///     This program is distributed in the hope that it will be useful,
+    ///     but WITHOUT ANY WARRANTY; without even the implied warranty of
+    ///     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    ///     GNU Lesser General Public License for more details at
+    ///     <http://www.gnu.org/licenses/lgpl-3.0-standalone.html>
+    ///
+    /// Documentation
+    ///
+    ///     currently none
+    ///
+    /// Pwm.cs is based on pwm.c from Chris Hager, which is
+    /// based on the excellent servod.c by Richard Hirst, provides flexible
+    /// PWM via DMA for the Raspberry Pi, supporting a resolution of up to 1us,
+    /// all 15 DMA channels, multiple GPIOs per channel.
+    /// 
+    /// Feedback is much appreciated.
+    /// 
+    /// Links:
+    /// https://github.com/metachris/RPIO
+    /// https://github.com/richardghirst/PiBits/tree/master/ServoBlaster
+    ///
+    ///
+    /// SUBCYCLES
+    /// ---------
+    /// One second is divided into subcycles of user-defined length (within 2ms and 1s)
+    /// which will be repeated endlessly. The subcycle length is set
+    /// per DMA channel; the shorter the length of a subcycle, the less DMA memory will
+    /// be used. Do not set below 2ms - we started seeing weird behaviors of the RPi.
+    ///
+    /// To use servos for instance, a typical subcycle time is 20ms (which will be repeated
+    /// 50 times a second). Each subcycle includes the specific pulse(s) to set the servo
+    /// to the correct position.
+    ///
+    /// You can add pulses to the subcycle, and they will be repeated accordingly (eg.
+    /// a 100ms subcycle will be repeated 10 times per second; as are all the pulses
+    /// within that subcycle). You can use any number of GPIOs, and set multiple pulses
+    /// for each one. Longer subcycles use more DMA memory.
+    ///
+    ///
+    /// PULSE WIDTH INCREMENT GRANULARITY
+    /// ---------------------------------
+    /// Another very important setting is the pulse width increment granularity, which
+    /// defaults to 10µs and is used for _all_ DMA channels (since its passed to the PWM
+    /// timing hardware). Under the hood you need to set the pulse widths as multiples
+    /// of the increment-granularity. Eg. in order to set 500µs pulses with a granularity
+    /// setting of 10µs, you'll need to set the pulse-width as 50 (50 * 10µs = 500µs).
+    /// Less granularity needs more DMA memory.
+    ///
+    /// To achieve shorter pulses than 10µs, you simply need set a lower granularity.
+    ///
+    ///
+    /// WARNING
+    /// -------
+    /// Pwm.cs is currently not yet fully tested. Setting very long or very short
+    /// subcycle times may cause unreliable signals and system failure. 
+    /// Please send feedback to fpf@ict-baden.de.
+    ///
+    ///</summary>
     public unsafe class Pwm
     {
         // DMA Control Block Data Structure (p40): 8 words (256 bits)
@@ -55,9 +128,10 @@ namespace IctBaden.RasPi.IO
             public uint WidthMax;
         };
 
+        // ReSharper disable UnusedMember.Local
+        // ReSharper disable InconsistentNaming
 
         // PWM Memory Addresses
-        // ReSharper disable InconsistentNaming
         private const uint PWM_CTL = (0x00/4);
         private const uint PWM_DMAC = (0x08/4);
         private const uint PWM_RNG1 = (0x10/4);
@@ -90,7 +164,6 @@ namespace IctBaden.RasPi.IO
         private const int GPIO_MODE_IN = 0;
         private const int GPIO_MODE_OUT = 1;
 
-
         // Memory Addresses
         private const uint DMA_BASE = 0x20007000;
         private const uint DMA_CHANNEL_INC = 0x100;
@@ -104,11 +177,17 @@ namespace IctBaden.RasPi.IO
         private const uint PCM_BASE = 0x20203000;
         private const uint PCM_LEN = 0x24;
 
+        // Physical Addresses
+        private const uint physGpClr0 = 0x7E200000 + 0x28;
+        private const uint physGpSet0 = 0x7E200000 + 0x1c;
+
+        private const uint physFifoAddr = (PWM_BASE | 0x7E000000) + 0x18;
+
         // Datasheet p. 51:
         private const uint DMA_NO_WIDE_BURSTS = (1 << 26);
         private const uint DMA_WAIT_RESP = (1 << 3);
         private const uint DMA_D_DREQ = (1 << 6);
-        private readonly Func<uint, uint> DMA_PER_MAP = (x) => ((x) << 16);
+        private readonly Func<uint, uint> DMA_PER_MAP = x => ((x) << 16);
         private const uint DMA_END = (1 << 1);
         private const uint DMA_RESET = ((uint) 1 << 31);
         private const uint DMA_INT = (1 << 2);
@@ -122,14 +201,15 @@ namespace IctBaden.RasPi.IO
         private const int DMA_CHANNELS = 15;
         private static readonly Channel[] channels = new Channel[DMA_CHANNELS];
 
-        // Subcycle minimum. We kept seeing no signals and strange behavior of the RPi
-        private const uint SUBCYCLE_TIME_US_MIN = 3000;
-
         // ReSharper restore InconsistentNaming
+        // ReSharper restore UnusedMember.Local
 
 
         public const int PulseWidthIncrementGranularityUsDefault = 10;
-        public const int SubcycleTimeUsDefault = 20000;
+        public const int SubcycleTimeUsDefault = 20000; // 50 Hz
+        // Subcycle minimum. We kept seeing no signals and strange behavior of the RPi
+        public const uint SubcycleTimeUsMin = 3000;     // 333 Hz
+        public const uint SubcycleTimeUsMax = 1000000;  // 1 Hz
 
         private int pulseWidthIncrementUs;
 
@@ -138,15 +218,12 @@ namespace IctBaden.RasPi.IO
         private static volatile uint* clkReg;
         private static volatile uint* gpioReg;
 
-        private static uint gpioSetup = 0; // bitfield for setup gpios (setup = out/low)
+        private static uint gpioSetup; // bitfield for setup gpios (setup = out/low)
 
-        public Pwm()
-        {
-        }
 
         public bool Initialize(int incrementUs)
         {
-            this.pulseWidthIncrementUs = incrementUs;
+            pulseWidthIncrementUs = incrementUs;
 
             // Initialize common stuff
             pwmReg = MapPeripheral(PWM_BASE, PWM_LEN);
@@ -211,7 +288,7 @@ namespace IctBaden.RasPi.IO
                 Console.WriteLine("PWM: channel {0} already initialized.\n", channel);
                 return false;
             }
-            if (subcycleTimeUs < SUBCYCLE_TIME_US_MIN)
+            if (subcycleTimeUs < SubcycleTimeUsMin)
             {
                 //fatal("Error: subcycle time %dus is too small (min=%dus)\n", subcycleTimeUs, SUBCYCLE_TIME_US_MIN);
                 return false;
@@ -226,10 +303,10 @@ namespace IctBaden.RasPi.IO
                                             1) >> PAGE_SHIFT);
 
             // Initialize channel
-            return init_virtbase(channel) && make_pagemap(channel) && init_ctrl_data(channel);
+            return InitVirtbase(channel) && MakePagemap(channel) && InitCtrlData(channel);
         }
 
-        private bool init_virtbase(int channel)
+        private static bool InitVirtbase(int channel)
         {
             channels[channel].VirtBase =
                 (byte*) Libc.mmap(null, channels[channel].NumPages*PAGE_SIZE, Libc.PROT_READ | Libc.PROT_WRITE,
@@ -249,7 +326,7 @@ namespace IctBaden.RasPi.IO
             return true;
         }
 
-        private bool make_pagemap(int channel)
+        private static bool MakePagemap(int channel)
         {
             channels[channel].PageMap =
                 (VirtPhysPageMap*) Libc.malloc((uint) (channels[channel].NumPages*sizeof (VirtPhysPageMap)));
@@ -266,18 +343,18 @@ namespace IctBaden.RasPi.IO
                 return false;
             }
 
-            var pagemap_fn = string.Format("/proc/{0}/pagemap", Libc.getpid());
-            var fd = Libc.open(pagemap_fn, Libc.O_RDONLY);
+            var pagemapFn = string.Format("/proc/{0}/pagemap", Libc.getpid());
+            var fd = Libc.open(pagemapFn, Libc.O_RDONLY);
             if (fd < 0)
             {
-                Console.WriteLine("PWM: Failed to open {0}", pagemap_fn);
+                Console.WriteLine("PWM: Failed to open {0}", pagemapFn);
                 return false;
             }
 
             if (Libc.lseek(fd, (int) ((uint) channels[channel].VirtBase >> 9), Libc.SEEK_SET) !=
                 (uint) channels[channel].VirtBase >> 9)
             {
-                Console.WriteLine("PWM: Failed to seek on {0}", pagemap_fn);
+                Console.WriteLine("PWM: Failed to seek on {0}", pagemapFn);
                 return false;
             }
 
@@ -292,12 +369,12 @@ namespace IctBaden.RasPi.IO
                 if (read != pfn.Length)
                 {
                     var errno = Marshal.GetLastWin32Error();
-                    Console.WriteLine("PWM: Failed to read {0}: read={1}, errno={2}", pagemap_fn, read, errno);
+                    Console.WriteLine("PWM: Failed to read {0}: read={1}, errno={2}", pagemapFn, read, errno);
                     var xx = Console.ReadLine();
                     Console.WriteLine(xx);
                     return false;
                 }
-                var pfn_long = pfn[0]
+                var pfnLong = pfn[0]
                                + ((ulong) pfn[1] << 8)
                                + ((ulong) pfn[2] << 16)
                                + ((ulong) pfn[3] << 24)
@@ -305,12 +382,12 @@ namespace IctBaden.RasPi.IO
                                + ((ulong) pfn[5] << 40)
                                + ((ulong) pfn[6] << 48)
                                + ((ulong) pfn[7] << 56);
-                if (((pfn_long >> 55) & 0x1bf) != 0x10c)
+                if (((pfnLong >> 55) & 0x1bf) != 0x10c)
                 {
                     Console.WriteLine("PWM: Page {0} not present (pfn 0x{1:X}16llx)\n", i, pfn);
                     return false;
                 }
-                channels[channel].PageMap[i].PhysAddr = (uint) pfn_long << PAGE_SHIFT | 0x40000000;
+                channels[channel].PageMap[i].PhysAddr = (uint) pfnLong << PAGE_SHIFT | 0x40000000;
             }
             Libc.close(fd);
             Libc.close(memfd);
@@ -318,32 +395,26 @@ namespace IctBaden.RasPi.IO
         }
 
         // Returns a pointer to the control block of this channel in DMA memory
-        private byte* get_cb(int channel)
+        private static byte* GetCb(int channel)
         {
             return channels[channel].VirtBase + (sizeof (uint)*channels[channel].NumSamples);
         }
 
         // Memory mapping
-        private static uint mem_virt_to_phys(int channel, void* virt)
+        private static uint MemVirtToPhys(int channel, void* virt)
         {
             uint offset = (uint) ((long) virt - (long) channels[channel].VirtBase);
             return channels[channel].PageMap[offset >> PAGE_SHIFT].PhysAddr + (offset%PAGE_SIZE);
         }
 
-        private bool init_ctrl_data(int channel)
+        private bool InitCtrlData(int channel)
         {
-            var cbp = (DmaCb*) get_cb(channel);
+            var cbp = (DmaCb*) GetCb(channel);
             var sample = (uint*) channels[channel].VirtBase;
-
-            uint phys_fifo_addr;
-            uint phys_gpclr0 = 0x7e200000 + 0x28;
-            int i;
 
             channels[channel].DmaReg = MapPeripheral(DMA_BASE, DMA_LEN) + (DMA_CHANNEL_INC*channel);
             if (channels[channel].DmaReg == null)
                 return false;
-
-            phys_fifo_addr = (PWM_BASE | 0x7e000000) + 0x18;
 
             // Reset complete per-sample gpio mask to 0
             Libc.memset((byte*) sample, 0, channels[channel].NumSamples*sizeof (uint));
@@ -351,37 +422,37 @@ namespace IctBaden.RasPi.IO
             // For each sample we add 2 control blocks:
             // - first: clear gpio and jump to second
             // - second: jump to next CB
-            for (i = 0; i < channels[channel].NumSamples; i++)
+            for (var ix = 0; ix < channels[channel].NumSamples; ix++)
             {
                 cbp->Info = DMA_NO_WIDE_BURSTS | DMA_WAIT_RESP;
-                cbp->Src = mem_virt_to_phys(channel, sample + i);
+                cbp->Src = MemVirtToPhys(channel, sample + ix);
                     // src contains mask of which gpios need change at this sample
-                cbp->Dst = phys_gpclr0; // set each sample to clear set gpios by default
+                cbp->Dst = physGpClr0; // set each sample to clear set gpios by default
                 cbp->Length = 4;
                 cbp->Stride = 0;
-                cbp->Next = mem_virt_to_phys(channel, cbp + 1);
+                cbp->Next = MemVirtToPhys(channel, cbp + 1);
                 cbp++;
 
                 // Delay
                 cbp->Info = DMA_NO_WIDE_BURSTS | DMA_WAIT_RESP | DMA_D_DREQ | DMA_PER_MAP(5);
 
-                cbp->Src = mem_virt_to_phys(channel, sample); // Any data will do
-                cbp->Dst = phys_fifo_addr;
+                cbp->Src = MemVirtToPhys(channel, sample); // Any data will do
+                cbp->Dst = physFifoAddr;
                 cbp->Length = 4;
                 cbp->Stride = 0;
-                cbp->Next = mem_virt_to_phys(channel, cbp + 1);
+                cbp->Next = MemVirtToPhys(channel, cbp + 1);
                 cbp++;
             }
 
             // The last control block links back to the first (= endless loop)
             cbp--;
-            cbp->Next = mem_virt_to_phys(channel, get_cb(channel));
+            cbp->Next = MemVirtToPhys(channel, GetCb(channel));
 
             // Initialize the DMA channel 0 (p46, 47)
             channels[channel].DmaReg[DMA_CS] = DMA_RESET; // DMA channel reset
             Thread.Sleep(TimeSpan.FromMilliseconds(0.01));
             channels[channel].DmaReg[DMA_CS] = DMA_INT | DMA_END; // Interrupt status & DMA end flag
-            channels[channel].DmaReg[DMA_CONBLK_AD] = mem_virt_to_phys(channel, get_cb(channel)); // initial CB
+            channels[channel].DmaReg[DMA_CONBLK_AD] = MemVirtToPhys(channel, GetCb(channel)); // initial CB
             channels[channel].DmaReg[DMA_DEBUG] = 7; // clear debug error flags
             channels[channel].DmaReg[DMA_CS] = 0x10880001; // go, mid priority, wait for outstanding writes
 
@@ -389,7 +460,7 @@ namespace IctBaden.RasPi.IO
         }
 
         // Sets a GPIO to either GPIO_MODE_IN(=0) or GPIO_MODE_OUT(=1)
-        private static void gpio_set_mode(int pin, uint mode)
+        private static void GpioSetMode(int pin, uint mode)
         {
             uint fsel = gpioReg[GPIO_FSEL0 + pin/10];
 
@@ -399,7 +470,7 @@ namespace IctBaden.RasPi.IO
         }
 
         // Sets the gpio to input (level=1) or output (level=0)
-        private static void gpio_set(int pin, bool level)
+        private static void GpioSet(int pin, bool level)
         {
             if (level)
                 gpioReg[GPIO_SET0] = (uint) 1 << pin;
@@ -408,11 +479,11 @@ namespace IctBaden.RasPi.IO
         }
 
         // Set GPIO to OUTPUT, Low
-        private static void init_gpio(int gpio)
+        private static void InitGpio(int gpio)
         {
             Console.WriteLine("PWM: init_gpio {0}", gpio);
-            gpio_set(gpio, false);
-            gpio_set_mode(gpio, GPIO_MODE_OUT);
+            GpioSet(gpio, false);
+            GpioSetMode(gpio, GPIO_MODE_OUT);
             gpioSetup |= (uint) 1 << gpio;
         }
 
@@ -427,25 +498,39 @@ namespace IctBaden.RasPi.IO
         // use multiple DMA channels.
         public bool SetChannelPercent(int channel, int gpio, double percent)
         {
-            var width = Math.Min((int)channels[channel].WidthMax, (int)((channels[channel].WidthMax * percent) / 100.0));
-            return AddChannelPulse(channel, gpio, 0, (int)width);
+            var max = (int)channels[channel].WidthMax;
+            var width = (int)((percent * max) / 100.0);
+            if (width < 0)
+            {
+                width = 0;
+            }
+            if (width > max)
+            {
+                width = max;
+            }
+            return AddChannelPulse(channel, gpio, 0, width);
         }
     
 
         public bool AddChannelPulse(int channel, int gpio, int widthStart, int width)
         {
-            const uint physGpclr0 = 0x7e200000 + 0x28;
-            const uint physGpset0 = 0x7e200000 + 0x1c;
-            var cbp = (DmaCb*)((long)get_cb(channel) + (widthStart * 2));
-            var dp = (uint*)channels[channel].VirtBase;
-
             //Console.WriteLine("PWM: AddChannelPulse: channel={0}, gpio={1}, start={2}, width={3}", channel, gpio, widthStart, width);
             if (channels[channel].VirtBase == null)
             {
                 Console.WriteLine("PWM: channel {0} has not been initialized with 'init_channel(..)'\n", channel);
                 return false;
             }
-            if (((widthStart + width) > channels[channel].WidthMax) || (widthStart < 0))
+            if (widthStart < 0)
+            {
+                Console.WriteLine("PWM: cannot add pulse to channel {0}: widthStart less than zero {0}", widthStart);
+                return false;
+            }
+            if (width < 0)
+            {
+                Console.WriteLine("PWM: cannot add pulse to channel {0}: width less than zero {0}", width);
+                return false;
+            }
+            if ((widthStart + width) > channels[channel].WidthMax)
             {
                 Console.WriteLine("PWM: cannot add pulse to channel {0}: widthStart + width exceed max_width of {1}", channel, channels[channel].WidthMax);
                 return false;
@@ -453,13 +538,16 @@ namespace IctBaden.RasPi.IO
 
             if ((gpioSetup & 1 << gpio) == 0)
             {
-                init_gpio(gpio);
+                InitGpio(gpio);
             }
+
+            var cbp = (DmaCb*)((long)GetCb(channel) + (widthStart * 2));
+            var dp = (uint*)channels[channel].VirtBase;
 
             // enable or disable gpio at this point in the cycle
             dp[widthStart] |= (uint)1 << gpio;
             //*(dp + width_start) |= 1 << gpio;
-            cbp->Dst = physGpset0;
+            cbp->Dst = physGpSet0;
 
             // Do nothing for the specified width
             int i;
@@ -475,7 +563,7 @@ namespace IctBaden.RasPi.IO
                 dp[widthStart + width] |= (uint)1 << gpio;
             }
 
-            cbp->Dst = physGpclr0;
+            cbp->Dst = physGpClr0;
             return true;
         }
 
@@ -506,7 +594,7 @@ namespace IctBaden.RasPi.IO
             // Let DMA do one cycle before setting GPIO to low.
             //udelay(channels[channel].subcycle_time_us);
 
-            gpio_set(gpio, false);
+            GpioSet(gpio, false);
             return true;
         }
 
