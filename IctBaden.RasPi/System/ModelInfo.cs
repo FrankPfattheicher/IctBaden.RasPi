@@ -10,15 +10,17 @@ namespace IctBaden.RasPi.System
         public static int Revision { get; private set; }
         public static string Name { get; private set; }
         public static int RamSizeMb { get; private set; }
+        public static bool HasHeaderP5 { get; private set; }
+        public static bool HasHeaderJ8 { get; private set; }
 
         static ModelInfo()
         {
             const string infoFileName = "/proc/cpuinfo";
-            if (File.Exists(infoFileName))
-            {
-                var cpuinfo = File.ReadAllText(infoFileName);
-                Decode(cpuinfo);
-            }
+            if (!File.Exists(infoFileName)) 
+                return;
+
+            var cpuinfo = File.ReadAllText(infoFileName);
+            Decode(cpuinfo);
         }
 
         public static void Decode(string cpuinfo)
@@ -42,14 +44,17 @@ namespace IctBaden.RasPi.System
                 case 4: 
                     Name = "B2"; 
                     RamSizeMb = 256;
+                    HasHeaderP5 = true;
                     break;
                 case 5: 
                     Name = "B2"; 
                     RamSizeMb = 256;
+                    HasHeaderP5 = true;
                     break;
                 case 6: 
                     Name = "B2"; 
                     RamSizeMb = 256;
+                    HasHeaderP5 = true;
                     break;
                 case 7: 
                     Name = "A"; 
@@ -66,6 +71,7 @@ namespace IctBaden.RasPi.System
                 case 10:
                     Name = "B+";
                     RamSizeMb = 512;
+                    HasHeaderJ8 = true;
                     break;
                 case 11:
                     Name = "Compute";
@@ -78,18 +84,22 @@ namespace IctBaden.RasPi.System
                 case 13: 
                     Name = "B2"; 
                     RamSizeMb = 512;
+                    HasHeaderP5 = true;
                     break;
                 case 14: 
                     Name = "B2";
                     RamSizeMb = 512;
+                    HasHeaderP5 = true;
                     break;
                 case 15: 
                     Name = "B2";
                     RamSizeMb = 512;
+                    HasHeaderP5 = true;
                     break;
                 case 0xA01041:
                     Name = "2B";
                     RamSizeMb = 1024;
+                    HasHeaderJ8 = true;
                     break;
                 default: 
                     Name = "<unknown>"; 

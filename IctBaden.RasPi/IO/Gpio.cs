@@ -1,163 +1,97 @@
-using System;
-using System.Collections.Generic;
-using IctBaden.RasPi.Interop;
+﻿using IctBaden.RasPi.System;
 
 namespace IctBaden.RasPi.IO
 {
+    /// <summary>
+    /// RPi A+,B+ GPIO: J8 40-pin header
+    /// --------------------------------
+    ///         +3V3 1  2   +5V
+    /// GPIO2   SDA1 3  4   +5V
+    /// GPIO3   SCL1 5  6   GND
+    /// GPIO4   GCLK 7  8   TXD0  GPIO14
+    ///          GND 9  10  RXD0  GPIO15
+    /// GPIO17  GEN0 11 12  GEN1  GPIO18
+    /// GPIO27  GEN2 13 14  GND
+    /// GPIO22  GEN3 15 16  GEN4  GPIO23
+    ///         +3V3 17 18  GEN5  GPIO24
+    /// GPIO10  MOSI 19 20  GND
+    /// GPIO9   MISO 21 22  GEN6  GPIO25
+    /// GPIO11  SCLK 23 24  CE0_N GPIO8
+    ///          GND 25 26  CE1_N GPIO7
+    /// EEPROM ID_SD 27 28  ID_SC EEPROM
+    /// GPIO5        29 30  GND
+    /// GPIO6        31 32        GPIO12
+    /// GPIO13       33 34  GND
+    /// GPIO19       35 36        GPIO16
+    /// GPIO26       37 38        GPIO20
+    ///          GND 39 40        GPIO21
+    /// --------------------------------
+    /// </summary>
     public class Gpio
     {
-        public readonly int[] DefaultInputAssignment = { 17, 27, 22, 18 };
-        public readonly int[] DefaultOutputAssignment = { 7, 8, 9, 10, 11, 23, 24, 25 };
+        public Gpio(uint bit, uint header, uint pin)
+        {
+            Bit = bit;
+            Header = header;
+            Pin = pin;
+        }
 
-        Dictionary<uint, uint> ioMode = new Dictionary<uint, uint>();
-        private int[] inputAssignment;
-        private int[] outputAssignment;
-        private bool[] outputValues;
+        public uint Bit { get; private set; }
+        public uint Header { get; private set; }
+        public uint Pin { get; private set; }
 
-        /// <summary>
-        /// GPIO numbers used as digital inputs.
-        /// Call Initialize() after changing this.
-        /// </summary>
-        public int[] InputAssignment
+        public bool IsSupported
         {
             get
             {
-                return inputAssignment;
-            }
-            set
-            {
-                inputAssignment = value;
+                if ((Header == 5) && !ModelInfo.HasHeaderP5)
+                    return false;
+                if ((Header == 0) && !ModelInfo.Name.StartsWith("A"))
+                    return false;
+                return (Pin <= 26) || ModelInfo.HasHeaderJ8;
             }
         }
 
-        /// <summary>
-        /// GPIO numbers used as digital outputs.
-        /// Call Initialize() after changing this.
-        /// </summary>
-        public int[] OutputAssignment
+        public uint Mask
         {
-            get
-            {
-                return outputAssignment;
-            }
-            set
-            {
-                outputAssignment = value;
-                outputValues = new bool[outputAssignment.Length];
-                for (var ix = 0; ix < outputValues.Length; ix++)
-                {
-                    outputValues[ix] = false;
-                }
-            }
+            get { return (uint)(1 << (int)Bit); }
         }
 
-        /// <summary>
-        /// GPIO numbers and I/O ALT-mode to use with
-        /// Call Initialize() after changing this.
-        /// </summary>
-        public Dictionary<uint, uint> IoMode
-        {
-            get
-            {
-                return ioMode;
-            }
-            set
-            {
-                ioMode = value;
-            }
-        }
+        public static Gpio Gpio0 = new Gpio(0, 0, 2);
+        public static Gpio Gpio1 = new Gpio(1, 0, 3);
 
-        public int Inputs { get { return inputAssignment.Length; } }
+        public static Gpio Gpio2   = new Gpio(2, 1, 3);
+        public static Gpio Gpio3 = new Gpio(3, 1, 5);
+        public static Gpio Gpio4 = new Gpio(4, 1, 7);
+        public static Gpio Gpio14 = new Gpio(14, 1, 8);
+        public static Gpio Gpio15 = new Gpio(15, 1, 10);
+        public static Gpio Gpio17 = new Gpio(17, 1, 11);
+        public static Gpio Gpio18 = new Gpio(18, 1, 12);
+        public static Gpio Gpio27 = new Gpio(27, 1, 13);
+        public static Gpio Gpio22 = new Gpio(22, 1, 15);
+        public static Gpio Gpio23 = new Gpio(23, 1, 16);
+        public static Gpio Gpio24 = new Gpio(24, 1, 18);
+        public static Gpio Gpio10 = new Gpio(10, 1, 19);
+        public static Gpio Gpio9 = new Gpio(9, 1, 21);
+        public static Gpio Gpio25 = new Gpio(25, 1, 22);
+        public static Gpio Gpio11 = new Gpio(11, 1, 23);
+        public static Gpio Gpio8 = new Gpio(8, 1, 24);
+        public static Gpio Gpio7 = new Gpio(7, 1, 26);
 
-        public int Outputs { get { return outputAssignment.Length; } }
+        public static Gpio Gpio5 = new Gpio(5, 1, 29);
+        public static Gpio Gpio6 = new Gpio(6, 1, 31);
+        public static Gpio Gpio12 = new Gpio(12, 1, 32);
+        public static Gpio Gpio13 = new Gpio(13, 1, 33);
+        public static Gpio Gpio19 = new Gpio(19, 1, 35);
+        public static Gpio Gpio16 = new Gpio(16, 1, 36);
+        public static Gpio Gpio26 = new Gpio(26, 1, 37);
+        public static Gpio Gpio20 = new Gpio(20, 1, 38);
+        public static Gpio Gpio21 = new Gpio(21, 1, 40);
 
-        public Gpio()
-        {
-            InputAssignment = DefaultInputAssignment;
-            OutputAssignment = DefaultOutputAssignment;
-        }
+        public static Gpio Gpio28 = new Gpio(28, 5, 3);
+        public static Gpio Gpio29 = new Gpio(29, 5, 4);
+        public static Gpio Gpio30 = new Gpio(30, 5, 5);
+        public static Gpio Gpio31 = new Gpio(31, 5, 6);
 
-        public bool Initialize()
-        {
-            try
-            {
-                RawGpio.Initialize();
-            } catch (Exception)
-            {
-                return false;
-            }
-
-            foreach (var mode in ioMode)
-            {
-                RawGpio.INP_GPIO(mode.Key);
-                RawGpio.SET_GPIO_ALT(mode.Key, mode.Value);
-            }
-
-            foreach (var input in inputAssignment)
-            {
-                RawGpio.INP_GPIO((uint)input);
-            }
-            
-            foreach (var output in outputAssignment)
-            {
-                RawGpio.INP_GPIO((uint)output); // must use INP_GPIO before we can use OUT_GPIO
-                RawGpio.OUT_GPIO((uint)output);
-            }
-            
-            return true;
-        }
-
-        public void SetOutput(int index, bool value)
-        {
-            if ((index < 0) || (index >= Outputs))
-            {
-                throw new ArgumentException("Output out of range", "index");
-            }
-            if (!RawGpio.IsInitialized)
-            {
-                return;
-            }
-            if (value)
-            {
-                RawGpio.GPIO_SET = (uint)(1 << outputAssignment[index]);
-            }
-            else
-            {
-                RawGpio.GPIO_CLR = (uint)(1 << outputAssignment[index]);
-            }
-            outputValues[index] = value;
-        }
-
-        public bool GetOutput(int index)
-        {
-            if ((index < 0) || (index >= Outputs))
-            {
-                throw new ArgumentException("Output out of range", "index");
-            }
-            return RawGpio.IsInitialized && outputValues[index];
-        }
-
-        public bool GetInput(int index)
-        {
-            if ((index < 0) || (index >= Inputs))
-            {
-                throw new ArgumentException("Input out of range", "index");
-            }
-
-            return (RawGpio.GPIO_IN0 & (uint)(1 << inputAssignment [index])) != 0;
-        }
-
-        public ulong GetInputs()
-        {
-            ulong inputs = 0;
-            for (var ix = 0; ix < Inputs; ix++)
-            {
-                if (GetInput(ix))
-                {
-                    inputs |= (ulong)1 << ix;
-                }
-            }
-            return inputs;
-        }
     }
 }

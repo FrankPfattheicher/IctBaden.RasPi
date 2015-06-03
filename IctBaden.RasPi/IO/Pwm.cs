@@ -11,7 +11,7 @@ namespace IctBaden.RasPi.IO
     /// 
     /// Copyright
     ///
-    ///     Copyright (C)2015 Frank Pfattheicher <fpf@ict-baden.de>
+    ///     Copyright (C)2015 Frank Pfattheicher (fpf@ict-baden.de)
     ///
     /// License
     ///
@@ -24,7 +24,7 @@ namespace IctBaden.RasPi.IO
     ///     but WITHOUT ANY WARRANTY; without even the implied warranty of
     ///     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     ///     GNU Lesser General Public License for more details at
-    ///     <http://www.gnu.org/licenses/lgpl-3.0-standalone.html>
+    ///     http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     ///
     /// Documentation
     ///
@@ -460,31 +460,31 @@ namespace IctBaden.RasPi.IO
         }
 
         // Sets a GPIO to either GPIO_MODE_IN(=0) or GPIO_MODE_OUT(=1)
-        private static void GpioSetMode(int pin, uint mode)
+        private static void GpioSetMode(uint gpio, uint mode)
         {
-            uint fsel = gpioReg[GPIO_FSEL0 + pin/10];
+            var fsel = gpioReg[GPIO_FSEL0 + gpio / 10];
 
-            fsel &= (uint) ~(7 << (pin%10)*3);
-            fsel |= mode << (pin%10)*3;
-            gpioReg[GPIO_FSEL0 + pin/10] = fsel;
+            fsel &= (uint) ~(7 << ((int)gpio % 10) * 3);
+            fsel |= mode << ((int)gpio % 10) * 3;
+            gpioReg[GPIO_FSEL0 + gpio/10] = fsel;
         }
 
         // Sets the gpio to input (level=1) or output (level=0)
-        private static void GpioSet(int pin, bool level)
+        private static void GpioSet(uint gpio, bool level)
         {
             if (level)
-                gpioReg[GPIO_SET0] = (uint) 1 << pin;
+                gpioReg[GPIO_SET0] = (uint)(1 << (int)gpio);
             else
-                gpioReg[GPIO_CLR0] = (uint) 1 << pin;
+                gpioReg[GPIO_CLR0] = (uint)(1 << (int)gpio);
         }
 
         // Set GPIO to OUTPUT, Low
-        private static void InitGpio(int gpio)
+        private static void InitGpio(uint gpio)
         {
             Console.WriteLine("PWM: init_gpio {0}", gpio);
             GpioSet(gpio, false);
             GpioSetMode(gpio, GPIO_MODE_OUT);
-            gpioSetup |= (uint) 1 << gpio;
+            gpioSetup |= (uint)(1 << (int)gpio);
         }
 
 
@@ -496,7 +496,7 @@ namespace IctBaden.RasPi.IO
         // point in time, only the last added action (eg. set-to-low) will be executed on all pins.
         // To create these kinds of inverted signals on two GPIOs, either offset them by 1 step, or
         // use multiple DMA channels.
-        public bool SetChannelPercent(int channel, int gpio, double percent)
+        public bool SetChannelPercent(int channel, uint gpio, double percent)
         {
             var max = (int)channels[channel].WidthMax;
             var width = (int)((percent * max) / 100.0);
@@ -512,7 +512,7 @@ namespace IctBaden.RasPi.IO
         }
     
 
-        public bool AddChannelPulse(int channel, int gpio, int widthStart, int width)
+        public bool AddChannelPulse(int channel, uint gpio, int widthStart, int width)
         {
             //Console.WriteLine("PWM: AddChannelPulse: channel={0}, gpio={1}, start={2}, width={3}", channel, gpio, widthStart, width);
             if (channels[channel].VirtBase == null)
@@ -536,7 +536,7 @@ namespace IctBaden.RasPi.IO
                 return false;
             }
 
-            if ((gpioSetup & 1 << gpio) == 0)
+            if ((gpioSetup & (1 << (int)gpio)) == 0)
             {
                 InitGpio(gpio);
             }
@@ -545,7 +545,7 @@ namespace IctBaden.RasPi.IO
             var dp = (uint*)channels[channel].VirtBase;
 
             // enable or disable gpio at this point in the cycle
-            dp[widthStart] |= (uint)1 << gpio;
+            dp[widthStart] |= (uint)(1 << (int)gpio);
             //*(dp + width_start) |= 1 << gpio;
             cbp->Dst = physGpSet0;
 
@@ -553,14 +553,14 @@ namespace IctBaden.RasPi.IO
             int i;
             for (i = 1; i < width - 1; i++)
             {
-                dp[widthStart + i] &= (uint)~(1 << gpio);  // set just this gpio's bit to 0
+                dp[widthStart + i] &= (uint)~(1 << (int)gpio);  // set just this gpio's bit to 0
                 cbp += 2;
             }
 
             if ((widthStart + width) < channels[channel].WidthMax)
             {
                 // Clear GPIO at end
-                dp[widthStart + width] |= (uint)1 << gpio;
+                dp[widthStart + width] |= (uint)(1 << (int)gpio);
             }
 
             cbp->Dst = physGpClr0;
@@ -568,7 +568,7 @@ namespace IctBaden.RasPi.IO
         }
 
         // Clears all pulses for a specific gpio on this channel. Also sets the GPIO to Low.
-        public bool ClearChannelGpio(int channel, int gpio)
+        public bool ClearChannelGpio(int channel, uint gpio)
         {
             int i;
             uint* dp = (uint*)channels[channel].VirtBase;
@@ -579,7 +579,7 @@ namespace IctBaden.RasPi.IO
                 Console.WriteLine("PWM: channel {0} has not been initialized with 'init_channel(..)'", channel);
                 return false;
             }
-            if ((gpioSetup & 1 << gpio) == 0)
+            if ((gpioSetup & (1 << (int)gpio)) == 0)
             {
                 Console.WriteLine("PWM: cannot clear gpio {0}; not yet been set up", gpio);
                 return false;
@@ -588,7 +588,7 @@ namespace IctBaden.RasPi.IO
             // Remove this gpio from all samples:
             for (i = 0; i < channels[channel].NumSamples; i++)
             {
-                dp[i] &= (uint)~(1 << gpio);  // set just this gpio's bit to 0
+                dp[i] &= (uint)~(1 << (int)gpio);  // set just this gpio's bit to 0
             }
 
             // Let DMA do one cycle before setting GPIO to low.
