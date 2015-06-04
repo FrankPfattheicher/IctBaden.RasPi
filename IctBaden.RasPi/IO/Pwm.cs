@@ -316,7 +316,7 @@ namespace IctBaden.RasPi.IO
                 (byte*)Libc.mmap(null, channels[channel].NumPages * PAGE_SIZE, Libc.PROT_READ | Libc.PROT_WRITE,
                     Libc.MAP_SHARED | Libc.MAP_ANONYMOUS | Libc.MAP_NORESERVE | Libc.MAP_LOCKED, -1, 0);
 
-            if (channels[channel].VirtBase == Libc.MAP_FAILED)
+            if ((channels[channel].VirtBase == Libc.MAP_FAILED) || (channels[channel].VirtBase == null))
             {
                 var errno = Marshal.GetLastWin32Error();
                 Console.WriteLine("PWM: Failed to mmap physical pages: {0}", errno);
@@ -485,7 +485,7 @@ namespace IctBaden.RasPi.IO
         // Set GPIO to OUTPUT, Low
         private static void InitGpio(uint gpio)
         {
-            Console.WriteLine("PWM: init_gpio {0}", gpio);
+            Console.WriteLine("PWM: InitGpio {0}", gpio);
             GpioSet(gpio, false);
             GpioSetMode(gpio, GPIO_MODE_OUT);
             gpioSetup |= (uint)(1 << (int)gpio);

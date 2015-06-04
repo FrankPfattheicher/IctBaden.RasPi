@@ -12,6 +12,7 @@ namespace IctBaden.RasPi.System
         public static int RamSizeMb { get; private set; }
         public static bool HasHeaderP5 { get; private set; }
         public static bool HasHeaderJ8 { get; private set; }
+        public static bool HardFloat { get; private set; }
 
         static ModelInfo()
         {
@@ -105,6 +106,10 @@ namespace IctBaden.RasPi.System
                     Name = "<unknown>"; 
                     break;
             }
+
+            HardFloat = Directory.Exists("/lib/arm-linux-gnueabihf");
         }
+
+        
     }
 }
