@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using IctBaden.RasPi.Interop;
@@ -280,7 +279,7 @@ namespace IctBaden.RasPi.IO
         }
 
 
-        public bool InitChannel(int channel, uint subcycleTimeUs)
+        internal bool InitChannel(int channel, uint subcycleTimeUs)
         {
             if (channel > (DMA_CHANNELS - 1))
             {
@@ -407,7 +406,7 @@ namespace IctBaden.RasPi.IO
         // Memory mapping
         private static uint MemVirtToPhys(int channel, void* virt)
         {
-            uint offset = (uint)((long)virt - (long)channels[channel].VirtBase);
+            var offset = (uint)((long)virt - (long)channels[channel].VirtBase);
             return channels[channel].PageMap[offset >> PAGE_SHIFT].PhysAddr + (offset % PAGE_SIZE);
         }
 
@@ -491,6 +490,20 @@ namespace IctBaden.RasPi.IO
             gpioSetup |= (uint)(1 << (int)gpio);
         }
 
+        public PwmChannel OpenChannel(uint gpio)
+        {
+            for (var ix = 0; ix < DMA_CHANNELS; ix++)
+            {
+                if (ChannelInUse(ix)) 
+                    continue;
+
+                if (InitChannel(ix, 2000))
+                {
+                    return new PwmChannel(this, ix, gpio);
+                }
+            }
+            return null;
+        }
 
         // Update the channel with another pulse within one full cycle. Its possible to
         // add more gpios to the same timeslots (widthStart). widthStart and width are
@@ -607,14 +620,24 @@ namespace IctBaden.RasPi.IO
         {
             for (var ix = 0; ix < DMA_CHANNELS; ix++)
             {
-                if ((channels[ix].DmaReg != null) && (channels[ix].VirtBase != null))
-                {
-                    Console.WriteLine("PWM: Shutting down DMA channel {0}", ix);
-                    ClearChannel(ix);
-                    Thread.Sleep(TimeSpan.FromMilliseconds(channels[ix].SubcycleTimeUs));
-                    channels[ix].DmaReg[DMA_CS] = DMA_RESET;
-                    Thread.Sleep(TimeSpan.FromMilliseconds(10));
-                }
+                ShutdownChannel(ix);
+            }
+        }
+
+        private bool ChannelInUse(int channel)
+        {
+            return ((channels[channel].DmaReg != null) && (channels[channel].VirtBase != null));
+        }
+
+        internal void ShutdownChannel(int channel)
+        {
+            if (ChannelInUse(channel))
+            {
+                Console.WriteLine("PWM: Shutting down DMA channel {0}", channel);
+                ClearChannel(channel);
+                Thread.Sleep(TimeSpan.FromMilliseconds(channels[channel].SubcycleTimeUs / 1000.0));
+                channels[channel].DmaReg[DMA_CS] = DMA_RESET;
+                Thread.Sleep(TimeSpan.FromMilliseconds(10));
             }
         }
 
@@ -640,7 +663,7 @@ namespace IctBaden.RasPi.IO
             }
 
             // Let DMA do one cycle to actually clear them
-            Thread.Sleep(TimeSpan.FromMilliseconds(channels[channel].SubcycleTimeUs));
+            Thread.Sleep(TimeSpan.FromMilliseconds(channels[channel].SubcycleTimeUs / 1000.0));
 
             // Finally set all samples to 0 (instead of gpio_mask)
             for (i = 0; i < channels[channel].NumSamples; i++)

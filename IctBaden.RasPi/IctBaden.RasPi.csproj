@@ -43,6 +43,7 @@
     <Compile Include="IO\HighResolutionTimer.cs" />
     <Compile Include="IO\Gpio.cs" />
     <Compile Include="IO\Pwm.cs" />
+    <Compile Include="IO\PwmChannel.cs" />
     <Compile Include="Sensor\Gyro.cs" />
     <Compile Include="System\ModelInfo.cs" />
     <Compile Include="Sensor\OneWireTemp.cs" />
