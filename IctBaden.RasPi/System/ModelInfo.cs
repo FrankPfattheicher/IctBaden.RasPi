@@ -26,11 +26,11 @@ namespace IctBaden.RasPi.System
 
         public static void Decode(string cpuinfo)
         {
-            var hardwareInfo = new Regex(@"Hardware\s+\:\s+(.*)\s+").Match(cpuinfo);
+            var hardwareInfo = new Regex(@"Hardware\s+\:\s+(\w+)\s+").Match(cpuinfo);
             Hardware = (hardwareInfo.Success) ? hardwareInfo.Groups[1].Value : "<unknown>";
 
             var revInfo = new Regex(@"Revision\s+\:\s+(.*)\s+").Match(cpuinfo);
-            Revision = (revInfo.Success) ? int.Parse(revInfo.Groups[1].Value, NumberStyles.AllowHexSpecifier) : -1;
+            Revision = (revInfo.Success) ? int.Parse(revInfo.Groups[1].Value, NumberStyles.HexNumber) : -1;
 
             switch (Revision)
             {

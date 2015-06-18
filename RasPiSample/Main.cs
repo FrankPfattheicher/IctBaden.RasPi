@@ -1,11 +1,12 @@
+using System;
+using System.Threading;
+using IctBaden.RasPi.Display;
+using IctBaden.RasPi.IO;
+using IctBaden.RasPi.Sensor;
+using IctBaden.RasPi.System;
+
 namespace RasPiSample
 {
-    using System;
-    using System.Threading;
-
-    using IctBaden.RasPi;
-    using IctBaden.RasPi.Display;
-
     internal class Program
     {
         private static void Main()
@@ -19,12 +20,8 @@ namespace RasPiSample
                 Console.WriteLine(device + " = " + temp);
             }
             
-            
-            
 
-
-
-            var io = new Gpio();
+            var io = new DigitalIo();
             if (!io.Initialize())
             {
                 Console.WriteLine("Failed to initialize IO");
@@ -32,9 +29,9 @@ namespace RasPiSample
             }
 
 
-            const string DeviceName = "/dev/i2c-1";
+            const string deviceName = "/dev/i2c-1";
             var lcd = new CharacterDisplayI2C();
-            if (!lcd.Open(DeviceName, 0x27))
+            if (!lcd.Open(deviceName, 0x27))
             {
                 Console.WriteLine("Failed to open I2C");
                 return;
@@ -45,32 +42,47 @@ namespace RasPiSample
             lcd.SetCursor(1, 2);
             lcd.Print("äöüßgjpqyÄÖÜ 0°");
 
-            Thread.Sleep(500);
-            lcd.Backlight = false;
-            Thread.Sleep(500);
-            lcd.Backlight = true;
-
-
-            Console.WriteLine("Digital I/O");
-            Console.WriteLine("Inputs = {0:X8}", io.GetInputs());
-
-            for (var repeat = 1; repeat <= 3; repeat++)
+            var oldInp = io.GetInputs();
+            while (true)
             {
-                Console.WriteLine("Cycle {0}", repeat);
-                for (var ix = 0; ix < io.Outputs; ix++)
-                {
-                    Console.WriteLine("Set out {0}", ix);
-                    io.SetOutput(ix, true);
-                    Thread.Sleep(100);
-                }
-                for (var ix = 0; ix < io.Outputs; ix++)
-                {
-                    Console.WriteLine("Reset out {0}", ix);
-                    io.SetOutput(ix, false);
-                    Thread.Sleep(100);
-                }
-            }
+                var newInp = io.GetInputs();
 
+                if (newInp == oldInp)
+                {
+                    Thread.Sleep(50);   
+                    continue;
+                }
+
+                Console.WriteLine("Digital I/O");
+                Console.WriteLine("Inputs = {0:X8}", newInp);
+
+                oldInp = newInp;
+                if ((newInp & 0x0F) == 0x0F)
+                {
+                    break;
+                }
+
+                if (io.GetInput(0))
+                {
+                    lcd.Backlight = !lcd.Backlight;
+                }
+                if (io.GetInput(1))
+                {
+                    for (var ix = 0; ix < io.Outputs; ix++)
+                    {
+                        Console.WriteLine("Set out {0}", ix);
+                        io.SetOutput(ix, true);
+                        Thread.Sleep(100);
+                    }
+                    for (var ix = 0; ix < io.Outputs; ix++)
+                    {
+                        Console.WriteLine("Reset out {0}", ix);
+                        io.SetOutput(ix, false);
+                        Thread.Sleep(100);
+                    }
+                }
+
+            }
 
         }
 

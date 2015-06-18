@@ -1,4 +1,5 @@
 ﻿using System;
+using IctBaden.RasPi.System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace IctBaden.RasPi.Test
