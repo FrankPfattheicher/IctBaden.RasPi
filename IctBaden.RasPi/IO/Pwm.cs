@@ -213,12 +213,12 @@ namespace IctBaden.RasPi.IO
 
         private int pulseWidthIncrementUs;
 
-        private static volatile uint* pwmReg;
-        private static volatile uint* pcmReg;
-        private static volatile uint* clkReg;
-        private static volatile uint* gpioReg;
+        private static volatile uint* _pwmReg;
+        private static volatile uint* _pcmReg;
+        private static volatile uint* _clkReg;
+        private static volatile uint* _gpioReg;
 
-        private static uint gpioSetup; // bitfield for setup gpios (setup = out/low)
+        private static uint _gpioSetup; // bitfield for setup gpios (setup = out/low)
 
 
         public bool Initialize(int incrementUs)
@@ -226,32 +226,32 @@ namespace IctBaden.RasPi.IO
             pulseWidthIncrementUs = incrementUs;
 
             // Initialize common stuff
-            pwmReg = MapPeripheral(PWM_BASE, PWM_LEN);
-            pcmReg = MapPeripheral(PCM_BASE, PCM_LEN);
-            clkReg = MapPeripheral(CLK_BASE, CLK_LEN);
-            gpioReg = MapPeripheral(GPIO_BASE, GPIO_LEN);
-            if (pwmReg == null || pcmReg == null || clkReg == null || gpioReg == null)
+            _pwmReg = MapPeripheral(PWM_BASE, PWM_LEN);
+            _pcmReg = MapPeripheral(PCM_BASE, PCM_LEN);
+            _clkReg = MapPeripheral(CLK_BASE, CLK_LEN);
+            _gpioReg = MapPeripheral(GPIO_BASE, GPIO_LEN);
+            if (_pwmReg == null || _pcmReg == null || _clkReg == null || _gpioReg == null)
             {
                 Console.WriteLine("PWM: Failed to map peripherals");
                 return false;
             }
 
             // Initialise PWM
-            pwmReg[PWM_CTL] = 0;
+            _pwmReg[PWM_CTL] = 0;
             Thread.Sleep(TimeSpan.FromMilliseconds(0.01));
-            clkReg[PWMCLK_CNTL] = 0x5A000006; // Source=PLLD (500MHz)
+            _clkReg[PWMCLK_CNTL] = 0x5A000006; // Source=PLLD (500MHz)
             Thread.Sleep(TimeSpan.FromMilliseconds(0.1));
-            clkReg[PWMCLK_DIV] = 0x5A000000 | (50 << 12); // set pwm div to 50, giving 10MHz
+            _clkReg[PWMCLK_DIV] = 0x5A000000 | (50 << 12); // set pwm div to 50, giving 10MHz
             Thread.Sleep(TimeSpan.FromMilliseconds(0.1));
-            clkReg[PWMCLK_CNTL] = 0x5A000016; // Source=PLLD and enable
+            _clkReg[PWMCLK_CNTL] = 0x5A000016; // Source=PLLD and enable
             Thread.Sleep(TimeSpan.FromMilliseconds(0.1));
-            pwmReg[PWM_RNG1] = (uint)incrementUs * 10;
+            _pwmReg[PWM_RNG1] = (uint)incrementUs * 10;
             Thread.Sleep(TimeSpan.FromMilliseconds(0.01));
-            pwmReg[PWM_DMAC] = PWMDMAC_ENAB | PWMDMAC_THRSHLD;
+            _pwmReg[PWM_DMAC] = PWMDMAC_ENAB | PWMDMAC_THRSHLD;
             Thread.Sleep(TimeSpan.FromMilliseconds(0.01));
-            pwmReg[PWM_CTL] = PWMCTL_CLRF;
+            _pwmReg[PWM_CTL] = PWMCTL_CLRF;
             Thread.Sleep(TimeSpan.FromMilliseconds(0.01));
-            pwmReg[PWM_CTL] = PWMCTL_USEF1 | PWMCTL_PWEN1;
+            _pwmReg[PWM_CTL] = PWMCTL_USEF1 | PWMCTL_PWEN1;
             Thread.Sleep(TimeSpan.FromMilliseconds(0.01));
 
             return true;
@@ -346,7 +346,7 @@ namespace IctBaden.RasPi.IO
                 return false;
             }
 
-            var pagemapFn = string.Format("/proc/{0}/pagemap", Libc.getpid());
+            var pagemapFn = $"/proc/{Libc.getpid()}/pagemap";
             var fd = Libc.open(pagemapFn, Libc.O_RDONLY);
             if (fd < 0)
             {
@@ -465,20 +465,20 @@ namespace IctBaden.RasPi.IO
         // Sets a GPIO to either GPIO_MODE_IN(=0) or GPIO_MODE_OUT(=1)
         private static void GpioSetMode(uint gpio, uint mode)
         {
-            var fsel = gpioReg[GPIO_FSEL0 + gpio / 10];
+            var fsel = _gpioReg[GPIO_FSEL0 + gpio / 10];
 
             fsel &= (uint)~(7 << ((int)gpio % 10) * 3);
             fsel |= mode << ((int)gpio % 10) * 3;
-            gpioReg[GPIO_FSEL0 + gpio / 10] = fsel;
+            _gpioReg[GPIO_FSEL0 + gpio / 10] = fsel;
         }
 
         // Sets the gpio to input (level=1) or output (level=0)
         private static void GpioSet(uint gpio, bool level)
         {
             if (level)
-                gpioReg[GPIO_SET0] = (uint)(1 << (int)gpio);
+                _gpioReg[GPIO_SET0] = (uint)(1 << (int)gpio);
             else
-                gpioReg[GPIO_CLR0] = (uint)(1 << (int)gpio);
+                _gpioReg[GPIO_CLR0] = (uint)(1 << (int)gpio);
         }
 
         // Set GPIO to OUTPUT, Low
@@ -487,7 +487,7 @@ namespace IctBaden.RasPi.IO
             Console.WriteLine("PWM: InitGpio {0}", gpio);
             GpioSet(gpio, false);
             GpioSetMode(gpio, GPIO_MODE_OUT);
-            gpioSetup |= (uint)(1 << (int)gpio);
+            _gpioSetup |= (uint)(1 << (int)gpio);
         }
 
         public PwmChannel OpenChannel(uint gpio)
@@ -553,7 +553,7 @@ namespace IctBaden.RasPi.IO
                 return false;
             }
 
-            if ((gpioSetup & (1 << (int)gpio)) == 0)
+            if ((_gpioSetup & (1 << (int)gpio)) == 0)
             {
                 InitGpio(gpio);
             }
@@ -596,7 +596,7 @@ namespace IctBaden.RasPi.IO
                 Console.WriteLine("PWM: channel {0} has not been initialized with 'init_channel(..)'", channel);
                 return false;
             }
-            if ((gpioSetup & (1 << (int)gpio)) == 0)
+            if ((_gpioSetup & (1 << (int)gpio)) == 0)
             {
                 Console.WriteLine("PWM: cannot clear gpio {0}; not yet been set up", gpio);
                 return false;
@@ -642,6 +642,7 @@ namespace IctBaden.RasPi.IO
         }
 
         // Reset this channel to original state (all samples=0, all cbs=clr0)
+        // ReSharper disable once UnusedMethodReturnValue.Local
         private static bool ClearChannel(int channel)
         {
             int i;
