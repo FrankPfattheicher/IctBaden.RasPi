@@ -1,5 +1,4 @@
 ﻿using IctBaden.RasPi.Comm;
-// ReSharper disable UnusedMember.Global
 
 namespace IctBaden.RasPi.Sensor
 {
@@ -12,7 +11,6 @@ namespace IctBaden.RasPi.Sensor
     /// Pin 5 - SCL connect to SCL
     /// Pin 6 - Ground connect to GND
     /// </summary>
-    // ReSharper disable once UnusedMember.Global
     public class Gyro
     {
         public struct Vector

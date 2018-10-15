@@ -2,8 +2,6 @@
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
-// ReSharper disable UnusedMember.Global
-// ReSharper disable InconsistentNaming
 
 namespace IctBaden.RasPi.IO
 {
@@ -50,6 +48,19 @@ namespace IctBaden.RasPi.IO
 
         #endregion
 
+        #region Instance Management
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HighResolutionTimer"/> class.
+        /// </summary>
+        public HighResolutionTimer()
+        {
+            //if (!Board.Current.IsRaspberryPi)
+            //    throw new NotSupportedException("Cannot use HighResolutionTimer on a platform different than Raspberry Pi");
+        }
+
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -60,12 +71,11 @@ namespace IctBaden.RasPi.IO
         /// </value>
         public TimeSpan Interval
         {
-            get => interval;
+            get { return interval; }
             set
             {
-                // ReSharper disable once PossibleLossOfFraction
                 if (value.TotalMilliseconds > uint.MaxValue / 1000)
-                    throw new ArgumentOutOfRangeException(nameof(value), interval, "Interval must be lower than or equal to uint.MaxValue / 1000");
+                    throw new ArgumentOutOfRangeException("value", interval, "Interval must be lower than or equal to uint.MaxValue / 1000");
 
                 interval = value;
             }
@@ -79,7 +89,7 @@ namespace IctBaden.RasPi.IO
         /// </value>
         public Action Action
         {
-            get => action;
+            get { return action; }
             set
             {
                 if (value == null)
@@ -139,9 +149,8 @@ namespace IctBaden.RasPi.IO
         /// <param name="startDelay">The delay before the first occurence, in milliseconds.</param>
         public void Start(TimeSpan startDelay)
         {
-            // ReSharper disable once PossibleLossOfFraction
             if (startDelay.TotalMilliseconds > uint.MaxValue / 1000)
-                throw new ArgumentOutOfRangeException(nameof(startDelay), startDelay, "Delay must be lower than or equal to uint.MaxValue / 1000");
+                throw new ArgumentOutOfRangeException("startDelay", startDelay, "Delay must be lower than or equal to uint.MaxValue / 1000");
 
             lock (this)
             {

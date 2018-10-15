@@ -84,7 +84,7 @@ namespace IctBaden.RasPi.IO
         private struct DmaCb
         {
 #pragma warning disable 414
-#pragma warning disable 169
+#pragma warning disable 649
             // ReSharper disable NotAccessedField.Local
             public uint Info; // TI: transfer information
             public uint Src; // SOURCE_AD
@@ -95,7 +95,7 @@ namespace IctBaden.RasPi.IO
             public uint Pad1; // _reserved_
             public uint Pad2;
             // ReSharper restore NotAccessedField.Local
-#pragma warning restore 169
+#pragma warning restore 649
 #pragma warning restore 414
         };
 
@@ -109,10 +109,10 @@ namespace IctBaden.RasPi.IO
         private struct Channel
         {
             public byte* VirtBase;
-#pragma warning disable 169
+#pragma warning disable 649
             public uint* Sample;
             public DmaCb* Cb;
-#pragma warning restore 169
+#pragma warning restore 649
             public VirtPhysPageMap* PageMap;
             public volatile uint* DmaReg;
 

@@ -1,11 +1,9 @@
 ﻿using IctBaden.RasPi.System;
-// ReSharper disable UnusedMember.Global
-// ReSharper disable AutoPropertyCanBeMadeGetOnly.Local
 
 namespace IctBaden.RasPi.IO
 {
     /// <summary>
-    /// RPi GPIO: J8 40-pin header
+    /// RPi A+,B+ GPIO: J8 40-pin header
     /// --------------------------------
     ///         +3V3 1  2   +5V
     /// GPIO2   SDA1 3  4   +5V
@@ -54,7 +52,10 @@ namespace IctBaden.RasPi.IO
             }
         }
 
-        public uint Mask => (uint)(1 << (int)Bit);
+        public uint Mask
+        {
+            get { return (uint)(1 << (int)Bit); }
+        }
 
         public static Gpio Gpio0 = new Gpio(0, 0, 2);
         public static Gpio Gpio1 = new Gpio(1, 0, 3);

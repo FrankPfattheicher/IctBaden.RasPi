@@ -14,28 +14,28 @@ namespace IctBaden.RasPi.Comm
     /// </summary>
     public class I2C
     {
-        private int _file = -1;
+        private int file = -1;
 
         public bool Open(string deviceName, int address)
         {
             // Open up the I2C bus  
-            _file = Libc.open(deviceName, Libc.O_RDWR);
-            if (_file == -1)
+            file = Libc.open(deviceName, Libc.O_RDWR);
+            if (file == -1)
             {
                 return false;
             }
 
             // Specify the address of the slave device.  
-            return (Libc.ioctl_dword(_file, Libc.I2C_SLAVE, (ulong)address) >= 0);
+            return (Libc.ioctl_dword(file, Libc.I2C_SLAVE, (ulong)address) >= 0);
         }
 
         public void Close()
         {
-            if (_file == -1)
+            if (file == -1)
                 return;
 
-            Libc.close(_file);
-            _file = -1;
+            Libc.close(file);
+            file = -1;
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace IctBaden.RasPi.Comm
         public bool Write(byte data)
         {
             byte[] buf = { data };
-            return Libc.write(_file, buf, 1) == 1;
+            return Libc.write(file, buf, 1) == 1;
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace IctBaden.RasPi.Comm
         /// <returns></returns>
         public bool Write(byte[] data)
         {
-            return Libc.write(_file, data, data.Length) == data.Length;
+            return Libc.write(file, data, data.Length) == data.Length;
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace IctBaden.RasPi.Comm
             //Marshal.FreeCoTaskMem(mem);
             //return ok;
 
-            return Libc.write(_file, new[] { register, value }, 2) >= 0;
+            return Libc.write(file, new[] { register, value }, 2) >= 0;
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace IctBaden.RasPi.Comm
         public byte Read()
         {
             byte[] buf = { 0 };
-            return (Libc.read(_file, buf, 1) != 1) ? (byte)0 : buf[0];
+            return (Libc.read(file, buf, 1) != 1) ? (byte)0 : buf[0];
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace IctBaden.RasPi.Comm
         public byte[] Read(int count)
         {
             var buf = new byte[count];
-            return (Libc.read(_file, buf, count) != count) ? new byte[0] : buf;
+            return (Libc.read(file, buf, count) != count) ? new byte[0] : buf;
         }
 
         /// <summary>
@@ -133,9 +133,9 @@ namespace IctBaden.RasPi.Comm
             //}
             //Marshal.FreeCoTaskMem(mem);
 
-            Libc.write(_file, new[] {register}, 1);
+            Libc.write(file, new[] {register}, 1);
             var buffer = new byte[1];
-            Libc.read(_file, buffer, 1);
+            Libc.read(file, buffer, 1);
             return buffer[0];
         }
     }

@@ -1,6 +1,5 @@
 *.suo
 bin
 obj
-
-
-/*.userprefs
+*.userprefs
+.vs

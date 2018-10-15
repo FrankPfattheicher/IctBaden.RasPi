@@ -54,9 +54,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IctBaden.RasPi\IctBaden.RasPi.csproj">
+    <ProjectReference Include="..\IctBaden.RasPi.Net40\IctBaden.RasPi.Net40.csproj">
       <Project>{10666e1d-9106-49fc-b66d-cd67537fe3dd}</Project>
-      <Name>IctBaden.RasPi</Name>
+      <Name>IctBaden.RasPi.Net40</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

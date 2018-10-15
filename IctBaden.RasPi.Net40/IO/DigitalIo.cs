@@ -9,10 +9,10 @@ namespace IctBaden.RasPi.IO
         public readonly int[] DefaultInputAssignment = { /* GPIO */ 17, 27, 22, 18 };
         public readonly int[] DefaultOutputAssignment = { /* GPIO */ 7, 8, 9, 10, 11, 23, 24, 25 };
 
-        private Dictionary<uint, uint> _ioMode = new Dictionary<uint, uint>();
-        private int[] _inputAssignment;
-        private int[] _outputAssignment;
-        private bool[] _outputValues;
+        Dictionary<uint, uint> ioMode = new Dictionary<uint, uint>();
+        private int[] inputAssignment;
+        private int[] outputAssignment;
+        private bool[] outputValues;
 
         /// <summary>
         /// GPIO numbers used as digital inputs.
@@ -20,8 +20,14 @@ namespace IctBaden.RasPi.IO
         /// </summary>
         public int[] InputAssignment
         {
-            get => _inputAssignment;
-            set => _inputAssignment = value;
+            get
+            {
+                return inputAssignment;
+            }
+            set
+            {
+                inputAssignment = value;
+            }
         }
 
         /// <summary>
@@ -30,14 +36,17 @@ namespace IctBaden.RasPi.IO
         /// </summary>
         public int[] OutputAssignment
         {
-            get => _outputAssignment;
+            get
+            {
+                return outputAssignment;
+            }
             set
             {
-                _outputAssignment = value;
-                _outputValues = new bool[_outputAssignment.Length];
-                for (var ix = 0; ix < _outputValues.Length; ix++)
+                outputAssignment = value;
+                outputValues = new bool[outputAssignment.Length];
+                for (var ix = 0; ix < outputValues.Length; ix++)
                 {
-                    _outputValues[ix] = false;
+                    outputValues[ix] = false;
                 }
             }
         }
@@ -48,13 +57,19 @@ namespace IctBaden.RasPi.IO
         /// </summary>
         public Dictionary<uint, uint> IoMode
         {
-            get => _ioMode;
-            set => _ioMode = value;
+            get
+            {
+                return ioMode;
+            }
+            set
+            {
+                ioMode = value;
+            }
         }
 
-        public int Inputs => _inputAssignment.Length;
+        public int Inputs { get { return inputAssignment.Length; } }
 
-        public int Outputs => _outputAssignment.Length;
+        public int Outputs { get { return outputAssignment.Length; } }
 
         public DigitalIo()
         {
@@ -72,18 +87,18 @@ namespace IctBaden.RasPi.IO
                 return false;
             }
 
-            foreach (var mode in _ioMode)
+            foreach (var mode in ioMode)
             {
                 RawGpio.INP_GPIO(mode.Key);
                 RawGpio.SET_GPIO_ALT(mode.Key, mode.Value);
             }
 
-            foreach (var input in _inputAssignment)
+            foreach (var input in inputAssignment)
             {
                 RawGpio.INP_GPIO((uint)input);
             }
             
-            foreach (var output in _outputAssignment)
+            foreach (var output in outputAssignment)
             {
                 RawGpio.INP_GPIO((uint)output); // must use INP_GPIO before we can use OUT_GPIO
                 RawGpio.OUT_GPIO((uint)output);
@@ -104,32 +119,32 @@ namespace IctBaden.RasPi.IO
             }
             if (value)
             {
-                RawGpio.GPIO_SET = (uint)(1 << _outputAssignment[index]);
+                RawGpio.GPIO_SET = (uint)(1 << outputAssignment[index]);
             }
             else
             {
-                RawGpio.GPIO_CLR = (uint)(1 << _outputAssignment[index]);
+                RawGpio.GPIO_CLR = (uint)(1 << outputAssignment[index]);
             }
-            _outputValues[index] = value;
+            outputValues[index] = value;
         }
 
         public bool GetOutput(int index)
         {
             if ((index < 0) || (index >= Outputs))
             {
-                throw new ArgumentException("Output out of range", nameof(index));
+                throw new ArgumentException("Output out of range", "index");
             }
-            return RawGpio.IsInitialized && _outputValues[index];
+            return RawGpio.IsInitialized && outputValues[index];
         }
 
         public bool GetInput(int index)
         {
             if ((index < 0) || (index >= Inputs))
             {
-                throw new ArgumentException("Input out of range", nameof(index));
+                throw new ArgumentException("Input out of range", "index");
             }
 
-            return (RawGpio.GPIO_IN0 & (uint)(1 << _inputAssignment [index])) != 0;
+            return (RawGpio.GPIO_IN0 & (uint)(1 << inputAssignment [index])) != 0;
         }
 
         public ulong GetInputs()

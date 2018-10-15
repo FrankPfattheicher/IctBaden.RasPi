@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
-// ReSharper disable UnusedMember.Global
 
 namespace IctBaden.RasPi.System
 {
@@ -11,18 +10,9 @@ namespace IctBaden.RasPi.System
         public static int Revision { get; private set; }
         public static string Name { get; private set; }
         public static int RamSizeMb { get; private set; }
-        public static bool HardFloat { get; private set; }
         public static bool HasHeaderP5 { get; private set; }
         public static bool HasHeaderJ8 { get; private set; }
-        /// <summary>
-        /// number of pins on P1 header - Zero means NO P1 header
-        /// </summary>
-        public static int HasHeaderP1Pins { get; private set; } 
-        public static bool HasAudio { get; private set; }
-        public static bool HasHdmi { get; private set; }
-
-        // https://github.com/google/periph/blob/master/host/rpi/rpi.go
-        // https://elinux.org/RPi_HardwareHistory
+        public static bool HardFloat { get; private set; }
 
         static ModelInfo()
         {
@@ -44,38 +34,38 @@ namespace IctBaden.RasPi.System
 
             switch (Revision)
             {
-                case 0x00000002:
+                case 2:
                     Name = "B1";
                     RamSizeMb = 256;
                     break;
-                case 0x00000003: 
+                case 3: 
                     Name = "B1+"; 
                     RamSizeMb = 256;
                     break;
-                case 0x00000004: 
+                case 4: 
                     Name = "B2"; 
                     RamSizeMb = 256;
                     HasHeaderP5 = true;
                     break;
-                case 0x00000005: 
+                case 5: 
                     Name = "B2"; 
                     RamSizeMb = 256;
                     HasHeaderP5 = true;
                     break;
-                case 0x00000006: 
+                case 6: 
                     Name = "B2"; 
                     RamSizeMb = 256;
                     HasHeaderP5 = true;
                     break;
-                case 0x00000007: 
+                case 7: 
                     Name = "A"; 
                     RamSizeMb = 256;
                     break;
-                case 0x00000008: 
+                case 8: 
                     Name = "A"; 
                     RamSizeMb = 256;
                     break;
-                case 0x00000009: 
+                case 9: 
                     Name = "A"; 
                     RamSizeMb = 256;
                     break;
@@ -108,13 +98,7 @@ namespace IctBaden.RasPi.System
                     HasHeaderP5 = true;
                     break;
                 case 0xA01041:
-                case 0xA21041:
                     Name = "2B";
-                    RamSizeMb = 1024;
-                    HasHeaderJ8 = true;
-                    break;
-                case 0xA22042:
-                    Name = "2C";
                     RamSizeMb = 1024;
                     HasHeaderJ8 = true;
                     break;

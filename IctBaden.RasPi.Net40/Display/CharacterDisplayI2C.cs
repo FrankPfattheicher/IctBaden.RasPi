@@ -28,25 +28,28 @@ namespace IctBaden.RasPi.Display
         private const byte LcdBl = 0x08;
         // ReSharper restore UnusedMember.Local
 
-        private bool _backlight;
+        bool backlight;
         public bool Backlight
         {
-            get => _backlight;
+            get
+            {
+                return backlight;
+            }
             set
             {
-                _backlight = value;
+                backlight = value;
                 WriteNibble(0);
             }
         }
-        public int Lines => 2;
-        public int Columns => 16;
+        public int Lines { get { return 2; } }
+        public int Columns { get { return 16; } }
 
         // ReSharper disable once InconsistentNaming
         private readonly I2C i2c;
 
         public CharacterDisplayI2C()
         {
-            _backlight = true;
+            backlight = true;
             i2c = new I2C();
         }
 
@@ -73,7 +76,7 @@ namespace IctBaden.RasPi.Display
             Thread.Sleep(1);
             WriteNibble(0x20);
             Thread.Sleep(1);
-
+            
             WriteCmd(0x28);    // 2-zeilig, 5x8-Punkt-Matrix
             WriteCmd(0x06);    // Kursor nach rechts wandernd, kein Display shift
             WriteCmd(0x14);    // Cursor/Display-Shift
@@ -171,9 +174,9 @@ namespace IctBaden.RasPi.Display
 
         public void SetCursor(int col, int row)
         {
-            if ((col < 1) || (col > Columns))
+            if((col < 1) || (col > Columns))
                 throw new ArgumentException("invalid position", "col");
-            if ((row < 1) || (row > Lines))
+            if((row < 1) || (row > Lines))
                 throw new ArgumentException("invalid position", "row");
 
             int[] rowOffset = { 0x00, 0x40, 0x14, 0x54 };
@@ -187,7 +190,7 @@ namespace IctBaden.RasPi.Display
             foreach (var txch in text)
             {
                 byte ch = (byte)txch;
-                switch (txch)
+                switch(txch)
                 {
                     case 'Ä': ch = 0x00; break;
                     case 'Ö': ch = 0x01; break;
@@ -248,9 +251,9 @@ namespace IctBaden.RasPi.Display
         }
         private void WriteNibble(byte nibble)
         {
-            if (_backlight)
+            if(backlight)
                 nibble |= LcdBl;
-            i2c.Write(new[] { nibble, (byte)(nibble | LcdEn), nibble });
+            i2c.Write(new[] { nibble, (byte)(nibble | LcdEn), nibble } );
         }
 
     }
