@@ -7,26 +7,26 @@ namespace IctBaden.RasPi.IO
     /// <summary>
     /// RPi GPIO: J8 40-pin header
     /// --------------------------------
-    ///         +3V3 1  2   +5V
-    /// GPIO2   SDA1 3  4   +5V
-    /// GPIO3   SCL1 5  6   GND
-    /// GPIO4   GCLK 7  8   TXD0  GPIO14
-    ///          GND 9  10  RXD0  GPIO15
-    /// GPIO17  GEN0 11 12  GEN1  GPIO18
-    /// GPIO27  GEN2 13 14  GND
-    /// GPIO22  GEN3 15 16  GEN4  GPIO23
-    ///         +3V3 17 18  GEN5  GPIO24
-    /// GPIO10  MOSI 19 20  GND
-    /// GPIO9   MISO 21 22  GEN6  GPIO25
-    /// GPIO11  SCLK 23 24  CE0_N GPIO8
-    ///          GND 25 26  CE1_N GPIO7
-    /// EEPROM ID_SD 27 28  ID_SC EEPROM
-    /// GPIO5        29 30  GND
-    /// GPIO6        31 32        GPIO12
-    /// GPIO13       33 34  GND
-    /// GPIO19       35 36        GPIO16
-    /// GPIO26       37 38        GPIO20
-    ///          GND 39 40        GPIO21
+    ///         +3V3  1  2   +5V
+    /// GPIO2   SDA1  3  4   +5V
+    /// GPIO3   SCL1  5  6   GND
+    /// GPIO4   GCLK  7  8   TXD0  GPIO14
+    ///          GND  9  10  RXD0  GPIO15
+    /// GPIO17  GEN0  11 12  GEN1  GPIO18
+    /// GPIO27  GEN2  13 14  GND
+    /// GPIO22  GEN3  15 16  GEN4  GPIO23
+    ///         +3V3  17 18  GEN5  GPIO24
+    /// GPIO10  MOSI  19 20  GND
+    /// GPIO9   MISO  21 22  GEN6  GPIO25
+    /// GPIO11  SCLK  23 24  CE0_N GPIO8
+    ///          GND _25_26_ CE1_N GPIO7
+    /// EEPROM ID_SD  27 28  ID_SC EEPROM
+    /// GPIO5         29 30  GND
+    /// GPIO6         31 32        GPIO12
+    /// GPIO13        33 34  GND
+    /// GPIO19        35 36        GPIO16
+    /// GPIO26        37 38        GPIO20
+    ///          GND  39 40        GPIO21
     /// --------------------------------
     /// </summary>
     public class Gpio

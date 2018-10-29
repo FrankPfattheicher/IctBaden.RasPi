@@ -86,8 +86,7 @@ namespace IctBaden.RasPi.Sensor
                 return -1001f;
             }
 
-            float temp;
-            if (!float.TryParse(response.Substring(tempPos + 2), out temp))
+            if (!float.TryParse(response.Substring(tempPos + 2), out var temp))
             {
                 return -1001f;
             }

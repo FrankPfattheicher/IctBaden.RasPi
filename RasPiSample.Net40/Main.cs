@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using System.Threading;
 using IctBaden.RasPi.Display;
 using IctBaden.RasPi.IO;
@@ -11,6 +12,8 @@ namespace RasPiSample
     {
         private static void Main()
         {
+            Console.WriteLine("Raspi Sample .NET Framework / Mono " + Assembly.GetEntryAssembly().GetName().Version);
+
             Console.WriteLine("1-wire Temperature Sensors");
             var devices = OneWireTemp.GetDevices();
             Console.WriteLine(devices.Count + " device(s) found");

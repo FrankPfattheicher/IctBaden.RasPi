@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Threading;
+using System.Threading.Tasks;
 using IctBaden.RasPi.Display;
 using IctBaden.RasPi.IO;
 using IctBaden.RasPi.Sensor;
@@ -9,21 +12,26 @@ namespace RasPiSample
 {
     internal class Program
     {
+        private static List<string> _devices;
+        private static CharacterDisplayI2C _lcd;
+
         private static void Main()
         {
-            Console.WriteLine("Raspi Sample");
+            Console.WriteLine("Raspi Sample Core " + Assembly.GetEntryAssembly().GetName().Version);
             
             Console.WriteLine("1-wire Temperature Sensors");
-            var devices = OneWireTemp.GetDevices();
-            Console.WriteLine(devices.Count + " device(s) found");
-            foreach (var device in devices)
+            _devices = OneWireTemp.GetDevices();
+            Console.WriteLine(_devices.Count + " device(s) found");
+            foreach (var device in _devices)
             {
                 var temp = OneWireTemp.ReadDeviceTemperature(device);
                 Console.WriteLine(device + " = " + temp);
             }
 
             Console.WriteLine("Digital I/O");
-            var io = new DigitalIo();
+            var inputs = new[] { /* GPIO */ 17, 27, 22, 18 };
+            var outputs = new[] { /* GPIO */ 7, 8, 9, 10, 11, 23, 24, 25 };
+            var io = new DigitalIo(inputs, outputs);
             if (!io.Initialize())
             {
                 Console.WriteLine("Failed to initialize IO");
@@ -33,22 +41,49 @@ namespace RasPiSample
 
             Console.WriteLine("I2C");
             const string deviceName = "/dev/i2c-1";
-            var lcd = new CharacterDisplayI2C();
-            if (!lcd.Open(deviceName, 0x27))
+            // ReSharper disable once InconsistentlySynchronizedField
+            _lcd = new CharacterDisplayI2C();
+            lock (_lcd)
             {
-                Console.WriteLine("Failed to open I2C");
-                return;
+                if (!_lcd.Open(deviceName, 0x27))
+                {
+                    Console.WriteLine("Failed to open I2C");
+                    return;
+                }
+
+                _lcd.Print($"RasPi {ModelInfo.Revision:X}={ModelInfo.Name}");
+                _lcd.SetCursor(1, 2);
+                _lcd.Print("äöüßgjpqyÄÖÜ 0°");
             }
 
-            lcd.Print($"RasPi {ModelInfo.Revision:X}={ModelInfo.Name}");
-            lcd.SetCursor(1, 2);
-            lcd.Print("äöüßgjpqyÄÖÜ 0°");
-
             var oldInp = io.GetInputs();
+
+            var toggleBacklight = new Input(io, 0);
+            var setOutputs = new Input(io, 1);
+            var readTemps = new Input(io, 2);
+            var setOut0 = new Input(io, 3);
+            var out0 = new Output(io, 0);
+
+            Help();
+
+            Task.Run(() => UpdateTemp());
+
             while (true)
             {
-                var newInp = io.GetInputs();
+                try
+                {
+                    if (Console.KeyAvailable)
+                    {
+                        Console.ReadKey();
+                        Help();
+                    }
+                }
+                catch
+                {
+                    // ignore
+                }
 
+                var newInp = io.GetInputs();
                 if (newInp == oldInp)
                 {
                     Thread.Sleep(50);
@@ -61,42 +96,84 @@ namespace RasPiSample
                 oldInp = newInp;
                 if ((newInp & 0x0F) == 0x0F)
                 {
+                    // exit if all buttons are pressed
                     break;
                 }
 
-                if (io.GetInput(0))
+                if (toggleBacklight)
                 {
-                    lcd.Backlight = !lcd.Backlight;
+                    lock (_lcd)
+                    {
+                        _lcd.Backlight = !_lcd.Backlight;
+                    }
                 }
-                if (io.GetInput(1))
+                if (setOutputs)
                 {
-                    for (var ix = 0; ix < io.Outputs; ix++)
+                    for (var ix = 0; ix < io.OutputsCount; ix++)
                     {
                         Console.WriteLine("Set out {0}", ix);
                         io.SetOutput(ix, true);
                         Thread.Sleep(100);
                     }
-                    for (var ix = 0; ix < io.Outputs; ix++)
+                    for (var ix = 0; ix < io.OutputsCount; ix++)
                     {
                         Console.WriteLine("Reset out {0}", ix);
                         io.SetOutput(ix, false);
                         Thread.Sleep(100);
                     }
                 }
-                if (io.GetInput(2) && devices.Count > 0)
+                if (readTemps)
                 {
-                    foreach (var device in devices)
+                    foreach (var device in _devices)
                     {
                         var temp = OneWireTemp.ReadDeviceTemperature(device);
                         Console.WriteLine(device + " = " + temp);
                     }
                 }
 
+                out0.Set(setOut0);
             }
 
+            lock (_lcd)
+            {
+                _lcd.Clear();
+            }
+            Console.WriteLine("done.");
         }
 
+        private static void UpdateTemp()
+        {
+            var oldTemop = 0.0f;
+            while (true)
+            {
+                lock (_lcd)
+                {
+                    var newTemp = _devices.Count > 0
+                        ? OneWireTemp.ReadDeviceTemperature(_devices[0])
+                        : 0.0f;
+                    if (Math.Abs(newTemp - oldTemop) >= 0.1f)
+                    {
+                        oldTemop = newTemp;
+                        _lcd.SetCursor(1, 2);
+                        _lcd.Print($"Temp = {newTemp:F2}°C      ");
+                    }
+                }
 
+                Task.Delay(TimeSpan.FromSeconds(2)).Wait();
+            }
+            // ReSharper disable once FunctionNeverReturns
+        }
+
+        private static void Help()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Button 1:    Toggle backlight");
+            Console.WriteLine("Button 2:    Set outputs");
+            Console.WriteLine("Button 3:    Read all temperatures");
+            Console.WriteLine("Button 4:    Set output 0");
+            Console.WriteLine("All buttons: Exit");
+            Console.WriteLine();
+        }
 
     }
 

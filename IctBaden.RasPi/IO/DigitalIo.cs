@@ -6,11 +6,9 @@ namespace IctBaden.RasPi.IO
 {
     public class DigitalIo
     {
-        public readonly int[] DefaultInputAssignment = { /* GPIO */ 17, 27, 22, 18 };
-        public readonly int[] DefaultOutputAssignment = { /* GPIO */ 7, 8, 9, 10, 11, 23, 24, 25 };
+        public static readonly int[] DefaultInputAssignment = { /* GPIO */ 17, 27, 22, 18 };
+        public static readonly int[] DefaultOutputAssignment = { /* GPIO */ 7, 8, 9, 10, 11, 23, 24, 25 };
 
-        private Dictionary<uint, uint> _ioMode = new Dictionary<uint, uint>();
-        private int[] _inputAssignment;
         private int[] _outputAssignment;
         private bool[] _outputValues;
 
@@ -18,11 +16,7 @@ namespace IctBaden.RasPi.IO
         /// GPIO numbers used as digital inputs.
         /// Call Initialize() after changing this.
         /// </summary>
-        public int[] InputAssignment
-        {
-            get => _inputAssignment;
-            set => _inputAssignment = value;
-        }
+        public int[] InputAssignment { get; set; }
 
         /// <summary>
         /// GPIO numbers used as digital outputs.
@@ -46,39 +40,57 @@ namespace IctBaden.RasPi.IO
         /// GPIO numbers and I/O ALT-mode to use with
         /// Call Initialize() after changing this.
         /// </summary>
-        public Dictionary<uint, uint> IoMode
-        {
-            get => _ioMode;
-            set => _ioMode = value;
-        }
+        // ReSharper disable once UnusedMember.Global
+        public Dictionary<uint, uint> IoMode { get; set; } = new Dictionary<uint, uint>();
 
-        public int Inputs => _inputAssignment.Length;
+        /// <summary>
+        /// Count of defined inputs.
+        /// </summary>
+        public int InputsCount => InputAssignment.Length;
 
-        public int Outputs => _outputAssignment.Length;
+        /// <summary>
+        /// Count of defined outputs.
+        /// </summary>
+        public int OutputsCount => _outputAssignment.Length;
 
         public DigitalIo()
+            : this(DefaultInputAssignment, DefaultOutputAssignment)
         {
-            InputAssignment = DefaultInputAssignment;
-            OutputAssignment = DefaultOutputAssignment;
+        }
+        public DigitalIo(int[] inputAssignment, int[] outputAssignment)
+        {
+            InputAssignment = inputAssignment;
+            OutputAssignment = outputAssignment;
+        }
+        public DigitalIo(int[] inputAssignment, int[] outputAssignment, Dictionary<uint, uint> ioMode)
+        {
+            InputAssignment = inputAssignment;
+            OutputAssignment = outputAssignment;
+            IoMode = ioMode;
         }
 
+        /// <summary>
+        /// Initialize digital IOs with current assignmends and modes.
+        /// </summary>
+        /// <returns></returns>
         public bool Initialize()
         {
             try
             {
                 RawGpio.Initialize();
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 return false;
             }
 
-            foreach (var mode in _ioMode)
+            foreach (var mode in IoMode)
             {
                 RawGpio.INP_GPIO(mode.Key);
                 RawGpio.SET_GPIO_ALT(mode.Key, mode.Value);
             }
 
-            foreach (var input in _inputAssignment)
+            foreach (var input in InputAssignment)
             {
                 RawGpio.INP_GPIO((uint)input);
             }
@@ -92,11 +104,16 @@ namespace IctBaden.RasPi.IO
             return true;
         }
 
+        /// <summary>
+        /// Sets the given output to the given value.
+        /// </summary>
+        /// <param name="index">Index of the output within the assignments</param>
+        /// <param name="value">New output value to be set</param>
         public void SetOutput(int index, bool value)
         {
-            if ((index < 0) || (index >= Outputs))
+            if ((index < 0) || (index >= OutputsCount))
             {
-                throw new ArgumentException("Output out of range", "index");
+                throw new ArgumentException("Output out of range", nameof(index));
             }
             if (!RawGpio.IsInitialized)
             {
@@ -113,29 +130,43 @@ namespace IctBaden.RasPi.IO
             _outputValues[index] = value;
         }
 
+        /// <summary>
+        /// Returns the current value of the given output.
+        /// </summary>
+        /// <param name="index">Index of the output within the assignments</param>
+        /// <returns>Current output's value</returns>
         public bool GetOutput(int index)
         {
-            if ((index < 0) || (index >= Outputs))
+            if ((index < 0) || (index >= OutputsCount))
             {
                 throw new ArgumentException("Output out of range", nameof(index));
             }
             return RawGpio.IsInitialized && _outputValues[index];
         }
 
+        /// <summary>
+        /// Returns the current value of the given input.
+        /// </summary>
+        /// <param name="index">Index of the input within the assignments</param>
+        /// <returns>Current input's value</returns>
         public bool GetInput(int index)
         {
-            if ((index < 0) || (index >= Inputs))
+            if ((index < 0) || (index >= InputsCount))
             {
                 throw new ArgumentException("Input out of range", nameof(index));
             }
 
-            return (RawGpio.GPIO_IN0 & (uint)(1 << _inputAssignment [index])) != 0;
+            return (RawGpio.GPIO_IN0 & (uint)(1 << InputAssignment [index])) != 0;
         }
 
+        /// <summary>
+        /// Retruns the state of all defined inputs within the assignment.
+        /// </summary>
+        /// <returns>State of all inputs</returns>
         public ulong GetInputs()
         {
             ulong inputs = 0;
-            for (var ix = 0; ix < Inputs; ix++)
+            for (var ix = 0; ix < InputsCount; ix++)
             {
                 if (GetInput(ix))
                 {
@@ -144,5 +175,6 @@ namespace IctBaden.RasPi.IO
             }
             return inputs;
         }
+
     }
 }
