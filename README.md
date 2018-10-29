@@ -3,15 +3,16 @@ IctBaden.RasPi
 
 Basic hardware access library for Raspberry Pi .NET programs
 
-Two versions:    
-|Name|Description
-|----|---|
-| IctBaden.RasPi.Net40	| .NET Full Framework (Mono), *Raspberry Pi 1 only!*
-|IctBaden.RasPi			| .NET Core 2.1, no PWM support
+Two versions:
+
+| Name | Description |
+| ---- | --- |    
+| IctBaden.RasPi.Net40	| .NET Full Framework (Mono), *Raspberry Pi 1 only!* |
+| IctBaden.RasPi			  | .NET Core 2.1, no PWM support |
 
 Low Level
 ---------
-* GPIO     - [how to use digital IO...](DigitalIo.md)
+* Digital IO (GPIO)  -  [how to use digital IO...](DigitalIo.md)
 * I2C
 
 High Level
