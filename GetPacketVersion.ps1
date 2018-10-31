@@ -1,5 +1,5 @@
 Param(
-    [string]$ReleaseNotesFileName = "ReleaseNotes.md"
+    [string]$ReleaseNotesFileName
 )
 
 Write-Output "Release notes: $ReleaseNotesFileName"
@@ -13,4 +13,3 @@ $packetVersion = $Matches.semVer
 Write-Output "The current version is: $packetVersion"
 
 Write-Host ("##vso[task.setvariable variable=PACKAGE_VERSION;]$packetVersion")
-
