@@ -16,6 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{136516FF-DCD0-4913-BF8B-D55C91DF89FD}"
 	ProjectSection(SolutionItems) = preProject
 		DigitalIo.md = DigitalIo.md
+		IctBaden.RasPi.nuspec = IctBaden.RasPi.nuspec
 		README.md = README.md
 		ReleaseNotes.md = ReleaseNotes.md
 	EndProjectSection
