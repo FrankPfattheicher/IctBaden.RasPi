@@ -8,7 +8,7 @@
     <summary>Basic hardware access library for Raspberry Pi .NET Core, Full Framework and Mono programs</summary>
     <licenseUrl>https://github.com/FrankPfattheicher/IctBaden_RasPi</licenseUrl>
     <projectUrl>https://github.com/FrankPfattheicher/IctBaden_RasPi</projectUrl>
-    <iconUrl>file://icon64.png</iconUrl>
+    <iconUrl>https://image.ibb.co/g8EzNf/icon64.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Basic hardware access library for Raspberry Pi .NET Core, Full Framework and Mono programs</description>
     <releaseNotes></releaseNotes>
