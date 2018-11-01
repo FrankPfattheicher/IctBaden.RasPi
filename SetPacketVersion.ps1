@@ -8,7 +8,7 @@ if ($ReleaseNotesFileName -eq "") {
 
 Write-Output "Release notes: $ReleaseNotesFileName"
 
-$semVer = "(?<semVer>\d\.\d\.\d(\.\d)?)"
+$semVer = "(?<semVer>\d+\.\d+\.\d+(\.\d+)?)"
 $relNote = "\* +$semVer +.*"
 $lines = Get-Content $ReleaseNotesFileName
 $version = $lines | Select-String -Pattern $relNote | Select-Object -First 1
