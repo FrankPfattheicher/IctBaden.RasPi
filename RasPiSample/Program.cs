@@ -39,6 +39,13 @@ namespace RasPiSample
                 return;
             }
 
+            Console.WriteLine("PWM");
+            var pwm = new SoftPwm();
+            if (!pwm.Initialize())
+            {
+                Console.WriteLine("Failed to initialize PWM");
+                return;
+            }
 
             Console.WriteLine("I2C");
             const string deviceName = "/dev/i2c-1";
@@ -62,8 +69,11 @@ namespace RasPiSample
             var toggleBacklight = new Input(Gpio.Gpio17);
             var setOutputs = new Input(Gpio.Gpio27);
             var readTemps = new Input(Gpio.Gpio22);
-            var setOut0 = new Input(Gpio.Gpio18);
+            var startPwm = new Input(Gpio.Gpio18);
+
             var out0 = new Output(Gpio.Gpio7);
+
+            var out3 = pwm.OpenChannel(Gpio.Gpio25);
 
             Help();
 
@@ -132,7 +142,16 @@ namespace RasPiSample
                     }
                 }
 
-                out0.Set(setOut0);
+                if (startPwm)
+                {
+                    for (var p = 0; p <= 100; p++)
+                    {
+                        out3.SetPercent(p);
+                        Thread.Sleep(50);
+                    }
+                }
+
+                out0.Set(setOutputs && readTemps);
             }
 
             lock (_lcd)
@@ -171,7 +190,8 @@ namespace RasPiSample
             Console.WriteLine("Button 1:    Toggle backlight");
             Console.WriteLine("Button 2:    Set outputs");
             Console.WriteLine("Button 3:    Read all temperatures");
-            Console.WriteLine("Button 4:    Set output 0");
+            Console.WriteLine("Button 2+3:  Set output 0");
+            Console.WriteLine("Button 4:    PWM on output 3");
             Console.WriteLine("All buttons: Exit");
             Console.WriteLine();
         }

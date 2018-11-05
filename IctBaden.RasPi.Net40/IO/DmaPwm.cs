@@ -514,7 +514,7 @@ namespace IctBaden.RasPi.IO
         }
 
         // ReSharper disable once UnusedMember.Global
-        public IPwmChannel OpenChannel(uint gpio)
+        public IPwmChannel OpenChannel(Gpio gpio)
         {
             for (var ix = 0; ix < DMA_CHANNELS; ix++)
             {
@@ -523,7 +523,7 @@ namespace IctBaden.RasPi.IO
 
                 if (InitChannel(ix, 2000))
                 {
-                    return new DmaPwmChannel(this, ix, gpio);
+                    return new DmaPwmChannel(this, ix, gpio.Bit);
                 }
             }
             return null;

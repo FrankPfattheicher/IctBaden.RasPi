@@ -4,7 +4,7 @@ namespace IctBaden.RasPi.IO
     public interface IPwm
     {
         bool Initialize();
-        IPwmChannel OpenChannel(uint gpio);
+        IPwmChannel OpenChannel(Gpio gpio);
         void Shutdown();
     }
 }

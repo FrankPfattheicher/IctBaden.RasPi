@@ -75,6 +75,7 @@ namespace IctBaden.RasPi.IO
         /// Initialize digital IOs with current assignmends and modes.
         /// </summary>
         /// <returns></returns>
+        // ReSharper disable once UnusedMember.Global
         public bool Initialize()
         {
             try

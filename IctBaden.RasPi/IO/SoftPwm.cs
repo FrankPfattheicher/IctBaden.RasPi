@@ -10,7 +10,8 @@ namespace IctBaden.RasPi.IO
 
         public bool Initialize()
         {
-            _pwmThread = new Thread(Pwm);
+            _pwmThread = new Thread(Pwm) {Priority = ThreadPriority.Highest};
+            _pwmThread.Start();
             return true;
         }
 
@@ -25,28 +26,37 @@ namespace IctBaden.RasPi.IO
                     continue;
                 }
 
-                foreach (var pwmChannel in _channels)
+                lock(_channels)
                 {
-                    var channel = (SoftPwmChannel) pwmChannel;
-                    channel.Output.Set(channel.GetPercent() >= percent);
+                    foreach (var pwmChannel in _channels)
+                    {
+                        var channel = (SoftPwmChannel) pwmChannel;
+                        channel.Output.Set(channel.GetPercent() >= percent);
+                    }
                 }
 
-                Thread.Sleep(10);
+                Thread.Sleep(2);
                 percent += 10.0;
                 if (percent >= 100.0) percent = 0.0;
             }
         }
 
-        public IPwmChannel OpenChannel(uint gpio)
+        public IPwmChannel OpenChannel(Gpio gpio)
         {
             var channel = new SoftPwmChannel(this, gpio);
-            _channels.Add(channel);
+            lock (_channels)
+            {
+                _channels.Add(channel);
+            }
             return channel;
         }
 
         public void ShutdownChannel(IPwmChannel channel)
         {
-            _channels.Remove(channel);
+            lock (_channels)
+            {
+                _channels.Remove(channel);
+            }
         }
 
         public void Shutdown()

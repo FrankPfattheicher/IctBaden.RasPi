@@ -5,7 +5,7 @@ namespace IctBaden.RasPi.IO
     {
         bool Initialize();
         void Shutdown();
-        IPwmChannel OpenChannel(uint gpio);
+        IPwmChannel OpenChannel(Gpio gpio);
         void ShutdownChannel(IPwmChannel channel);
     }
 }
