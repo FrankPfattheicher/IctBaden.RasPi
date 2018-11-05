@@ -2,11 +2,14 @@
 using System.IO;
 using System.Text.RegularExpressions;
 // ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Local
 
 namespace IctBaden.RasPi.System
 {
     public static class ModelInfo
     {
+        public static string Serial { get; private set; }
+        public static int Model { get; private set; }
         public static string Hardware { get; private set; }
         public static int Revision { get; private set; }
         public static string Name { get; private set; }
@@ -42,6 +45,11 @@ namespace IctBaden.RasPi.System
             var revInfo = new Regex(@"Revision\s+\:\s+(.*)\s+").Match(cpuinfo);
             Revision = (revInfo.Success) ? int.Parse(revInfo.Groups[1].Value, NumberStyles.HexNumber) : -1;
 
+            var serialInfo = new Regex(@"Serial\s+\:\s+(.*)\s+").Match(cpuinfo);
+            Serial = (serialInfo.Success) ? serialInfo.Groups[1].Value : "";
+
+            // see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md
+            Model = 1;
             switch (Revision)
             {
                 case 0x00000002:
@@ -109,16 +117,19 @@ namespace IctBaden.RasPi.System
                     break;
                 case 0xA01041:
                 case 0xA21041:
+                    Model = 2;
                     Name = "2B";
                     RamSizeMb = 1024;
                     HasHeaderJ8 = true;
                     break;
                 case 0xA22042:
+                    Model = 2;
                     Name = "2C";
                     RamSizeMb = 1024;
                     HasHeaderJ8 = true;
                     break;
-                default: 
+                default:
+                    Model = 3;
                     Name = "<unknown>"; 
                     break;
             }

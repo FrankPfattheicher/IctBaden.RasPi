@@ -190,10 +190,13 @@ namespace IctBaden.RasPi.Interop
         public static int MAP_LOCKED = 0x2000; // pages are locked
         public static int MAP_NORESERVE = 0x4000; // don't check for reservations
          
-        public static void* MAP_FAILED = (void*) -1; 
+        public static void* MAP_FAILED = (void*) -1;
 
         [DllImport("libc.so.6", SetLastError = true)]
         public static extern void* mmap(void* addr, uint length, int prot, int flags, int fd, uint offset);
+
+        [DllImport("libc.so.6", SetLastError = true)]
+        public static extern int munmap(void* addr, uint length);
 
         [DllImport("libc.so.6")]
         public static extern byte* malloc(uint size);

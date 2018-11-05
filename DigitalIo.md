@@ -16,8 +16,8 @@
     }
 
     // define convenience inputs and outputs
-    var myInput = new Input(io, 0);
-    var myOutput = new Output(io, 0);
+    var myInput = new Input(Gpio.Gpio17);
+    var myOutput = new Output(Gpio.Gpio7);
 
     // user that
     myOutput.Set(myInput);

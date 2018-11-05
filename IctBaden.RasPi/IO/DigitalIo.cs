@@ -53,6 +53,7 @@ namespace IctBaden.RasPi.IO
         /// </summary>
         public int OutputsCount => _outputAssignment.Length;
 
+        // ReSharper disable once UnusedMember.Global
         public DigitalIo()
             : this(DefaultInputAssignment, DefaultOutputAssignment)
         {
@@ -62,6 +63,7 @@ namespace IctBaden.RasPi.IO
             InputAssignment = inputAssignment;
             OutputAssignment = outputAssignment;
         }
+        // ReSharper disable once UnusedMember.Global
         public DigitalIo(int[] inputAssignment, int[] outputAssignment, Dictionary<uint, uint> ioMode)
         {
             InputAssignment = inputAssignment;

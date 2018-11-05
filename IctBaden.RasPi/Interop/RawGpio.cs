@@ -1,13 +1,17 @@
 using System;
+using System.Diagnostics;
+using IctBaden.RasPi.System;
 
 namespace IctBaden.RasPi.Interop
 {
     // ReSharper disable InconsistentNaming
     internal static unsafe class RawGpio
     {
-        //public const uint BCM2708_PERI_BASE = 0x20000000;    // RasPi 1
-        public const uint BCM2708_PERI_BASE = 0x3F000000;      // RasPi 2 up
-        private const uint GPIO_BASE = BCM2708_PERI_BASE + 0x200000; /* GPIO controller */
+        private static readonly uint BCM2708_PERI_BASE = (ModelInfo.Model == 1)
+                                                       ? 0x20000000u        // RasPi 1
+                                                       : 0x3F000000u;       // RasPi 2 up
+
+        private static readonly uint GPIO_BASE = BCM2708_PERI_BASE + 0x200000;
 
         private const uint PAGE_SIZE = (4 * 1024);
         private const uint BLOCK_SIZE = (4 * 1024);
@@ -58,6 +62,8 @@ namespace IctBaden.RasPi.Interop
 
         internal static void Initialize()
         {
+            if (IsInitialized) return;
+
             /* open /dev/gpiomem */
             if ((mem_fd = Libc.open("/dev/gpiomem", Libc.O_RDWR | Libc.O_SYNC)) < 0)
             {
@@ -72,8 +78,10 @@ namespace IctBaden.RasPi.Interop
             }
 
             // Make sure pointer is on 4K boundary
-            if ((ulong)gpio_mem % PAGE_SIZE != 0)
+            if ((ulong) gpio_mem % PAGE_SIZE != 0)
+            {
                 gpio_mem += PAGE_SIZE - ((ulong)gpio_mem % PAGE_SIZE);
+            }
 
             // Now map it
             gpio_map = (byte*)Libc.mmap(
@@ -92,6 +100,29 @@ namespace IctBaden.RasPi.Interop
 
             // Always use volatile pointer!
             gpio = (uint*)gpio_map;
+        }
+
+        public static void Close()
+        {
+            gpio = null;
+
+            if (gpio_map != null)
+            {
+                if (Libc.munmap(gpio_map, BLOCK_SIZE) < 0)
+                {
+                    Trace.TraceError("RawGpio.Close: Failed to unmap GPIO");
+                }
+                gpio_map = null;
+            }
+
+            if (mem_fd != 0)
+            {
+                if (Libc.close(mem_fd) < 0)
+                {
+                    Trace.TraceError("RawGpio.Close: Failed to close /dev/gpiomem");
+                }
+                mem_fd = 0;
+            }
         }
 
         public static bool IsInitialized => gpio != null;

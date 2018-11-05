@@ -10,7 +10,6 @@ namespace IctBaden.RasPi.IO
         private readonly int _index;
 
         [Obsolete("Use Output(Gpio gpio) instead")]
-        // ReSharper disable once UnusedMember.Global
         public Output(DigitalIo io, int index)
         {
             _io = io;
@@ -20,11 +19,6 @@ namespace IctBaden.RasPi.IO
         public Output(Gpio gpio)
         {
             _gpio = gpio;
-        }
-
-        public Gpio GetGpio()
-        {
-            return _gpio;
         }
 
         /// <summary>

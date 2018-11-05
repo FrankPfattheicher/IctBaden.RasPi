@@ -29,6 +29,7 @@ namespace RasPiSample
             }
 
             Console.WriteLine("Digital I/O");
+
             var inputs = new[] { /* GPIO */ 17, 27, 22, 18 };
             var outputs = new[] { /* GPIO */ 7, 8, 9, 10, 11, 23, 24, 25 };
             var io = new DigitalIo(inputs, outputs);
@@ -58,11 +59,11 @@ namespace RasPiSample
 
             var oldInp = io.GetInputs();
 
-            var toggleBacklight = new Input(io, 0);
-            var setOutputs = new Input(io, 1);
-            var readTemps = new Input(io, 2);
-            var setOut0 = new Input(io, 3);
-            var out0 = new Output(io, 0);
+            var toggleBacklight = new Input(Gpio.Gpio17);
+            var setOutputs = new Input(Gpio.Gpio27);
+            var readTemps = new Input(Gpio.Gpio22);
+            var setOut0 = new Input(Gpio.Gpio18);
+            var out0 = new Output(Gpio.Gpio7);
 
             Help();
 

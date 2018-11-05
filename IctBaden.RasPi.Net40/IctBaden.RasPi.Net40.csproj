@@ -43,8 +43,12 @@
     <Compile Include="Display\CharacterDisplayI2C.cs" />
     <Compile Include="IO\HighResolutionTimer.cs" />
     <Compile Include="IO\Gpio.cs" />
-    <Compile Include="IO\Pwm.cs" />
-    <Compile Include="IO\PwmChannel.cs" />
+    <Compile Include="IO\Input.cs" />
+    <Compile Include="IO\IPwm.cs" />
+    <Compile Include="IO\IPwmChannel.cs" />
+    <Compile Include="IO\Output.cs" />
+    <Compile Include="IO\DmaPwm.cs" />
+    <Compile Include="IO\DmaPwmChannel.cs" />
     <Compile Include="Sensor\Gyro.cs" />
     <Compile Include="System\ModelInfo.cs" />
     <Compile Include="Sensor\OneWireTemp.cs" />

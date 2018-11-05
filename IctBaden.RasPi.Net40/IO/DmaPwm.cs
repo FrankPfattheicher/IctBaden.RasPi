@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using IctBaden.RasPi.Interop;
+using IctBaden.RasPi.System;
 
 namespace IctBaden.RasPi.IO
 {
@@ -30,7 +32,7 @@ namespace IctBaden.RasPi.IO
     ///
     ///     currently none
     ///
-    /// Pwm.cs is based on pwm.c from Chris Hager, which is
+    /// DmaPwm.cs is based on pwm.c from Chris Hager, which is
     /// based on the excellent servod.c by Richard Hirst, provides flexible
     /// PWM via DMA for the Raspberry Pi, supporting a resolution of up to 1us,
     /// all 15 DMA channels, multiple GPIOs per channel.
@@ -73,12 +75,12 @@ namespace IctBaden.RasPi.IO
     ///
     /// WARNING
     /// -------
-    /// Pwm.cs is currently not yet fully tested. Setting very long or very short
+    /// DmaPwm.cs is currently not yet fully tested. Setting very long or very short
     /// subcycle times may cause unreliable signals and system failure. 
     /// Please send feedback to fpf@ict-baden.de.
     ///
     ///</summary>
-    public unsafe class Pwm
+    public unsafe class DmaPwm : IPwm
     {
         // DMA Control Block Data Structure (p40): 8 words (256 bits)
         private struct DmaCb
@@ -92,8 +94,12 @@ namespace IctBaden.RasPi.IO
             public uint Length; // TXFR_LEN: transfer length
             public uint Stride; // 2D stride mode
             public uint Next; // NEXTCONBK
+            // ReSharper disable UnusedMember.Global
+#pragma warning disable 169
             public uint Pad1; // _reserved_
             public uint Pad2;
+#pragma warning restore 169
+            // ReSharper restore UnusedMember.Global
             // ReSharper restore NotAccessedField.Local
 #pragma warning restore 649
 #pragma warning restore 414
@@ -110,8 +116,12 @@ namespace IctBaden.RasPi.IO
         {
             public byte* VirtBase;
 #pragma warning disable 649
+            // ReSharper disable UnusedMember.Global
+#pragma warning disable 169
             public uint* Sample;
             public DmaCb* Cb;
+#pragma warning restore 169
+            // ReSharper restore UnusedMember.Global
 #pragma warning restore 649
             public VirtPhysPageMap* PageMap;
             public volatile uint* DmaReg;
@@ -205,13 +215,15 @@ namespace IctBaden.RasPi.IO
         // ReSharper restore UnusedMember.Local
 
 
+        // ReSharper disable UnusedMember.Global
         public const int PulseWidthIncrementGranularityUsDefault = 10;
         public const int SubcycleTimeUsDefault = 20000; // 50 Hz
         // Subcycle minimum. We kept seeing no signals and strange behavior of the RPi
         public const uint SubcycleTimeUsMin = 2000;     // 500 Hz
         public const uint SubcycleTimeUsMax = 1000000;  // 1 Hz
+        // ReSharper restore UnusedMember.Global
 
-        private int pulseWidthIncrementUs;
+        private int _pulseWidthIncrementUs;
 
         private static volatile uint* _pwmReg;
         private static volatile uint* _pcmReg;
@@ -220,10 +232,21 @@ namespace IctBaden.RasPi.IO
 
         private static uint _gpioSetup; // bitfield for setup gpios (setup = out/low)
 
+        public bool Initialize()
+        {
+            return Initialize(100);
+        }
 
+        // ReSharper disable once UnusedMember.Global
         public bool Initialize(int incrementUs)
         {
-            pulseWidthIncrementUs = incrementUs;
+            if (ModelInfo.Model != 1)
+            {
+                Trace.TraceError("PWM: DMA based PWM is supported on model 1 hardware only");
+                return false;
+            }
+
+            _pulseWidthIncrementUs = incrementUs;
 
             // Initialize common stuff
             _pwmReg = MapPeripheral(PWM_BASE, PWM_LEN);
@@ -232,7 +255,7 @@ namespace IctBaden.RasPi.IO
             _gpioReg = MapPeripheral(GPIO_BASE, GPIO_LEN);
             if (_pwmReg == null || _pcmReg == null || _clkReg == null || _gpioReg == null)
             {
-                Console.WriteLine("PWM: Failed to map peripherals");
+                Trace.TraceError("PWM: Failed to map peripherals");
                 return false;
             }
 
@@ -263,14 +286,14 @@ namespace IctBaden.RasPi.IO
 
             if (fd < 0)
             {
-                Console.WriteLine("PWM: Failed to open /dev/mem");
+                Trace.TraceError("PWM: Failed to open /dev/mem");
                 return null;
             }
 
             var vaddr = Libc.mmap(null, len, Libc.PROT_READ | Libc.PROT_WRITE, Libc.MAP_SHARED, fd, baseAddr);
             if (vaddr == Libc.MAP_FAILED)
             {
-                Console.WriteLine("PWM: Failed to map peripheral at {0:8X}\n", baseAddr);
+                Trace.TraceError("PWM: Failed to map peripheral at {0:8X}\n", baseAddr);
                 return null;
             }
             Libc.close(fd);
@@ -283,12 +306,12 @@ namespace IctBaden.RasPi.IO
         {
             if (channel > (DMA_CHANNELS - 1))
             {
-                Console.WriteLine("PWM: maximum channel is {0} (requested channel {1})\n", DMA_CHANNELS - 1, channel);
+                Trace.TraceError("PWM: maximum channel is {0} (requested channel {1})\n", DMA_CHANNELS - 1, channel);
                 return false;
             }
             if (channels[channel].VirtBase != null)
             {
-                Console.WriteLine("PWM: channel {0} already initialized.\n", channel);
+                Trace.TraceError("PWM: channel {0} already initialized.\n", channel);
                 return false;
             }
             if (subcycleTimeUs < SubcycleTimeUsMin)
@@ -299,7 +322,7 @@ namespace IctBaden.RasPi.IO
 
             // Setup Data
             channels[channel].SubcycleTimeUs = subcycleTimeUs;
-            channels[channel].NumSamples = (uint)(channels[channel].SubcycleTimeUs / pulseWidthIncrementUs);
+            channels[channel].NumSamples = (uint)(channels[channel].SubcycleTimeUs / _pulseWidthIncrementUs);
             channels[channel].WidthMax = channels[channel].NumSamples;
             channels[channel].NumCbs = channels[channel].NumSamples * 2;
             channels[channel].NumPages = ((channels[channel].NumCbs * 32 + channels[channel].NumSamples * 4 + PAGE_SIZE -
@@ -317,13 +340,14 @@ namespace IctBaden.RasPi.IO
 
             if ((channels[channel].VirtBase == Libc.MAP_FAILED) || (channels[channel].VirtBase == null))
             {
+                // ReSharper disable once RedundantAssignment
                 var errno = Marshal.GetLastWin32Error();
-                Console.WriteLine("PWM: Failed to mmap physical pages: {0}", errno);
+                Trace.TraceError($"PWM: Failed to mmap physical pages: {errno}");
                 return false;
             }
             if (((ulong)channels[channel].VirtBase & (PAGE_SIZE - 1)) != 0)
             {
-                Console.WriteLine("PWM: Virtual address is not page aligned");
+                Trace.TraceError("PWM: Virtual address is not page aligned");
                 return false;
             }
             return true;
@@ -336,13 +360,13 @@ namespace IctBaden.RasPi.IO
 
             if (channels[channel].PageMap == (VirtPhysPageMap*)0)
             {
-                Console.WriteLine("PWM: Failed to malloc page_map");
+                Trace.TraceError("PWM: Failed to malloc page_map");
                 return false;
             }
             var memfd = Libc.open("/dev/mem", Libc.O_RDWR);
             if (memfd < 0)
             {
-                Console.WriteLine("PWM: Failed to open /dev/mem");
+                Trace.TraceError("PWM: Failed to open /dev/mem");
                 return false;
             }
 
@@ -350,14 +374,14 @@ namespace IctBaden.RasPi.IO
             var fd = Libc.open(pagemapFn, Libc.O_RDONLY);
             if (fd < 0)
             {
-                Console.WriteLine("PWM: Failed to open {0}", pagemapFn);
+                Trace.TraceError("PWM: Failed to open {0}", pagemapFn);
                 return false;
             }
 
             if (Libc.lseek(fd, (int)((uint)channels[channel].VirtBase >> 9), Libc.SEEK_SET) !=
                 (uint)channels[channel].VirtBase >> 9)
             {
-                Console.WriteLine("PWM: Failed to seek on {0}", pagemapFn);
+                Trace.TraceError("PWM: Failed to seek on {0}", pagemapFn);
                 return false;
             }
 
@@ -371,10 +395,9 @@ namespace IctBaden.RasPi.IO
                 var read = Libc.read(fd, pfn, 8);
                 if (read != pfn.Length)
                 {
+                    // ReSharper disable once RedundantAssignment
                     var errno = Marshal.GetLastWin32Error();
-                    Console.WriteLine("PWM: Failed to read {0}: read={1}, errno={2}", pagemapFn, read, errno);
-                    var xx = Console.ReadLine();
-                    Console.WriteLine(xx);
+                    Trace.TraceError($"PWM: Failed to read {pagemapFn}: read={read}, errno={errno}");
                     return false;
                 }
                 var pfnLong = pfn[0]
@@ -387,7 +410,7 @@ namespace IctBaden.RasPi.IO
                                + ((ulong)pfn[7] << 56);
                 if (((pfnLong >> 55) & 0x1bf) != 0x10c)
                 {
-                    Console.WriteLine("PWM: Page {0} not present (pfn 0x{1:X}16llx)\n", i, pfn);
+                    Trace.TraceError("PWM: Page {0} not present (pfn 0x{1:X}16llx)\n", i, pfn);
                     return false;
                 }
                 channels[channel].PageMap[i].PhysAddr = (uint)pfnLong << PAGE_SHIFT | 0x40000000;
@@ -484,13 +507,14 @@ namespace IctBaden.RasPi.IO
         // Set GPIO to OUTPUT, Low
         private static void InitGpio(uint gpio)
         {
-            Console.WriteLine("PWM: InitGpio {0}", gpio);
+            Trace.TraceInformation("PWM: InitGpio {0}", gpio);
             GpioSet(gpio, false);
             GpioSetMode(gpio, GPIO_MODE_OUT);
             _gpioSetup |= (uint)(1 << (int)gpio);
         }
 
-        public PwmChannel OpenChannel(uint gpio)
+        // ReSharper disable once UnusedMember.Global
+        public IPwmChannel OpenChannel(uint gpio)
         {
             for (var ix = 0; ix < DMA_CHANNELS; ix++)
             {
@@ -499,7 +523,7 @@ namespace IctBaden.RasPi.IO
 
                 if (InitChannel(ix, 2000))
                 {
-                    return new PwmChannel(this, ix, gpio);
+                    return new DmaPwmChannel(this, ix, gpio);
                 }
             }
             return null;
@@ -513,7 +537,7 @@ namespace IctBaden.RasPi.IO
         // point in time, only the last added action (eg. set-to-low) will be executed on all pins.
         // To create these kinds of inverted signals on two GPIOs, either offset them by 1 step, or
         // use multiple DMA channels.
-        public bool SetChannelPercent(int channel, uint gpio, double percent)
+        internal bool SetChannelPercent(int channel, uint gpio, double percent)
         {
             var max = (int)channels[channel].WidthMax;
             var width = (int)((percent * max) / 100.0);
@@ -531,25 +555,25 @@ namespace IctBaden.RasPi.IO
 
         public bool AddChannelPulse(int channel, uint gpio, int widthStart, int width)
         {
-            //Console.WriteLine("PWM: AddChannelPulse: channel={0}, gpio={1}, start={2}, width={3}", channel, gpio, widthStart, width);
+            //Trace.TraceInformation("PWM: AddChannelPulse: channel={0}, gpio={1}, start={2}, width={3}", channel, gpio, widthStart, width);
             if (channels[channel].VirtBase == null)
             {
-                Console.WriteLine("PWM: channel {0} has not been initialized with 'init_channel(..)'\n", channel);
+                Trace.TraceError($"PWM: channel {channel} has not been initialized with 'init_channel(..)'\n");
                 return false;
             }
             if (widthStart < 0)
             {
-                Console.WriteLine("PWM: cannot add pulse to channel {0}: widthStart less than zero {0}", widthStart);
+                Trace.TraceError($"PWM: cannot add pulse to channel {widthStart}: widthStart less than zero {widthStart}");
                 return false;
             }
             if (width < 0)
             {
-                Console.WriteLine("PWM: cannot add pulse to channel {0}: width less than zero {0}", width);
+                Trace.TraceError($"PWM: cannot add pulse to channel {width}: width less than zero {width}");
                 return false;
             }
             if ((widthStart + width) > channels[channel].WidthMax)
             {
-                Console.WriteLine("PWM: cannot add pulse to channel {0}: widthStart + width exceed max_width of {1}", channel, channels[channel].WidthMax);
+                Trace.TraceError($"PWM: cannot add pulse to channel {channel}: widthStart + width exceed max_width of {channels[channel].WidthMax}");
                 return false;
             }
 
@@ -585,20 +609,21 @@ namespace IctBaden.RasPi.IO
         }
 
         // Clears all pulses for a specific gpio on this channel. Also sets the GPIO to Low.
+        // ReSharper disable once UnusedMember.Global
         public bool ClearChannelGpio(int channel, uint gpio)
         {
             int i;
-            uint* dp = (uint*)channels[channel].VirtBase;
+            var dp = (uint*)channels[channel].VirtBase;
 
-            Console.WriteLine("clear_channel_gpio: channel={0}, gpio={1}", channel, gpio);
+            Trace.TraceInformation($"clear_channel_gpio: channel={channel}, gpio={gpio}");
             if (channels[channel].VirtBase == null)
             {
-                Console.WriteLine("PWM: channel {0} has not been initialized with 'init_channel(..)'", channel);
+                Trace.TraceError($"PWM: channel {channel} has not been initialized with 'init_channel(..)'");
                 return false;
             }
             if ((_gpioSetup & (1 << (int)gpio)) == 0)
             {
-                Console.WriteLine("PWM: cannot clear gpio {0}; not yet been set up", gpio);
+                Trace.TraceError($"PWM: cannot clear gpio {gpio}; not yet been set up");
                 return false;
             }
 
@@ -616,6 +641,7 @@ namespace IctBaden.RasPi.IO
         }
 
         // Shutdown -- its important to reset the DMA before quitting
+        // ReSharper disable once UnusedMember.Global
         public void Shutdown()
         {
             for (var ix = 0; ix < DMA_CHANNELS; ix++)
@@ -629,14 +655,18 @@ namespace IctBaden.RasPi.IO
             return ((channels[channel].DmaReg != null) && (channels[channel].VirtBase != null));
         }
 
-        internal void ShutdownChannel(int channel)
+        internal void ShutdownChannel(DmaPwmChannel channel)
         {
-            if (ChannelInUse(channel))
+            ShutdownChannel(channel.Channel);
+        }
+        internal void ShutdownChannel(int channelIndex)
+        {
+            if (ChannelInUse(channelIndex))
             {
-                Console.WriteLine("PWM: Shutting down DMA channel {0}", channel);
-                ClearChannel(channel);
-                Thread.Sleep(TimeSpan.FromMilliseconds(channels[channel].SubcycleTimeUs / 1000.0));
-                channels[channel].DmaReg[DMA_CS] = DMA_RESET;
+                Trace.TraceError("PWM: Shutting down DMA channel {0}", channelIndex);
+                ClearChannel(channelIndex);
+                Thread.Sleep(TimeSpan.FromMilliseconds(channels[channelIndex].SubcycleTimeUs / 1000.0));
+                channels[channelIndex].DmaReg[DMA_CS] = DMA_RESET;
                 Thread.Sleep(TimeSpan.FromMilliseconds(10));
             }
         }
@@ -649,10 +679,10 @@ namespace IctBaden.RasPi.IO
             var cbp = (DmaCb*)GetCb(channel);
             var dp = (uint*)channels[channel].VirtBase;
 
-            Console.WriteLine("PWM: Clear channel {0}", channel);
+            Trace.TraceInformation("PWM: Clear channel {0}", channel);
             if (channels[channel].VirtBase == null)
             {
-                Console.WriteLine("PWM: channel {0} has not been initialized with 'init_channel(..)'", channel);
+                Trace.TraceError("PWM: channel {0} has not been initialized with 'init_channel(..)'", channel);
                 return false;
             }
 
