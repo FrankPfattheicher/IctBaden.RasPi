@@ -3,12 +3,8 @@
 
 
 ``` csharp
-    // define GPOI numbers to be used as digital inputs
-    var inputs = new[] { /* GPIO */ 17, 27, 22, 18 };
-    // define GPOI numbers to be used as digital outputs
-    var outputs = new[] { /* GPIO */ 7, 8, 9, 10, 11, 23, 24, 25 };
     // initialize basic library
-    var io = new DigitalIo(inputs, outputs);
+    var io = new DigitalIo();
     if (!io.Initialize())
     {
         Console.WriteLine("Failed to initialize IO");
@@ -16,9 +12,9 @@
     }
 
     // define convenience inputs and outputs
-    var myInput = new Input(Gpio.Gpio17);
-    var myOutput = new Output(Gpio.Gpio7);
+    var myInput = io.CreateInput(Gpio.Gpio17);
+    var myOutput = io.CreateOutput(Gpio.Gpio7);
 
-    // user that
+    // use that
     myOutput.Set(myInput);
 ``` 

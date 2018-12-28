@@ -29,7 +29,8 @@ namespace IctBaden.RasPi.Interop
       *(gpio + ((g) / 10)) |= 1u << (int)(((g) % 10) * 3);
     }
             
-    public static void SET_GPIO_ALT(uint g, uint a)
+      // ReSharper disable once UnusedMember.Global
+      public static void SET_GPIO_ALT(uint g, uint a)
     {
       *(gpio + (((g) / 10))) |= (((a) <= 3 ? (a) + 4 : (a) == 4 ? 3u : 2) << (int)(((g) % 10) * 3));
     }
@@ -39,7 +40,7 @@ namespace IctBaden.RasPi.Interop
     /// </summary>
     public static uint GPIO_SET
     {
-      set { *(gpio + 7) = value; }
+      set => *(gpio + 7) = value;
     }
             
     /// <summary>
@@ -47,15 +48,15 @@ namespace IctBaden.RasPi.Interop
     /// </summary>
     public static uint GPIO_CLR
     {
-      set { *(gpio + 10) = value; }
+      set => *(gpio + 10) = value;
     }
             
     /// <summary>
     /// Get data 
     /// </summary>
-    public static uint GPIO_IN0 { get { return *(gpio + 13); } }
-            
-    internal static void Initialize()
+    public static uint GPIO_IN0 => *(gpio + 13);
+
+      internal static void Initialize()
     {
       /* open /dev/mem */
       if ((mem_fd = Libc.open("/dev/mem", Libc.O_RDWR | Libc.O_SYNC)) < 0)
@@ -86,14 +87,14 @@ namespace IctBaden.RasPi.Interop
                 
       if ((long)gpio_map < 0)
       {
-        throw new Exception(String.Format("mmap error {0}", (int)gpio_map));
+        throw new Exception($"mmap error {(int) gpio_map}");
       }
                 
       // Always use volatile pointer!
       gpio = (uint*)gpio_map;
     }
 
-      public static bool IsInitialized { get { return gpio != null; }}
+      public static bool IsInitialized => gpio != null;
   }
   // ReSharper restore InconsistentNaming
 }

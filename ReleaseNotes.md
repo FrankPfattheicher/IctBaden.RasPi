@@ -1,4 +1,5 @@
 
+* 2.0.0 - Removed v1 DigitalIo usage.
 * 1.2.1 - Fixed Gpio initialization.
 * 1.2.0 - Added PWM interfaces and soft PWM implementation (Core only)
 * 1.1.2 - Nuget package logo changed

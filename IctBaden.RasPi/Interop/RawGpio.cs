@@ -34,6 +34,7 @@ namespace IctBaden.RasPi.Interop
             *(gpio + ((g) / 10)) |= 1u << (int)(((g) % 10) * 3);
         }
 
+        // ReSharper disable once UnusedMember.Global
         public static void SET_GPIO_ALT(uint g, uint a)
         {
             *(gpio + (((g) / 10))) |= (((a) <= 3 ? (a) + 4 : (a) == 4 ? 3u : 2) << (int)(((g) % 10) * 3));
@@ -102,6 +103,7 @@ namespace IctBaden.RasPi.Interop
             gpio = (uint*)gpio_map;
         }
 
+        // ReSharper disable once UnusedMember.Global
         public static void Close()
         {
             gpio = null;

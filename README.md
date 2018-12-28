@@ -7,8 +7,8 @@ Two versions:
 
 | Name | Description |
 | ---- | --- |    
-| IctBaden.RasPi.Net40	| .NET Full Framework (Mono), *PWM on Raspberry Pi 1 only!* |
-| IctBaden.RasPi			  | .NET Core 2.1, no PWM support |
+| IctBaden.RasPi.Net40	| .NET Full Framework (Mono), *hardare (DMA) PWM on Raspberry Pi 1 only!* |
+| IctBaden.RasPi		| .NET Core 2.1, soft PWM support only |
 
 Low Level
 ---------
@@ -19,4 +19,4 @@ High Level
 ----------
 * LCD connected to I2C (SainSmart IIC LCD1602 Module)
 * OneWire temperature sensors (DS18S20)
-* PWM (Raspberry Pi 1 only)
+* PWM (DMA based on Raspberry Pi 1 only, soft PWM on Raspberry Pi 2 up)
