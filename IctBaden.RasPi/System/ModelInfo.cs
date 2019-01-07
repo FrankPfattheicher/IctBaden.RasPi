@@ -6,26 +6,83 @@ using System.Text.RegularExpressions;
 
 namespace IctBaden.RasPi.System
 {
+    /// <summary>
+    /// Model information about the current device.
+    /// 
+    /// https://github.com/google/periph/blob/master/host/rpi/rpi.go
+    /// https://elinux.org/RPi_HardwareHistory
+    /// </summary>
     public static class ModelInfo
     {
+        /// <summary>
+        /// Serial number of this board.
+        /// </summary>
         public static string Serial { get; private set; }
+        /// <summary>
+        /// Generic model number 1, 2, 3, ...
+        /// </summary>
         public static int Model { get; private set; }
+        /// <summary>
+        /// see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md
+        /// </summary>
         public static string Hardware { get; private set; }
-        public static int Revision { get; private set; }
+        /// <summary>
+        /// Board manufacturer.
+        /// </summary>
+        public static string Manufacturer { get; private set; }
+        /// <summary>
+        /// Old-style revision codes
+        /// The first set of Raspberry Pi revisions were given sequential hex revision codes from 0002 to 0015.
+        /// New-style revision codes
+        /// With the launch of the Raspberry Pi 2, new-style revision codes were introduced.
+        /// Rather than being sequential, each bit of the hex code represents a piece of information about the revision.
+        /// uuuuuuuuFMMMCCCCPPPPTTTTTTTTRRRR
+        /// see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md
+        /// </summary>
+        public static int RevisionCode { get; private set; }
+        /// <summary>
+        /// Public known name of the model.
+        /// </summary>
         public static string Name { get; private set; }
+        /// <summary>
+        /// RAM size in MB.
+        /// </summary>
         public static int RamSizeMb { get; private set; }
+        /// <summary>
+        /// Device supports hardware floatingpoint support (arm-hf).
+        /// </summary>
         public static bool HardFloat { get; private set; }
+        /// <summary>
+        /// Physical addresses range starting from thi addess for peripherals.
+        /// </summary>
+        public static uint PeripheralBaseAddress { get; private set; }
+        /// <summary>
+        /// Base address of the Broadcom VideoCore IV Architecture GPU.
+        /// </summary>
+        public static uint VideocoreBaseAddress { get; private set; }
+
+        /// <summary>
+        /// Device has P5 header.
+        /// </summary>
         public static bool HasHeaderP5 { get; private set; }
+        /// <summary>
+        /// Device has J8 header.
+        /// </summary>
         public static bool HasHeaderJ8 { get; private set; }
         /// <summary>
-        /// number of pins on P1 header - Zero means NO P1 header
+        /// Number of pins on P1 header (26, 40).
+        /// Zero means NO P1 header (compute module).
         /// </summary>
         public static int HasHeaderP1Pins { get; private set; } 
+        /// <summary>
+        /// Device has 3.5mm audio output.
+        /// </summary>
         public static bool HasAudio { get; private set; }
-        public static bool HasHdmi { get; private set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public static HdmiConnectors HdmiConnector { get; private set; }
 
-        // https://github.com/google/periph/blob/master/host/rpi/rpi.go
-        // https://elinux.org/RPi_HardwareHistory
 
         static ModelInfo()
         {
@@ -39,18 +96,22 @@ namespace IctBaden.RasPi.System
 
         public static void Decode(string cpuinfo)
         {
+            /*
+             * Hardware    : BCM2835
+             * RevisionCode    : a02082
+             * Serial      : 00000000765fc593
+             */
             var hardwareInfo = new Regex(@"Hardware\s+\:\s+(\w+)\s+").Match(cpuinfo);
             Hardware = (hardwareInfo.Success) ? hardwareInfo.Groups[1].Value : "<unknown>";
 
             var revInfo = new Regex(@"Revision\s+\:\s+(.*)\s+").Match(cpuinfo);
-            Revision = (revInfo.Success) ? int.Parse(revInfo.Groups[1].Value, NumberStyles.HexNumber) : -1;
+            RevisionCode = (revInfo.Success) ? int.Parse(revInfo.Groups[1].Value, NumberStyles.HexNumber) : -1;
 
             var serialInfo = new Regex(@"Serial\s+\:\s+(.*)\s+").Match(cpuinfo);
             Serial = (serialInfo.Success) ? serialInfo.Groups[1].Value : "";
 
-            // see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md
             Model = 1;
-            switch (Revision)
+            switch (RevisionCode)
             {
                 case 0x00000002:
                     Name = "B1";

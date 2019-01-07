@@ -74,7 +74,7 @@ namespace RasPiSample
                     return;
                 }
 
-                _lcd.Print($"RasPi {ModelInfo.Revision:X}={ModelInfo.Name}");
+                _lcd.Print($"RasPi {ModelInfo.RevisionCode:X}={ModelInfo.Name}");
                 _lcd.SetCursor(1, 2);
                 _lcd.Print("äöüßgjpqyÄÖÜ 0°");
             }
