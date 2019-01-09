@@ -4,6 +4,9 @@
     <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2018.3/system/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2018.3/system/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_IctBaden.RasPi.-1060236049.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="DigitalIo.md" t="Include" />
       <e p="IctBaden.RasPi" t="IncludeRecursive">
@@ -39,6 +42,7 @@
           <e p="HdmiConnectors.cs" t="Include" />
           <e p="ModelInfo.cs" t="Include" />
           <e p="RaspiSoCs.cs" t="Include" />
+          <e p="RevisionCode.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -88,6 +92,20 @@
       </e>
       <e p="IctBaden.RasPi.Net40.Test" t="IncludeRecursive">
         <e p="IctBaden.RasPi.Net40.Test.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="IctBaden.RasPi.Test/IctBaden.RasPi.Test" t="IncludeRecursive">
+        <e p="IctBaden.RasPi.Test.csproj" t="IncludeRecursive" />
+        <e p="ModelInfoTests.cs" t="Include" />
+        <e p="RevisionCodeTests.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="IctBaden.RasPi.Test.AssemblyInfo.cs" t="Include" />
+              <e p="IctBaden.RasPi.Test.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
       </e>
       <e p="IctBaden.RasPi.nuspec" t="Include" />
       <e p="IctBaden.RasPi.sln" t="IncludeFlat" />

@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="156a83c0-f3a7-42e0-bcc6-7c56ca0dc6a9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/ModelInfoTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/ModelInfoTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.sln" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi/IctBaden.RasPi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi/IctBaden.RasPi.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,57 +21,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-475">
-              <caret line="89" column="60" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="60" />
-              <folding>
-                <marker date="1546966474487" expanded="false" signature="6:82" ph="..." />
-                <marker date="1546966474487" expanded="true" signature="83:224" ph="/* ReSharper disable UnusedMember.Global ... */" />
-                <marker date="1546966474487" expanded="true" signature="257:7594" ph="{...}" />
-                <marker date="1546966474487" expanded="true" signature="264:473" ph="/// Model information about the current device. ... " />
-                <marker date="1546966474487" expanded="true" signature="507:7592" ph="{...}" />
-                <marker date="1546966474487" expanded="true" signature="522:599" ph="/// Serial number of this board. ... " />
-                <marker date="1546966474487" expanded="true" signature="666:748" ph="/// Generic model number 1, 2, 3, ... ... " />
-                <marker date="1546966474487" expanded="true" signature="811:951" ph="/// see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md ... " />
-                <marker date="1546966474487" expanded="true" signature="1020:1088" ph="/// Board manufacturer. ... " />
-                <marker date="1546966474487" expanded="true" signature="1161:1746" ph="/// Old-style revision codes ... " />
-                <marker date="1546966474487" expanded="true" signature="1816:1896" ph="/// Public known name of the model. ... " />
-                <marker date="1546966474487" expanded="true" signature="1961:2025" ph="/// RAM size in MB. ... " />
-                <marker date="1546966474487" expanded="true" signature="2092:2197" ph="/// Device supports hardware floatingpoint support (arm-hf). ... " />
-                <marker date="1546966474487" expanded="true" signature="2265:2380" ph="/// Physical addresses range starting from thi addess for peripherals. ... " />
-                <marker date="1546966474487" expanded="true" signature="2460:2568" ph="/// Base address of the Broadcom VideoCore IV Architecture GPU. ... " />
-                <marker date="1546966474487" expanded="true" signature="2648:2718" ph="/// Device has P5 header. ... " />
-                <marker date="1546966474487" expanded="true" signature="2788:2858" ph="/// Device has J8 header. ... " />
-                <marker date="1546966474487" expanded="true" signature="2928:3068" ph="/// Number of pins on P1 header (26, 40). ... " />
-                <marker date="1546966474487" expanded="true" signature="3142:3221" ph="/// Device has 3.5mm audio output. ... " />
-                <marker date="1546966474487" expanded="true" signature="3288:3337" ph="///  ... " />
-                <marker date="1546966474487" expanded="true" signature="3439:3629" ph="{...}" />
-                <marker date="1546966474487" expanded="true" signature="3696:7576" ph="{...}" />
-                <marker date="1546966474487" expanded="true" signature="3715:3840" ph="/* Hardware    : BCM2835 ... */" />
-                <marker date="1546966474487" expanded="true" signature="4428:7082" ph="{...}" />
-                <marker date="1546966474487" expanded="true" signature="7115:7496" ph="{...}" />
-                <marker date="1546966474487" expanded="true" signature="7410:7482" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Manufacturer</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/ModelInfoTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" />
+        <option value="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/ModelInfoTests.cs" />
+        <option value="$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" />
         <option value="$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" />
+        <option value="$PROJECT_DIR$/IctBaden.RasPi/System/RaspiManufacturer.cs" />
+        <option value="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs" />
+        <option value="$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs" />
       </list>
     </option>
   </component>
@@ -76,7 +64,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -100,11 +87,17 @@
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
               <item name="System" type="24d0babc:SolutionExplorerModelNode" />
             </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="IctBaden.RasPi.Test" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
+      <pane id="FileSystemExplorer" />
       <pane id="AssemblyExplorer" />
     </panes>
   </component>
@@ -112,6 +105,7 @@
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -129,7 +123,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Project.Default">
     <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -161,11 +155,12 @@
       <updated>1546964846797</updated>
       <workItem from="1546964848295" duration="2084000" />
       <workItem from="1546968233966" duration="598000" />
+      <workItem from="1547023754086" duration="6300000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2682000" />
+    <option name="totallyTimeSpent" value="8982000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -179,7 +174,7 @@
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="2421" height="1661" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25178948" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25389475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -191,14 +186,14 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="bottom" id="NuGet" order="7" weight="0.32983607" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Unit Tests" order="11" />
+      <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.32983607" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="14" visible="true" weight="0.32983607" />
+      <window_info anchor="bottom" id="Build" order="14" weight="0.32983607" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -206,6 +201,34 @@
       <window_info anchor="right" id="Errors In Solution" order="4" />
       <window_info anchor="right" id="Database" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25389475" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="NuGet" order="7" weight="0.32983607" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info active="true" anchor="bottom" id="Unit Tests" order="11" visible="true" weight="0.32983607" />
+      <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="14" weight="0.32983607" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Errors In Solution" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -222,6 +245,16 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>code</expression-string>
+        <language-id>C#</language-id>
+        <custom-info>RiderImportsList:</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -236,37 +269,115 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/ModelInfoTests.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="153" column="33" selection-start-line="153" selection-start-column="26" selection-end-line="153" selection-end-column="33" />
+          <folding>
+            <marker date="1547025221210" expanded="true" signature="6:41" ph="..." />
+            <marker date="1547025221210" expanded="true" signature="111:4510" ph="{...}" />
+            <marker date="1547025221210" expanded="true" signature="145:4508" ph="{...}" />
+            <marker date="1547025221210" expanded="true" signature="3851:4137" ph="{...}" />
+            <marker date="1547025221210" expanded="true" signature="4201:4493" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-475">
-          <caret line="89" column="60" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="60" />
+        <state relative-caret-position="-209">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
           <folding>
-            <marker date="1546966474487" expanded="false" signature="6:82" ph="..." />
-            <marker date="1546966474487" expanded="true" signature="83:224" ph="/* ReSharper disable UnusedMember.Global ... */" />
-            <marker date="1546966474487" expanded="true" signature="257:7594" ph="{...}" />
-            <marker date="1546966474487" expanded="true" signature="264:473" ph="/// Model information about the current device. ... " />
-            <marker date="1546966474487" expanded="true" signature="507:7592" ph="{...}" />
-            <marker date="1546966474487" expanded="true" signature="522:599" ph="/// Serial number of this board. ... " />
-            <marker date="1546966474487" expanded="true" signature="666:748" ph="/// Generic model number 1, 2, 3, ... ... " />
-            <marker date="1546966474487" expanded="true" signature="811:951" ph="/// see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md ... " />
-            <marker date="1546966474487" expanded="true" signature="1020:1088" ph="/// Board manufacturer. ... " />
-            <marker date="1546966474487" expanded="true" signature="1161:1746" ph="/// Old-style revision codes ... " />
-            <marker date="1546966474487" expanded="true" signature="1816:1896" ph="/// Public known name of the model. ... " />
-            <marker date="1546966474487" expanded="true" signature="1961:2025" ph="/// RAM size in MB. ... " />
-            <marker date="1546966474487" expanded="true" signature="2092:2197" ph="/// Device supports hardware floatingpoint support (arm-hf). ... " />
-            <marker date="1546966474487" expanded="true" signature="2265:2380" ph="/// Physical addresses range starting from thi addess for peripherals. ... " />
-            <marker date="1546966474487" expanded="true" signature="2460:2568" ph="/// Base address of the Broadcom VideoCore IV Architecture GPU. ... " />
-            <marker date="1546966474487" expanded="true" signature="2648:2718" ph="/// Device has P5 header. ... " />
-            <marker date="1546966474487" expanded="true" signature="2788:2858" ph="/// Device has J8 header. ... " />
-            <marker date="1546966474487" expanded="true" signature="2928:3068" ph="/// Number of pins on P1 header (26, 40). ... " />
-            <marker date="1546966474487" expanded="true" signature="3142:3221" ph="/// Device has 3.5mm audio output. ... " />
-            <marker date="1546966474487" expanded="true" signature="3288:3337" ph="///  ... " />
-            <marker date="1546966474487" expanded="true" signature="3439:3629" ph="{...}" />
-            <marker date="1546966474487" expanded="true" signature="3696:7576" ph="{...}" />
-            <marker date="1546966474487" expanded="true" signature="3715:3840" ph="/* Hardware    : BCM2835 ... */" />
-            <marker date="1546966474487" expanded="true" signature="4428:7082" ph="{...}" />
-            <marker date="1546966474487" expanded="true" signature="7115:7496" ph="{...}" />
-            <marker date="1546966474487" expanded="true" signature="7410:7482" ph="{...}" />
+            <marker date="1547033610282" expanded="false" signature="6:121" ph="..." />
+            <marker date="1547033610282" expanded="true" signature="122:263" ph="/* ReSharper disable UnusedMember.Global ... */" />
+            <marker date="1547033610282" expanded="true" signature="296:7794" ph="{...}" />
+            <marker date="1547033610282" expanded="true" signature="303:512" ph="/// Model information about the current device. ... " />
+            <marker date="1547033610282" expanded="true" signature="546:7792" ph="{...}" />
+            <marker date="1547033610282" expanded="true" signature="561:638" ph="/// Serial number of this board. ... " />
+            <marker date="1547033610282" expanded="true" signature="705:787" ph="/// Generic model number 1, 2, 3, ... ... " />
+            <marker date="1547033610282" expanded="true" signature="850:990" ph="/// see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md ... " />
+            <marker date="1547033610282" expanded="true" signature="1059:1127" ph="/// Board manufacturer. ... " />
+            <marker date="1547033610282" expanded="true" signature="1200:1785" ph="/// Old-style revision codes ... " />
+            <marker date="1547033610282" expanded="true" signature="1855:1935" ph="/// Public known name of the model. ... " />
+            <marker date="1547033610282" expanded="true" signature="2000:2064" ph="/// RAM size in MB. ... " />
+            <marker date="1547033610282" expanded="true" signature="2131:2237" ph="/// Device supports hardware floatingpoint support (arm-hf). ... " />
+            <marker date="1547033610282" expanded="true" signature="2305:2421" ph="/// Physical addresses range starting from thi addess for peripherals. ... " />
+            <marker date="1547033610282" expanded="true" signature="2501:2609" ph="/// Base address of the Broadcom VideoCore IV Architecture GPU. ... " />
+            <marker date="1547033610282" expanded="true" signature="2689:2759" ph="/// Device has P5 header. ... " />
+            <marker date="1547033610282" expanded="true" signature="2829:2899" ph="/// Device has J8 header. ... " />
+            <marker date="1547033610282" expanded="true" signature="2969:3109" ph="/// Number of pins on P1 header (26, 40). ... " />
+            <marker date="1547033610282" expanded="true" signature="3183:3262" ph="/// Device has 3.5mm audio output. ... " />
+            <marker date="1547033610282" expanded="true" signature="3329:3378" ph="///  ... " />
+            <marker date="1547033610282" expanded="true" signature="3480:3670" ph="{...}" />
+            <marker date="1547033610282" expanded="true" signature="3738:7776" ph="{...}" />
+            <marker date="1547033610282" expanded="true" signature="3757:3882" ph="/* Hardware    : BCM2835 ... */" />
+            <marker date="1547033610282" expanded="true" signature="4470:7285" ph="{...}" />
+            <marker date="1547033610282" expanded="true" signature="7318:7696" ph="{...}" />
+            <marker date="1547033610282" expanded="true" signature="7610:7682" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+          <folding>
+            <marker date="1547025477670" expanded="true" signature="31:308" ph="{...}" />
+            <marker date="1547025477670" expanded="true" signature="38:173" ph="/// List of used Broadcom SoCs (System On Chip) ... " />
+            <marker date="1547025477670" expanded="true" signature="199:306" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiManufacturer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding>
+            <marker date="1547039773614" expanded="true" signature="6:41" ph="..." />
+            <marker date="1547039773614" expanded="true" signature="72:575" ph="{...}" />
+            <marker date="1547039773614" expanded="true" signature="109:573" ph="{...}" />
+            <marker date="1547039773614" expanded="true" signature="193:558" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="852">
+          <caret line="148" column="53" lean-forward="true" selection-start-line="148" selection-start-column="53" selection-end-line="148" selection-end-column="53" />
+          <folding>
+            <marker date="1547040199483" expanded="true" signature="0:140" ph="/* ReSharper disable UnusedAutoPropertyAccessor.Global ... */" />
+            <marker date="1547040199483" expanded="true" signature="172:5183" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="204:5181" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="679:712" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="775:5174" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="798:880" ph="/* ReSharper disable CommentTypo ... */" />
+            <marker date="1547040199483" expanded="true" signature="906:2375" ph="/* uuuuuuuu&#9;Unused&#9;Unused ... */" />
+            <marker date="1547040199483" expanded="true" signature="2803:2904" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="2969:3375" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="3427:3603" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="3729:3820" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="3837:3948" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="3999:4437" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="4481:4788" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="4880:4947" ph="{...}" />
+            <marker date="1547040199483" expanded="true" signature="4964:5067" ph="{...}" />
           </folding>
         </state>
       </provider>

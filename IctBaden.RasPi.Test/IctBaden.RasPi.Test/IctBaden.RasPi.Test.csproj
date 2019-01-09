@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\IctBaden.RasPi\IctBaden.RasPi\IctBaden.RasPi.csproj" />
+      <ProjectReference Include="..\..\IctBaden.RasPi\IctBaden.RasPi.csproj" />
     </ItemGroup>
 
 </Project>

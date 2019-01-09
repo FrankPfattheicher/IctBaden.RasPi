@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Local
@@ -50,11 +51,11 @@ namespace IctBaden.RasPi.System
         /// </summary>
         public static int RamSizeMb { get; private set; }
         /// <summary>
-        /// Device supports hardware floatingpoint support (arm-hf).
+        /// Device supports hardware floating point support (arm-hf).
         /// </summary>
         public static bool HardFloat { get; private set; }
         /// <summary>
-        /// Physical addresses range starting from thi addess for peripherals.
+        /// Physical addresses range starting from thi address for peripherals.
         /// </summary>
         public static uint PeripheralBaseAddress { get; private set; }
         /// <summary>
@@ -92,6 +93,7 @@ namespace IctBaden.RasPi.System
             ModelInfo.Decode(cpuInfo, memInfo);
         }
 
+
         public static void Decode(string cpuInfo, string memInfo)
         {
         /*
@@ -112,25 +114,25 @@ namespace IctBaden.RasPi.System
             switch (RevisionCode)
             {
                 case 0x00000002:
-                    Name = "B1";
+                    Name = "1B";
                     RamSizeMb = 256;
                     break;
                 case 0x00000003: 
-                    Name = "B1+"; 
+                    Name = "1B+"; 
                     RamSizeMb = 256;
                     break;
                 case 0x00000004: 
-                    Name = "B2"; 
+                    Name = "2B"; 
                     RamSizeMb = 256;
                     HasHeaderP5 = true;
                     break;
                 case 0x00000005: 
-                    Name = "B2"; 
+                    Name = "2B"; 
                     RamSizeMb = 256;
                     HasHeaderP5 = true;
                     break;
                 case 0x00000006: 
-                    Name = "B2"; 
+                    Name = "2B"; 
                     RamSizeMb = 256;
                     HasHeaderP5 = true;
                     break;
@@ -160,17 +162,17 @@ namespace IctBaden.RasPi.System
                     RamSizeMb = 256;
                     break;
                 case 13: 
-                    Name = "B2"; 
+                    Name = "2B"; 
                     RamSizeMb = 512;
                     HasHeaderP5 = true;
                     break;
                 case 14: 
-                    Name = "B2";
+                    Name = "2B";
                     RamSizeMb = 512;
                     HasHeaderP5 = true;
                     break;
                 case 15: 
-                    Name = "B2";
+                    Name = "2B";
                     RamSizeMb = 0;
                     HasHeaderP5 = true;
                     break;
@@ -187,6 +189,11 @@ namespace IctBaden.RasPi.System
                     RamSizeMb = 1024;
                     HasHeaderJ8 = true;
                     break;
+                case 0xA020D3:
+                    Model = 3;
+                    Name = "3B+";
+                    RamSizeMb = 1024;
+                    break;
                 default:
                     Model = 3;
                     Name = "<unknown>"; 
@@ -195,7 +202,7 @@ namespace IctBaden.RasPi.System
 
             if (RamSizeMb == 0)
             {
-                var memoryInfo = new Regex(@"MemTotal\s+\:\s+(\w+)\s+").Match(memInfo);
+                var memoryInfo = new Regex(@"MemTotal\:\s+(\w+)\s+").Match(memInfo);
                 var ramSizeBytes = (memoryInfo.Success) ? long.Parse(memoryInfo.Groups[1].Value) : 0;
                 RamSizeMb = 256;
                 while ((RamSizeMb * 1024) < ramSizeBytes)
