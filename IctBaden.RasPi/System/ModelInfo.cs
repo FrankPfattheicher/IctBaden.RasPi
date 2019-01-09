@@ -3,6 +3,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Local
+// ReSharper disable MemberCanBePrivate.Global
 
 namespace IctBaden.RasPi.System
 {
@@ -86,28 +87,25 @@ namespace IctBaden.RasPi.System
 
         static ModelInfo()
         {
-            const string infoFileName = "/proc/cpuinfo";
-            if (!File.Exists(infoFileName)) 
-                return;
-
-            var cpuinfo = File.ReadAllText(infoFileName);
-            Decode(cpuinfo);
+            var cpuInfo = File.ReadAllText("/proc/cpuinfo");
+            var memInfo = File.ReadAllText("/proc/meminfo");
+            ModelInfo.Decode(cpuInfo, memInfo);
         }
 
-        public static void Decode(string cpuinfo)
+        public static void Decode(string cpuInfo, string memInfo)
         {
-            /*
-             * Hardware    : BCM2835
-             * RevisionCode    : a02082
-             * Serial      : 00000000765fc593
-             */
-            var hardwareInfo = new Regex(@"Hardware\s+\:\s+(\w+)\s+").Match(cpuinfo);
+        /*
+         * Hardware    : BCM2835
+         * RevisionCode    : a02082
+         * Serial      : 00000000765fc593
+         */
+            var hardwareInfo = new Regex(@"Hardware\s+\:\s+(\w+)\s+").Match(cpuInfo);
             Hardware = (hardwareInfo.Success) ? hardwareInfo.Groups[1].Value : "<unknown>";
 
-            var revInfo = new Regex(@"Revision\s+\:\s+(.*)\s+").Match(cpuinfo);
+            var revInfo = new Regex(@"Revision\s+\:\s+(.*)\s+").Match(cpuInfo);
             RevisionCode = (revInfo.Success) ? int.Parse(revInfo.Groups[1].Value, NumberStyles.HexNumber) : -1;
 
-            var serialInfo = new Regex(@"Serial\s+\:\s+(.*)\s+").Match(cpuinfo);
+            var serialInfo = new Regex(@"Serial\s+\:\s+(.*)\s+").Match(cpuInfo);
             Serial = (serialInfo.Success) ? serialInfo.Groups[1].Value : "";
 
             Model = 1;
@@ -173,7 +171,7 @@ namespace IctBaden.RasPi.System
                     break;
                 case 15: 
                     Name = "B2";
-                    RamSizeMb = 512;
+                    RamSizeMb = 0;
                     HasHeaderP5 = true;
                     break;
                 case 0xA01041:
@@ -195,6 +193,16 @@ namespace IctBaden.RasPi.System
                     break;
             }
 
+            if (RamSizeMb == 0)
+            {
+                var memoryInfo = new Regex(@"MemTotal\s+\:\s+(\w+)\s+").Match(memInfo);
+                var ramSizeBytes = (memoryInfo.Success) ? long.Parse(memoryInfo.Groups[1].Value) : 0;
+                RamSizeMb = 256;
+                while ((RamSizeMb * 1024) < ramSizeBytes)
+                {
+                    RamSizeMb *= 2;
+                }
+            }
             HardFloat = Directory.Exists("/lib/arm-linux-gnueabihf");
         }
 
