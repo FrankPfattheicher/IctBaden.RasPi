@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="156a83c0-f3a7-42e0-bcc6-7c56ca0dc6a9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-475">
+              <caret line="89" column="60" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="60" />
+              <folding>
+                <marker date="1546966474487" expanded="false" signature="6:82" ph="..." />
+                <marker date="1546966474487" expanded="true" signature="83:224" ph="/* ReSharper disable UnusedMember.Global ... */" />
+                <marker date="1546966474487" expanded="true" signature="257:7594" ph="{...}" />
+                <marker date="1546966474487" expanded="true" signature="264:473" ph="/// Model information about the current device. ... " />
+                <marker date="1546966474487" expanded="true" signature="507:7592" ph="{...}" />
+                <marker date="1546966474487" expanded="true" signature="522:599" ph="/// Serial number of this board. ... " />
+                <marker date="1546966474487" expanded="true" signature="666:748" ph="/// Generic model number 1, 2, 3, ... ... " />
+                <marker date="1546966474487" expanded="true" signature="811:951" ph="/// see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md ... " />
+                <marker date="1546966474487" expanded="true" signature="1020:1088" ph="/// Board manufacturer. ... " />
+                <marker date="1546966474487" expanded="true" signature="1161:1746" ph="/// Old-style revision codes ... " />
+                <marker date="1546966474487" expanded="true" signature="1816:1896" ph="/// Public known name of the model. ... " />
+                <marker date="1546966474487" expanded="true" signature="1961:2025" ph="/// RAM size in MB. ... " />
+                <marker date="1546966474487" expanded="true" signature="2092:2197" ph="/// Device supports hardware floatingpoint support (arm-hf). ... " />
+                <marker date="1546966474487" expanded="true" signature="2265:2380" ph="/// Physical addresses range starting from thi addess for peripherals. ... " />
+                <marker date="1546966474487" expanded="true" signature="2460:2568" ph="/// Base address of the Broadcom VideoCore IV Architecture GPU. ... " />
+                <marker date="1546966474487" expanded="true" signature="2648:2718" ph="/// Device has P5 header. ... " />
+                <marker date="1546966474487" expanded="true" signature="2788:2858" ph="/// Device has J8 header. ... " />
+                <marker date="1546966474487" expanded="true" signature="2928:3068" ph="/// Number of pins on P1 header (26, 40). ... " />
+                <marker date="1546966474487" expanded="true" signature="3142:3221" ph="/// Device has 3.5mm audio output. ... " />
+                <marker date="1546966474487" expanded="true" signature="3288:3337" ph="///  ... " />
+                <marker date="1546966474487" expanded="true" signature="3439:3629" ph="{...}" />
+                <marker date="1546966474487" expanded="true" signature="3696:7576" ph="{...}" />
+                <marker date="1546966474487" expanded="true" signature="3715:3840" ph="/* Hardware    : BCM2835 ... */" />
+                <marker date="1546966474487" expanded="true" signature="4428:7082" ph="{...}" />
+                <marker date="1546966474487" expanded="true" signature="7115:7496" ph="{...}" />
+                <marker date="1546966474487" expanded="true" signature="7410:7482" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="448" />
+    <option name="y" value="80" />
+    <option name="width" value="1772" />
+    <option name="height" value="1410" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="FileSystemExplorer" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Solution Items" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="System" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-all-files" value="false" />
+      </pane>
+      <pane id="AssemblyExplorer" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="156a83c0-f3a7-42e0-bcc6-7c56ca0dc6a9" name="Default Changelist" comment="" />
+      <created>1546964846797</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1546964846797</updated>
+      <workItem from="1546964848295" duration="2084000" />
+      <workItem from="1546968233966" duration="598000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2682000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="51" y="27" width="2421" height="1661" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25178948" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Unit Tests" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="14" visible="true" weight="0.32983607" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Errors In Solution" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+          <folding>
+            <marker date="1546964585899" expanded="true" signature="6:80" ph="..." />
+            <marker date="1546964585899" expanded="true" signature="111:844" ph="{...}" />
+            <marker date="1546964585899" expanded="true" signature="161:842" ph="{...}" />
+            <marker date="1546964585899" expanded="true" signature="224:836" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-475">
+          <caret line="89" column="60" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="60" />
+          <folding>
+            <marker date="1546966474487" expanded="false" signature="6:82" ph="..." />
+            <marker date="1546966474487" expanded="true" signature="83:224" ph="/* ReSharper disable UnusedMember.Global ... */" />
+            <marker date="1546966474487" expanded="true" signature="257:7594" ph="{...}" />
+            <marker date="1546966474487" expanded="true" signature="264:473" ph="/// Model information about the current device. ... " />
+            <marker date="1546966474487" expanded="true" signature="507:7592" ph="{...}" />
+            <marker date="1546966474487" expanded="true" signature="522:599" ph="/// Serial number of this board. ... " />
+            <marker date="1546966474487" expanded="true" signature="666:748" ph="/// Generic model number 1, 2, 3, ... ... " />
+            <marker date="1546966474487" expanded="true" signature="811:951" ph="/// see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md ... " />
+            <marker date="1546966474487" expanded="true" signature="1020:1088" ph="/// Board manufacturer. ... " />
+            <marker date="1546966474487" expanded="true" signature="1161:1746" ph="/// Old-style revision codes ... " />
+            <marker date="1546966474487" expanded="true" signature="1816:1896" ph="/// Public known name of the model. ... " />
+            <marker date="1546966474487" expanded="true" signature="1961:2025" ph="/// RAM size in MB. ... " />
+            <marker date="1546966474487" expanded="true" signature="2092:2197" ph="/// Device supports hardware floatingpoint support (arm-hf). ... " />
+            <marker date="1546966474487" expanded="true" signature="2265:2380" ph="/// Physical addresses range starting from thi addess for peripherals. ... " />
+            <marker date="1546966474487" expanded="true" signature="2460:2568" ph="/// Base address of the Broadcom VideoCore IV Architecture GPU. ... " />
+            <marker date="1546966474487" expanded="true" signature="2648:2718" ph="/// Device has P5 header. ... " />
+            <marker date="1546966474487" expanded="true" signature="2788:2858" ph="/// Device has J8 header. ... " />
+            <marker date="1546966474487" expanded="true" signature="2928:3068" ph="/// Number of pins on P1 header (26, 40). ... " />
+            <marker date="1546966474487" expanded="true" signature="3142:3221" ph="/// Device has 3.5mm audio output. ... " />
+            <marker date="1546966474487" expanded="true" signature="3288:3337" ph="///  ... " />
+            <marker date="1546966474487" expanded="true" signature="3439:3629" ph="{...}" />
+            <marker date="1546966474487" expanded="true" signature="3696:7576" ph="{...}" />
+            <marker date="1546966474487" expanded="true" signature="3715:3840" ph="/* Hardware    : BCM2835 ... */" />
+            <marker date="1546966474487" expanded="true" signature="4428:7082" ph="{...}" />
+            <marker date="1546966474487" expanded="true" signature="7115:7496" ph="{...}" />
+            <marker date="1546966474487" expanded="true" signature="7410:7482" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
