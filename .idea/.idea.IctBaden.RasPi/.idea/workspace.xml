@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="156a83c0-f3a7-42e0-bcc6-7c56ca0dc6a9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/ModelInfoTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/ModelInfoTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.sln" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi/IctBaden.RasPi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi/IctBaden.RasPi.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -64,6 +54,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="FileSystemExplorer" />
+      <pane id="AssemblyExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -71,34 +63,11 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
             </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Solution Items" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="System" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IctBaden.RasPi.Test" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
-      <pane id="AssemblyExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -123,7 +92,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected=".NET Project.Default">
+  <component name="RunManager">
     <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -156,11 +125,12 @@
       <workItem from="1546964848295" duration="2084000" />
       <workItem from="1546968233966" duration="598000" />
       <workItem from="1547023754086" duration="6300000" />
+      <workItem from="1547192581737" duration="315000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8982000" />
+    <option name="totallyTimeSpent" value="9297000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -174,7 +144,7 @@
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="2421" height="1661" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25389475" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.256" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -337,13 +307,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiManufacturer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiManufacturer.cs" />
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
