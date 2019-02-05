@@ -4,7 +4,7 @@ namespace IctBaden.RasPi.Comm
 {
     /// <summary>
     /// Class for I2C communication.
-    /// Requres libi2c-dev to be installed (sudo apt-get install libi2c-dev).
+    /// Requires libi2c-dev to be installed (sudo apt-get install libi2c-dev).
     /// Check weather /dev/i2c exists.
     /// 
     /// Load drivers adding following lines to /etc/modules
@@ -14,8 +14,17 @@ namespace IctBaden.RasPi.Comm
     /// </summary>
     public class I2C
     {
+        public const string Device1 = "/dev/i2c-1";
+        
+        
         private int _file = -1;
 
+        /// <summary>
+        /// Opens the I2C device
+        /// </summary>
+        /// <param name="deviceName">i.e. /dev/i2c-1</param>
+        /// <param name="address">Address of the client</param>
+        /// <returns></returns>
         public bool Open(string deviceName, int address)
         {
             // Open up the I2C bus  

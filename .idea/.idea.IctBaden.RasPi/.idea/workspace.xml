@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="156a83c0-f3a7-42e0-bcc6-7c56ca0dc6a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +27,7 @@
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -40,6 +41,7 @@
         <option value="$PROJECT_DIR$/IctBaden.RasPi/System/RaspiManufacturer.cs" />
         <option value="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs" />
         <option value="$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs" />
+        <option value="$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" />
       </list>
     </option>
   </component>
@@ -54,8 +56,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="FileSystemExplorer" />
-      <pane id="AssemblyExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -63,11 +63,24 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
             </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Comm" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
+      <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -126,11 +139,12 @@
       <workItem from="1546968233966" duration="598000" />
       <workItem from="1547023754086" duration="6300000" />
       <workItem from="1547192581737" duration="315000" />
+      <workItem from="1549200814642" duration="1262000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9297000" />
+    <option name="totallyTimeSpent" value="10559000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -144,7 +158,7 @@
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="2421" height="1661" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.256" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25810528" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -164,6 +178,7 @@
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="14" weight="0.32983607" />
+      <window_info anchor="right" id="PlantUML" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -342,6 +357,39 @@
             <marker date="1547040199483" expanded="true" signature="4481:4788" ph="{...}" />
             <marker date="1547040199483" expanded="true" signature="4880:4947" ph="{...}" />
             <marker date="1547040199483" expanded="true" signature="4964:5067" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/IctBaden.RasPi.csproj">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="62" column="22" lean-forward="true" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+          <folding>
+            <marker date="1549201067754" expanded="true" signature="60:4815" ph="{...}" />
+            <marker date="1549201067754" expanded="true" signature="67:368" ph="/// Class for I2C communication. ... " />
+            <marker date="1549201067754" expanded="true" signature="389:4813" ph="{...}" />
+            <marker date="1549201067754" expanded="true" signature="507:733" ph="///  ... " />
+            <marker date="1549201067754" expanded="true" signature="790:1132" ph="{...}" />
+            <marker date="1549201067754" expanded="true" signature="922:980" ph="{...}" />
+            <marker date="1549201067754" expanded="true" signature="1161:1290" ph="{...}" />
+            <marker date="1549201067754" expanded="true" signature="1300:1451" ph="/// Write one byte to the slave.   ... " />
+            <marker date="1549201067754" expanded="true" signature="1488:1594" ph="{...}" />
+            <marker date="1549201067754" expanded="true" signature="1604:1786" ph="/// Write buffers bytes to the slave.   ... " />
+            <marker date="1549201067754" expanded="true" signature="1825:1917" ph="{...}" />
+            <marker date="1549201067754" expanded="true" signature="1927:2093" ph="///  ... " />
+            <marker date="1549201067754" expanded="true" signature="2154:2835" ph="{...}" />
+            <marker date="1549201067754" expanded="true" signature="2177:2751" ph="/* var mem = Marshal.AllocCoTaskMem(1); ... */" />
+            <marker date="1549201067754" expanded="true" signature="2845:2987" ph="/// Read one byte from the slave.   ... " />
+            <marker date="1549201067754" expanded="true" signature="3014:3137" ph="{...}" />
+            <marker date="1549201067754" expanded="true" signature="3147:3356" ph="/// Read count bytes from the slave.   ... " />
+            <marker date="1549201067754" expanded="true" signature="3394:3533" ph="{...}" />
+            <marker date="1549201067754" expanded="true" signature="3543:3668" ph="///  ... " />
+            <marker date="1549201067754" expanded="true" signature="3716:4807" ph="{...}" />
+            <marker date="1549201067754" expanded="true" signature="3739:4635" ph="/* var mem = Marshal.AllocCoTaskMem(2); ... */" />
           </folding>
         </state>
       </provider>
