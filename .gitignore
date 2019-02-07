@@ -3,3 +3,5 @@ bin
 obj
 *.userprefs
 .vs
+
+\.idea/\.idea\.IctBaden\.RasPi/\.idea/
