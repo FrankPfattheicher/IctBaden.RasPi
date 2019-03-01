@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="156a83c0-f3a7-42e0-bcc6-7c56ca0dc6a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.sln" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReleaseNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReleaseNotes.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,7 +15,66 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ReleaseNotes.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/Display/ICharacterDisplay.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+              <folding>
+                <marker date="1546964585907" expanded="true" signature="32:341" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="73:339" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/Display/CharacterDisplayI2C.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <marker date="1546964585907" expanded="false" signature="6:64" ph="..." />
+                <marker date="1546964585907" expanded="true" signature="98:7505" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="105:460" ph="/// SainSmart IIC LCD1602 Module Display ... " />
+                <marker date="1546964585907" expanded="true" signature="517:7503" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="847:1010" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="904:1000" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="1201:1281" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="1339:1517" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="1397:1455" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="1552:4320" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="2242:2274" ph="/* charcter set ... */" />
+                <marker date="1546964585907" expanded="true" signature="4349:4450" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="4497:4546" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="4595:5004" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="5044:6954" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="5094:6944" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="5176:6899" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="6996:7115" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="7157:7296" ph="{...}" />
+                <marker date="1546964585907" expanded="true" signature="7342:7496" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -23,13 +85,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Display/ICharacterDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Display/CharacterDisplayI2C.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/ModelInfoTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -42,6 +106,8 @@
         <option value="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs" />
         <option value="$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs" />
         <option value="$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" />
+        <option value="$PROJECT_DIR$/IctBaden.RasPi.Display/Class1.cs" />
+        <option value="$PROJECT_DIR$/ReleaseNotes.md" />
       </list>
     </option>
   </component>
@@ -56,6 +122,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AssemblyExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -66,20 +133,34 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Solution Items" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Comm" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Display" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="IctBaden.RasPi.Display" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="IctBaden.RasPi.Test" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="AssemblyExplorer" />
       <pane id="FileSystemExplorer" />
     </panes>
   </component>
@@ -87,11 +168,11 @@
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../stonehenge3/Stonehenge3.sln" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -140,11 +221,13 @@
       <workItem from="1547023754086" duration="6300000" />
       <workItem from="1547192581737" duration="315000" />
       <workItem from="1549200814642" duration="1262000" />
+      <workItem from="1549355488358" duration="915000" />
+      <workItem from="1549441091067" duration="493000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10559000" />
+    <option name="totallyTimeSpent" value="11967000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -157,8 +240,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="2421" height="1661" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25810528" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26231578" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -177,14 +261,14 @@
       <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.32983607" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="14" weight="0.32983607" />
-      <window_info anchor="right" id="PlantUML" />
+      <window_info anchor="bottom" id="Build" order="14" visible="true" weight="0.32983607" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Errors In Solution" order="4" />
       <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="PlantUML" order="6" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25389475" />
@@ -390,6 +474,57 @@
             <marker date="1549201067754" expanded="true" signature="3543:3668" ph="///  ... " />
             <marker date="1549201067754" expanded="true" signature="3716:4807" ph="{...}" />
             <marker date="1549201067754" expanded="true" signature="3739:4635" ph="/* var mem = Marshal.AllocCoTaskMem(2); ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/Class1.cs" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReleaseNotes.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/Display/ICharacterDisplay.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding>
+            <marker date="1546964585907" expanded="true" signature="32:341" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="73:339" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/Display/CharacterDisplayI2C.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <marker date="1546964585907" expanded="false" signature="6:64" ph="..." />
+            <marker date="1546964585907" expanded="true" signature="98:7505" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="105:460" ph="/// SainSmart IIC LCD1602 Module Display ... " />
+            <marker date="1546964585907" expanded="true" signature="517:7503" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="847:1010" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="904:1000" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="1201:1281" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="1339:1517" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="1397:1455" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="1552:4320" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="2242:2274" ph="/* charcter set ... */" />
+            <marker date="1546964585907" expanded="true" signature="4349:4450" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="4497:4546" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="4595:5004" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="5044:6954" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="5094:6944" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="5176:6899" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="6996:7115" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="7157:7296" ph="{...}" />
+            <marker date="1546964585907" expanded="true" signature="7342:7496" ph="{...}" />
           </folding>
         </state>
       </provider>
