@@ -17,4 +17,4 @@
 	
 	<s:Boolean x:Key="/Default/CodeStyle/Naming/CSharpNaming/ApplyAutoDetectedRules/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeStyle/Naming/CSharpAutoNaming/IsNamingAutoDetectionCompleted/@EntryValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=4ed40aba_002D5b2d_002D464c_002D8ab9_002Dd6e6fb5db982_0023IctBaden_002ERasPi_002ENet40_002ETest/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
+	</wpf:ResourceDictionary>
