@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+ï»¿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,7 +6,7 @@
     <RuntimeIdentifiers>linux-arm</RuntimeIdentifiers>
     <AssemblyVersion>1.1.1</AssemblyVersion>
     <FileVersion>1.1.1</FileVersion>
-    <Copyright>Copyright ©2013-2018 ICT Baden GmbH</Copyright>
+    <Copyright>Copyright ï¿½2013-2018 ICT Baden GmbH</Copyright>
     <PackageId>RasPiSample Core</PackageId>
     <Description>Demonstrates usage of basic hardware access library for Raspberry Pi</Description>
     <Company>ICT Baden GmbH</Company>
@@ -15,6 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IctBaden.RasPi.Display\IctBaden.RasPi.Display.csproj" />
     <ProjectReference Include="..\IctBaden.RasPi\IctBaden.RasPi.csproj" />
   </ItemGroup>
 

@@ -529,6 +529,11 @@ namespace IctBaden.RasPi.IO
             return null;
         }
 
+        public void ShutdownChannel(IPwmChannel channel)
+        {
+            channel.Close();
+        }
+
         // Update the channel with another pulse within one full cycle. Its possible to
         // add more gpios to the same timeslots (widthStart). widthStart and width are
         // multiplied with pulse_width_incr_us to get the pulse width in microseconds [us].

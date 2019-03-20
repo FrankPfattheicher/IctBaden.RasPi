@@ -1,4 +1,5 @@
 
+* 3.0.0 - Added OLED support. Net40 version with code links to netstandard files.
 * 2.1.0 - Moved Display namespace to separate library. Added some OLED support.
 * 2.0.0 - Removed v1 DigitalIo usage.
 * 1.2.1 - Fixed Gpio initialization.

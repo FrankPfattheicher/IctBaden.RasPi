@@ -35,28 +35,81 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\IctBaden.RasPi.Display\CharacterDisplayI2C.cs">
+      <Link>Display/CharacterDisplayI2C.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi.Display\ICharacterDisplay.cs">
+      <Link>Display/ICharacterDisplay.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi.Display\OledColor.cs">
+      <Link>Display/OledColor.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi.Display\OledDisplaySSD1306.cs">
+      <Link>Display/OledDisplaySSD1306.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi.Display\OledFonts.cs">
+      <Link>Display/OledFonts.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi.Display\OledProfile.cs">
+      <Link>Display/OledProfile.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\Comm\I2C.cs">
+      <Link>Comm/I2C.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\Interop\Libc.cs">
+      <Link>Interop/Libc.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\Interop\RawGpio.cs">
+      <Link>Interop/RawGpio.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\IO\DigitalIo.cs">
+      <Link>IO/DigitalIo.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\IO\Gpio.cs">
+      <Link>IO/Gpio.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\IO\HighResolutionTimer.cs">
+      <Link>IO/HighResolutionTimer.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\IO\Input.cs">
+      <Link>IO/Input.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\IO\IPwm.cs">
+      <Link>IO/IPwm.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\IO\IPwmChannel.cs">
+      <Link>IO/IPwmChannel.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\IO\Output.cs">
+      <Link>IO/Output.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\IO\SoftPwm.cs">
+      <Link>IO/SoftPwm.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\IO\SoftPwmChannel.cs">
+      <Link>IO/SoftPwmChannel.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\Sensor\Gyro.cs">
+      <Link>Sensor/Gyro.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\Sensor\OneWireTemp.cs">
+      <Link>Sensor/OneWireTemp.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\System\HdmiConnectors.cs">
+      <Link>System/HdmiConnectors.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\System\ModelInfo.cs">
+      <Link>System/ModelInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\System\RaspiSoCs.cs">
+      <Link>System/RaspiSoCs.cs</Link>
+    </Compile>
+    <Compile Include="..\IctBaden.RasPi\System\RevisionCode.cs">
+      <Link>System/RevisionCode.cs</Link>
+    </Compile>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="IO\DigitalIo.cs" />
-    <Compile Include="Interop\Libc.cs" />
-    <Compile Include="Display\ICharacterDisplay.cs" />
-    <Compile Include="Comm\I2C.cs" />
-    <Compile Include="Display\CharacterDisplayI2C.cs" />
-    <Compile Include="IO\HighResolutionTimer.cs" />
-    <Compile Include="IO\Gpio.cs" />
-    <Compile Include="IO\Input.cs" />
-    <Compile Include="IO\IPwm.cs" />
-    <Compile Include="IO\IPwmChannel.cs" />
-    <Compile Include="IO\Output.cs" />
     <Compile Include="IO\DmaPwm.cs" />
     <Compile Include="IO\DmaPwmChannel.cs" />
-    <Compile Include="Sensor\Gyro.cs" />
-    <Compile Include="System\ModelInfo.cs" />
-    <Compile Include="Sensor\OneWireTemp.cs" />
-    <Compile Include="Interop\RawGpio.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Audio\" />
-    <Folder Include="Grove\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

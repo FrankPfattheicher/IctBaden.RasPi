@@ -10,7 +10,7 @@ using IctBaden.RasPi.System;
 
 namespace RasPiSample
 {
-    internal class Program
+    internal static class Program
     {
         private static List<string> _devices;
         private static CharacterDisplayI2C _lcd;
@@ -76,6 +76,7 @@ namespace RasPiSample
 
                 _lcd.Print($"RasPi {ModelInfo.RevisionCode:X}={ModelInfo.Name}");
                 _lcd.SetCursor(1, 2);
+                // ReSharper disable once StringLiteralTypo
                 _lcd.Print("äöüßgjpqyÄÖÜ 0°");
             }
 
@@ -169,7 +170,7 @@ namespace RasPiSample
 
         private static void UpdateTemp()
         {
-            var oldTemop = 0.0f;
+            var oldTemp = 0.0f;
             while (true)
             {
                 lock (_lcd)
@@ -177,9 +178,9 @@ namespace RasPiSample
                     var newTemp = _devices.Count > 0
                         ? OneWireTemp.ReadDeviceTemperature(_devices[0])
                         : 0.0f;
-                    if (Math.Abs(newTemp - oldTemop) >= 0.1f)
+                    if (Math.Abs(newTemp - oldTemp) >= 0.1f)
                     {
-                        oldTemop = newTemp;
+                        oldTemp = newTemp;
                         _lcd.SetCursor(1, 2);
                         _lcd.Print($"Temp = {newTemp:F2}°C      ");
                     }

@@ -13,10 +13,6 @@
         <e p="Comm" t="Include">
           <e p="I2C.cs" t="Include" />
         </e>
-        <e p="Display" t="Include">
-          <e p="CharacterDisplayI2C.cs" t="Include" />
-          <e p="ICharacterDisplay.cs" t="Include" />
-        </e>
         <e p="IO" t="Include">
           <e p="DigitalIo.cs" t="Include" />
           <e p="Gpio.cs" t="Include" />
@@ -54,7 +50,13 @@
         </e>
       </e>
       <e p="IctBaden.RasPi.Display" t="IncludeRecursive">
+        <e p="CharacterDisplayI2C.cs" t="Include" />
+        <e p="ICharacterDisplay.cs" t="Include" />
         <e p="IctBaden.RasPi.Display.csproj" t="IncludeRecursive" />
+        <e p="OledColor.cs" t="Include" />
+        <e p="OledDisplaySSD1306.cs" t="Include" />
+        <e p="OledFonts.cs" t="Include" />
+        <e p="OledProfile.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -66,38 +68,16 @@
       </e>
       <e p="IctBaden.RasPi.Net40" t="IncludeRecursive">
         <e p="AssemblyInfo.cs" t="Include" />
-        <e p="Audio" t="Include" />
-        <e p="Comm" t="Include">
-          <e p="I2C.cs" t="Include" />
-        </e>
-        <e p="Display" t="Include">
-          <e p="CharacterDisplayI2C.cs" t="Include" />
-          <e p="ICharacterDisplay.cs" t="Include" />
-        </e>
-        <e p="Grove" t="Include" />
+        <e p="Comm" t="Include" />
+        <e p="Display" t="Include" />
         <e p="IO" t="Include">
-          <e p="DigitalIo.cs" t="Include" />
           <e p="DmaPwm.cs" t="Include" />
           <e p="DmaPwmChannel.cs" t="Include" />
-          <e p="Gpio.cs" t="Include" />
-          <e p="HighResolutionTimer.cs" t="Include" />
-          <e p="IPwm.cs" t="Include" />
-          <e p="IPwmChannel.cs" t="Include" />
-          <e p="Input.cs" t="Include" />
-          <e p="Output.cs" t="Include" />
         </e>
         <e p="IctBaden.RasPi.Net40.csproj" t="IncludeRecursive" />
-        <e p="Interop" t="Include">
-          <e p="Libc.cs" t="Include" />
-          <e p="RawGpio.cs" t="Include" />
-        </e>
-        <e p="Sensor" t="Include">
-          <e p="Gyro.cs" t="Include" />
-          <e p="OneWireTemp.cs" t="Include" />
-        </e>
-        <e p="System" t="Include">
-          <e p="ModelInfo.cs" t="Include" />
-        </e>
+        <e p="Interop" t="Include" />
+        <e p="Sensor" t="Include" />
+        <e p="System" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
       </e>
