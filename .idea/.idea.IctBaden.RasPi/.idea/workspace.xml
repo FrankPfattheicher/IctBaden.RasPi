@@ -85,8 +85,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="67" />
-    <option name="y" value="27" />
+    <option name="x" value="261" />
+    <option name="y" value="78" />
     <option name="width" value="1853" />
     <option name="height" value="1053" />
   </component>
@@ -177,7 +177,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Project.Default">
     <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
