@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="156a83c0-f3a7-42e0-bcc6-7c56ca0dc6a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/IctBaden.RasPi.Net40.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/IctBaden.RasPi.Net40.Test.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +12,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="25" selection-start-line="3" selection-start-column="40" selection-end-line="4" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -27,41 +34,40 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/RasPiSample/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Interop/Libc.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Interop/RawGpio.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/HdmiConnectors.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40/IO/DmaPwmChannel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Sensor/OneWireTemp.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40/IO/DmaPwm.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Sensor/Gyro.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/HighResolutionTimer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/Input.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/Gpio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/SoftPwm.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/SoftPwmChannel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/IPwm.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/IPwmChannel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/DigitalIo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/ModelInfoTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/Output.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/Input.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/HighResolutionTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledProfile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/ICharacterDisplay.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/CharacterDisplayI2C.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledFonts.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledColor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledDisplaySSD1306.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledFonts.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Sensor/Gyro.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Sensor/OneWireTemp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/HdmiConnectors.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/ICharacterDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/CharacterDisplayI2C.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Interop/RawGpio.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Interop/Libc.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40/IO/DmaPwm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Net40/IO/DmaPwmChannel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RasPiSample/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/ModelInfoTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/Output.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/DigitalIo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/IPwmChannel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/IPwm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/IO/SoftPwmChannel.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" />
         <option value="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/ModelInfoTests.cs" />
         <option value="$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs" />
         <option value="$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" />
@@ -81,6 +87,7 @@
         <option value="$PROJECT_DIR$/IctBaden.RasPi.Net40/IO/DmaPwm.cs" />
         <option value="$PROJECT_DIR$/ReleaseNotes.md" />
         <option value="$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs" />
+        <option value="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" />
       </list>
     </option>
   </component>
@@ -95,6 +102,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AssemblyExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -105,46 +113,7 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IctBaden.RasPi.Net40.Test" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IctBaden.RasPi.Net40.Test" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="References" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IctBaden.RasPi.Net40.Test" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="References" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Assemblies" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
               <item name="IctBaden.RasPi.Test" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IctBaden.RasPi.Test" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Dependencies" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IctBaden.RasPi.Test" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Dependencies" type="24d0babc:SolutionExplorerModelNode" />
-              <item name=".NETCoreApp 2.1" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IctBaden.RasPi.Test" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Dependencies" type="24d0babc:SolutionExplorerModelNode" />
-              <item name=".NETCoreApp 2.1" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Packages" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -152,7 +121,6 @@
         <option name="show-all-files" value="false" />
       </pane>
       <pane id="FileSystemExplorer" />
-      <pane id="AssemblyExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -217,11 +185,12 @@
       <workItem from="1553085626161" duration="211000" />
       <workItem from="1553093860638" duration="1510000" />
       <workItem from="1553115759052" duration="638000" />
+      <workItem from="1553149893232" duration="242000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14326000" />
+    <option name="totallyTimeSpent" value="14568000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -233,9 +202,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="27" width="1853" height="1053" extended-state="0" />
+    <frame x="261" y="78" width="1853" height="1053" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49882904" visible="true" weight="0.19424461" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49882904" visible="true" weight="0.19645822" />
       <window_info id="Structure" order="1" sideWeight="0.50117093" side_tool="true" weight="0.3612869" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -251,7 +221,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Unit Tests" order="11" visible="true" weight="0.32824427" />
+      <window_info active="true" anchor="bottom" id="Unit Tests" order="11" visible="true" weight="0.32824427" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="14" weight="0.3293348" />
@@ -318,13 +288,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiManufacturer.cs" />
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/RevisionCodeTests.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -903,6 +866,16 @@
             <marker date="1553116318518" expanded="true" signature="161:4170" ph="{...}" />
             <marker date="1553116318518" expanded="true" signature="3866:4164" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RasPiSample.Net40/RasPiSample.Net40.csproj">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="25" selection-start-line="3" selection-start-column="40" selection-end-line="4" selection-end-column="25" />
         </state>
       </provider>
     </entry>
