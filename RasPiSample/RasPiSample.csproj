@@ -5,6 +5,7 @@
     <RuntimeFrameworkVersion>2.1.1</RuntimeFrameworkVersion>
     <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
     <RuntimeIdentifiers>win7-x64;linux-arm</RuntimeIdentifiers>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     
     <AssemblyVersion>1.1.1</AssemblyVersion>
     <FileVersion>1.1.1</FileVersion>
