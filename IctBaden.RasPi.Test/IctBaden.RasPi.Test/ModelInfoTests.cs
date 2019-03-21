@@ -7,7 +7,7 @@ namespace IctBaden.RasPi.Test
     public class ModelInfoTests
     {
         
-        private const string cpuInfoB2 = @"processor	: 0
+        private const string CpuInfoB2 = @"processor	: 0
 model name	: ARMv6-compatible processor rev 7 (v6l)
 BogoMIPS	: 2.57
 Features	: half thumb fastmult vfp edsp java tls 
@@ -22,7 +22,7 @@ Revision	: 000f
 Serial		: 000000006ff33293
 ";
 
-        private const string memInfoB2 = @"MemTotal:         449448 kB
+        private const string MemInfoB2 = @"MemTotal:         449448 kB
 MemFree:          385032 kB
 MemAvailable:     755260 kB
 Buffers:           30096 kB
@@ -60,7 +60,7 @@ CmaTotal:           8192 kB
 CmaFree:            6792 kB
 ";
 
-        private const string cpuInfoB3 = @"processor	: 0
+        private const string CpuInfoB3 = @"processor	: 0
 model name	: ARMv7 Processor rev 4 (v7l)
 BogoMIPS	: 38.40
 Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
@@ -106,7 +106,7 @@ Serial		: 00000000ccc1fd19
 ";
 
 
-        private const string memInfoB3 = @"MemTotal:         949448 kB
+        private const string MemInfoB3 = @"MemTotal:         949448 kB
 MemFree:          385032 kB
 MemAvailable:     755260 kB
 Buffers:           30096 kB
@@ -148,7 +148,7 @@ CmaFree:            6792 kB
         [Fact]
         public void DetectModelB2()
         {
-            ModelInfo.Decode(cpuInfoB2, memInfoB2);
+            ModelInfo.Decode(CpuInfoB2, MemInfoB2);
 
             Assert.Equal(0x0F, ModelInfo.RevisionCode);
             Assert.Equal("BCM2708", ModelInfo.Hardware);
@@ -159,7 +159,7 @@ CmaFree:            6792 kB
         [Fact]
         public void DetectModelB3Plus()
         {
-            ModelInfo.Decode(cpuInfoB3, memInfoB3);
+            ModelInfo.Decode(CpuInfoB3, MemInfoB3);
 
             Assert.Equal(0xA020d3, ModelInfo.RevisionCode);
             Assert.Equal("BCM2835", ModelInfo.Hardware);

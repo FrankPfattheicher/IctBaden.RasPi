@@ -12,7 +12,7 @@ namespace IctBaden.RasPi.Interop
         public const int O_WRONLY = 1;
         public const int O_RDWR = 02;
 
-        public const int O_CREAT = 00100;       // creat file if it doesn't exist
+        public const int O_CREAT = 00100;       // create file if it doesn't exist
         public const int O_EXCL = 00200;        // exclusive use flag
         public const int O_NOCTTY = 00400;      // do not assign a controlling terminal
         public const int O_TRUNC = 01000;       // truncate flag

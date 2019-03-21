@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Local
@@ -88,9 +87,12 @@ namespace IctBaden.RasPi.System
 
         static ModelInfo()
         {
-            var cpuInfo = File.ReadAllText("/proc/cpuinfo");
-            var memInfo = File.ReadAllText("/proc/meminfo");
-            ModelInfo.Decode(cpuInfo, memInfo);
+            const string cpuInfo = "/proc/cpuinfo";
+            const string memInfo = "/proc/meminfo";
+            if (File.Exists(cpuInfo) && File.Exists(memInfo))
+            {
+                Decode(File.ReadAllText(cpuInfo), File.ReadAllText(memInfo));
+            }
         }
 
 
