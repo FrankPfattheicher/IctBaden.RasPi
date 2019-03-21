@@ -18,6 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Update="Microsoft.NETCore.App" Version="2.1.1" />
     <ProjectReference Include="..\IctBaden.RasPi.Display\IctBaden.RasPi.Display.csproj" />
     <ProjectReference Include="..\IctBaden.RasPi\IctBaden.RasPi.csproj" />
   </ItemGroup>
