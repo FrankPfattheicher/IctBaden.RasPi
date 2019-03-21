@@ -4,12 +4,12 @@
     <OutputType>Exe</OutputType>
     <RuntimeFrameworkVersion>2.1.1</RuntimeFrameworkVersion>
     <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
-    <RuntimeIdentifiers>win7-x64;linux-arm</RuntimeIdentifiers>
-    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <RuntimeIdentifiers>linux-arm</RuntimeIdentifiers>
+    <TargetLatestRuntimePatch>false</TargetLatestRuntimePatch>
     
     <AssemblyVersion>1.1.1</AssemblyVersion>
     <FileVersion>1.1.1</FileVersion>
-    <Copyright>Copyright 2013-2019 ICT Baden GmbH</Copyright>
+    <Copyright>Copyright © 2013-2019 ICT Baden GmbH</Copyright>
     <PackageId>RasPiSample Core</PackageId>
     <Description>Demonstrates usage of basic hardware access library for Raspberry Pi</Description>
     <Company>ICT Baden GmbH</Company>
