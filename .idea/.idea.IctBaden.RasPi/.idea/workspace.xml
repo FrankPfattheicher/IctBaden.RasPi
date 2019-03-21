@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="156a83c0-f3a7-42e0-bcc6-7c56ca0dc6a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RasPiSample/RasPiSample.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/RasPiSample/RasPiSample.csproj" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,12 +11,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="25" selection-start-line="3" selection-start-column="40" selection-end-line="4" selection-end-column="25" />
+            <state relative-caret-position="190">
+              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RasPiSample/RasPiSample.csproj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -28,6 +36,7 @@
     <findStrings>
       <find>Manufacturer</find>
       <find>DmaPwmChannel</find>
+      <find>Copyright</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -45,6 +54,7 @@
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledDisplaySSD1306.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Sensor/Gyro.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RasPiSample/obj/Debug/netcoreapp2.1/RasPiSample.AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/Sensor/OneWireTemp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/IctBaden.RasPi/System/HdmiConnectors.cs" root0="FORCE_HIGHLIGHTING" />
@@ -88,6 +98,7 @@
         <option value="$PROJECT_DIR$/ReleaseNotes.md" />
         <option value="$PROJECT_DIR$/IctBaden.RasPi.Net40.Test/ModelInfoTests.cs" />
         <option value="$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj" />
+        <option value="$PROJECT_DIR$/RasPiSample/RasPiSample.csproj" />
       </list>
     </option>
   </component>
@@ -102,6 +113,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="FileSystemExplorer" />
       <pane id="AssemblyExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
@@ -113,14 +125,13 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IctBaden.RasPi.Test" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="RasPiSample" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -186,11 +197,12 @@
       <workItem from="1553093860638" duration="1510000" />
       <workItem from="1553115759052" duration="638000" />
       <workItem from="1553149893232" duration="242000" />
+      <workItem from="1553150402211" duration="158000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14568000" />
+    <option name="totallyTimeSpent" value="14726000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -205,7 +217,7 @@
     <frame x="261" y="78" width="1853" height="1053" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49882904" visible="true" weight="0.19645822" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49882904" visible="true" weight="0.19867183" />
       <window_info id="Structure" order="1" sideWeight="0.50117093" side_tool="true" weight="0.3612869" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -221,7 +233,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info active="true" anchor="bottom" id="Unit Tests" order="11" visible="true" weight="0.32824427" />
+      <window_info anchor="bottom" id="Unit Tests" order="11" visible="true" weight="0.32824427" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="14" weight="0.3293348" />
@@ -619,82 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10200">
           <caret line="533" column="28" selection-start-line="533" selection-start-column="28" selection-end-line="533" selection-end-column="28" />
-          <folding>
-            <marker date="1553115606719" expanded="false" signature="6:160" ph="..." />
-            <marker date="1553115606719" expanded="true" signature="189:27989" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="196:3492" ph="///  ... " />
-            <marker date="1553115606719" expanded="true" signature="3530:27987" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="3635:4409" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="4247:4343" ph="/* ReSharper restore UnusedMember.Global ... */" />
-            <marker date="1553115606719" expanded="true" signature="4476:4565" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="4598:5317" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="5328:5448" ph="/* ReSharper disable UnusedMember.Local ... */" />
-            <marker date="1553115606719" expanded="true" signature="8251:8338" ph="/* ReSharper restore InconsistentNaming ... */" />
-            <marker date="1553115606719" expanded="true" signature="9147:9203" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="9306:11073" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="9354:9506" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="9915:10041" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="11142:11729" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="11234:11357" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="11511:11657" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="11799:13120" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="11855:12031" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="12083:12227" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="12279:12455" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="13175:14056" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="13550:13809" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="13885:14021" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="14110:16817" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="14336:14462" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="14549:14673" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="14818:14948" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="15099:15232" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="15298:16723" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="15668:15967" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="16445:16611" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="16946:17061" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="17155:17355" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="17403:19723" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="17862:18000" ph="/* For each sample we add 2 control blocks: ... */" />
-            <marker date="1553115606719" expanded="true" signature="18070:18934" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="19857:20094" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="20218:20402" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="20486:20699" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="20804:21146" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="20868:21111" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="20995:21097" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="21204:21253" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="21263:21863" ph="/* Update the channel with another pulse within one full cycle. Its possible to ... */" />
-            <marker date="1553115606719" expanded="true" signature="21943:22303" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="22091:22146" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="22175:22232" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="22392:24431" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="22595:22765" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="22797:22979" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="23006:23173" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="23240:23448" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="23503:23563" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="24010:24161" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="24229:24360" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="24441:24579" ph="/* Clears all pulses for a specific gpio on this channel. Also sets the GPIO to Low. ... */" />
-            <marker date="1553115606719" expanded="true" signature="24640:25657" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="24869:25037" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="25091:25238" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="25352:25464" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="25478:25587" ph="/* Let DMA do one cycle before setting GPIO to low. ... */" />
-            <marker date="1553115606719" expanded="true" signature="25667:25782" ph="/* Shutdown -- its important to reset the DMA before quitting ... */" />
-            <marker date="1553115606719" expanded="true" signature="25813:25952" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="25877:25942" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="26000:26117" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="26179:26245" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="26301:26756" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="26355:26746" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="26766:26899" ph="/* Reset this channel to original state (all samples=0, all cbs=clr0) ... */" />
-            <marker date="1553115606719" expanded="true" signature="26953:27979" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="27208:27378" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="27508:27601" ph="{...}" />
-            <marker date="1553115606719" expanded="true" signature="27888:27943" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -874,8 +810,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Test/IctBaden.RasPi.Test/IctBaden.RasPi.Test.csproj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="25" selection-start-line="3" selection-start-column="40" selection-end-line="4" selection-end-column="25" />
+        <state relative-caret-position="190">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RasPiSample/RasPiSample.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
         </state>
       </provider>
     </entry>
