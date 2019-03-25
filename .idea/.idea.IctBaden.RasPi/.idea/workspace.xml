@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="156a83c0-f3a7-42e0-bcc6-7c56ca0dc6a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.Display/OledDisplaySSD1306.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.Display/OledDisplaySSD1306.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IctBaden.RasPi.Display/OledProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IctBaden.RasPi.Display/OledProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReleaseNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReleaseNotes.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,10 +33,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledDisplaySSD1306.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="342">
               <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
-                <marker date="1553525971188" expanded="false" signature="6:40" ph="..." />
                 <marker date="1553525971188" expanded="true" signature="42:227" ph="/* ReSharper disable InconsistentNaming ... */" />
                 <marker date="1553525971188" expanded="true" signature="261:18638" ph="{...}" />
                 <marker date="1553525971188" expanded="true" signature="317:466" ph="/// This is a port of ThingPulse ESP8266 OLED SSD1306 ... " />
@@ -114,11 +110,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledProfile.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
+            <state relative-caret-position="893">
               <caret line="47" selection-start-line="47" selection-end-line="48" />
               <folding>
                 <marker date="1553526645190" expanded="true" signature="0:182" ph="/* ReSharper disable UnusedMember.Global ... */" />
-                <marker date="1553526645190" expanded="true" signature="215:1704" ph="{...}" />
                 <marker date="1553526645190" expanded="true" signature="246:1702" ph="{...}" />
                 <marker date="1553526645190" expanded="true" signature="261:383" ph="///  ... " />
                 <marker date="1553526645190" expanded="true" signature="456:544" ph="///  ... " />
@@ -139,7 +134,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="209">
-                <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+                <caret line="11" selection-start-line="11" selection-end-line="11" />
               </first_editor>
               <second_editor />
             </state>
@@ -229,7 +224,6 @@
     </navigator>
     <panes>
       <pane id="FileSystemExplorer" />
-      <pane id="AssemblyExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -237,21 +231,12 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
             </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Solution Items" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IctBaden.RasPi.Display" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
+      <pane id="AssemblyExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -322,11 +307,12 @@
       <workItem from="1553151999166" duration="34000" />
       <workItem from="1553262870512" duration="13000" />
       <workItem from="1553525800590" duration="998000" />
+      <workItem from="1553526890133" duration="6000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16452000" />
+    <option name="totallyTimeSpent" value="16458000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -339,9 +325,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="395" y="353" width="1853" height="1053" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49882904" visible="true" weight="0.20752628" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49882904" visible="true" weight="0.2097399" />
       <window_info id="Structure" order="1" sideWeight="0.50117093" side_tool="true" weight="0.3612869" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -845,10 +830,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledDisplaySSD1306.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="342">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
-            <marker date="1553525971188" expanded="false" signature="6:40" ph="..." />
             <marker date="1553525971188" expanded="true" signature="42:227" ph="/* ReSharper disable InconsistentNaming ... */" />
             <marker date="1553525971188" expanded="true" signature="261:18638" ph="{...}" />
             <marker date="1553525971188" expanded="true" signature="317:466" ph="/// This is a port of ThingPulse ESP8266 OLED SSD1306 ... " />
@@ -921,11 +905,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledProfile.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
+        <state relative-caret-position="893">
           <caret line="47" selection-start-line="47" selection-end-line="48" />
           <folding>
             <marker date="1553526645190" expanded="true" signature="0:182" ph="/* ReSharper disable UnusedMember.Global ... */" />
-            <marker date="1553526645190" expanded="true" signature="215:1704" ph="{...}" />
             <marker date="1553526645190" expanded="true" signature="246:1702" ph="{...}" />
             <marker date="1553526645190" expanded="true" signature="261:383" ph="///  ... " />
             <marker date="1553526645190" expanded="true" signature="456:544" ph="///  ... " />
@@ -944,7 +927,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="209">
-            <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <caret line="11" selection-start-line="11" selection-end-line="11" />
           </first_editor>
           <second_editor />
         </state>

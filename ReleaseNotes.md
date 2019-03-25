@@ -1,4 +1,5 @@
 
+* 3.0.2 - Fixed I2C addresses of AZDeliveryOLED128x64.
 * 3.0.1 - OLED profile for AZDeliveryOLED128x64 added. Addresses moved to profile.
 * 3.0.0 - Added OLED support. Net40 version with code links to netstandard files.
 * 2.1.0 - Moved Display namespace to separate library. Added some OLED support.

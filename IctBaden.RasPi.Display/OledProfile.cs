@@ -10,7 +10,7 @@ namespace IctBaden.RasPi.Display
         /// List of possible I2C addresses.
         /// First is the default address.
         /// </summary>
-        public byte[] I2CAddress { get; private set; }
+        public byte[] Address { get; private set; }
         
         /// <summary>
         /// Internal driver specific offset to use.
@@ -34,9 +34,9 @@ namespace IctBaden.RasPi.Display
         
         public static OledProfile WemosShield64x48 = new OledProfile
         {
-            I2CAddress = new byte[]
+            Address = new byte[]
             {
-                0x3C, // 011110+SA0+RW - 0x3C or 0x3D
+                0x3C,     // 011110+SA0+RW - 0x3C or 0x3D
                 0x3D   
             },
             Offset = 32,
@@ -47,10 +47,10 @@ namespace IctBaden.RasPi.Display
         
         public static OledProfile AZDeliveryOLED128x64 = new OledProfile
         {
-            I2CAddress = new byte[]
+            Address = new byte[]
             {
-                0x78,
-                0x7A   
+                0x3C,    // marked as 78 and 7A on PCB
+                0x3D   
             },
             Offset = 0,
             Width = 128,
