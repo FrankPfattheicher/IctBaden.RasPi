@@ -1,17 +1,62 @@
 // ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable InconsistentNaming
 namespace IctBaden.RasPi.Display
 {
     public class OledProfile
     {
-        public int Offset { get; private set; }
-        public int Width { get; private set; }
-        public int Height { get; private set; }
+        /// <summary>
+        /// List of possible I2C addresses.
+        /// First is the default address.
+        /// </summary>
+        public byte[] I2CAddress { get; private set; }
         
-        public static OledProfile WemosShield64X48 = new OledProfile
+        /// <summary>
+        /// Internal driver specific offset to use.
+        /// </summary>
+        public int Offset { get; private set; }
+        
+        /// <summary>
+        /// Width of display in pixels.
+        /// </summary>
+        public int Width { get; private set; }
+        /// <summary>
+        /// Height of display in pixels.
+        /// </summary>
+        public int Height { get; private set; }
+
+        /// <summary>
+        /// Size of the display described by the length of its diagonal, in inches.
+        /// </summary>
+        public float Size;
+        
+        
+        public static OledProfile WemosShield64x48 = new OledProfile
         {
+            I2CAddress = new byte[]
+            {
+                0x3C, // 011110+SA0+RW - 0x3C or 0x3D
+                0x3D   
+            },
             Offset = 32,
             Width = 64,
-            Height = 48
+            Height = 48,
+            Size = 0.66f
         };
+        
+        public static OledProfile AZDeliveryOLED128x64 = new OledProfile
+        {
+            I2CAddress = new byte[]
+            {
+                0x78,
+                0x7A   
+            },
+            Offset = 0,
+            Width = 128,
+            Height = 64,
+            Size = 0.96f
+        };
+        
     }
 }

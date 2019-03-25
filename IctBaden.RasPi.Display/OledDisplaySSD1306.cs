@@ -17,12 +17,6 @@ namespace IctBaden.RasPi.Display
     /// </summary>
     public class OledDisplaySSD1306
     {
-        // ReSharper disable UnusedMember.Global
-        public const byte I2CAddress = 0x3C; // 011110+SA0+RW - 0x3C or 0x3D
-
-        public const byte I2CAddress2 = 0x3D;
-        // ReSharper restore UnusedMember.Global
-
         // SSD1306 commands
         // ReSharper disable InconsistentNaming
         // ReSharper disable UnusedMember.Local
