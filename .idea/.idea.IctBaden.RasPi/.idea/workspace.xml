@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="156a83c0-f3a7-42e0-bcc6-7c56ca0dc6a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IctBaden.RasPi/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="156a83c0-f3a7-42e0-bcc6-7c56ca0dc6a9" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,99 +29,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledDisplaySSD1306.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-              <folding>
-                <marker date="1553525971188" expanded="true" signature="42:227" ph="/* ReSharper disable InconsistentNaming ... */" />
-                <marker date="1553525971188" expanded="true" signature="261:18638" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="317:466" ph="/// This is a port of ThingPulse ESP8266 OLED SSD1306 ... " />
-                <marker date="1553525971188" expanded="true" signature="502:18636" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="517:676" ph="/* SSD1306 commands ... */" />
-                <marker date="1553525971188" expanded="true" signature="2385:2516" ph="/* ReSharper restore IdentifierTypo ... */" />
-                <marker date="1553525971188" expanded="true" signature="2527:2598" ph="/// Display width in pixel ... " />
-                <marker date="1553525971188" expanded="true" signature="2656:2728" ph="/// Display height in pixel ... " />
-                <marker date="1553525971188" expanded="true" signature="3035:3261" ph="/// Creates a display interface ... " />
-                <marker date="1553525971188" expanded="true" signature="3328:3686" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="3696:3770" ph="/// Clears the entire display ... " />
-                <marker date="1553525971188" expanded="true" signature="3798:3965" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="3864:3925" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="3975:4118" ph="/// Sets contrast of display pixels ... " />
-                <marker date="1553525971188" expanded="true" signature="4164:4308" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="4318:4520" ph="/// Set one display pixel with the given color. ... " />
-                <marker date="1553525971188" expanded="true" signature="4563:5153" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="4671:5143" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="5209:5296" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="5306:5448" ph="/// Set the color fot the next pixel and line operations ... " />
-                <marker date="1553525971188" expanded="true" signature="5494:5542" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="5552:5680" ph="/// Select the font for DrawText operations ... " />
-                <marker date="1553525971188" expanded="true" signature="5721:5767" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="5777:6257" ph="/// Draw line with given color. ... " />
-                <marker date="1553525971188" expanded="true" signature="6318:7221" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="6414:6518" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="6544:6648" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="6830:7211" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="6871:6945" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="6966:7040" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="7097:7197" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="7288:7631" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="7698:7920" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="7833:7910" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="7967:8196" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="8206:8300" ph="/// Updates physical display from drawing buffer. ... " />
-                <marker date="1553525971188" expanded="true" signature="8336:8688" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="8698:8776" ph="/// Initializes display hardware. ... " />
-                <marker date="1553525971188" expanded="true" signature="8809:9832" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="9868:9939" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="9987:10065" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="10127:10214" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="10339:14147" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="10860:14137" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="10987:11105" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="11555:14123" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="11611:13103" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="11673:12252" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="12320:13081" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="12390:13055" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="13128:14105" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="13287:13866" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="14157:14511" ph="/// Draw a text on the display using current selected font. ... " />
-                <marker date="1553525971188" expanded="true" signature="14575:15048" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="14804:15038" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="15058:15263" ph="/// Returns the width of the given text using current font. ... " />
-                <marker date="1553525971188" expanded="true" signature="15311:16047" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="15519:15984" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="15833:15970" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="16057:16220" ph="/// Gets the height of a text line using the current font. ... " />
-                <marker date="1553525971188" expanded="true" signature="16256:16324" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="16431:18621" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="16782:16834" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="16890:16942" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="16992:18611" ph="{...}" />
-                <marker date="1553525971188" expanded="true" signature="18126:18554" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledProfile.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="893">
-              <caret line="47" selection-start-line="47" selection-end-line="48" />
+            <state relative-caret-position="377">
+              <caret line="45" column="10" lean-forward="true" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
               <folding>
-                <marker date="1553526645190" expanded="true" signature="0:182" ph="/* ReSharper disable UnusedMember.Global ... */" />
-                <marker date="1553526645190" expanded="true" signature="246:1702" ph="{...}" />
-                <marker date="1553526645190" expanded="true" signature="261:383" ph="///  ... " />
-                <marker date="1553526645190" expanded="true" signature="456:544" ph="///  ... " />
-                <marker date="1553526645190" expanded="true" signature="610:686" ph="///  ... " />
-                <marker date="1553526645190" expanded="true" signature="742:819" ph="/// / ... " />
-                <marker date="1553526645190" expanded="true" signature="877:997" ph="///  ... " />
-                <marker date="1553526645190" expanded="true" signature="1120:1373" ph="{...}" />
-                <marker date="1553526645190" expanded="true" signature="1170:1263" ph="{...}" />
-                <marker date="1553526645190" expanded="true" signature="1465:1686" ph="{...}" />
-                <marker date="1553526645190" expanded="true" signature="1515:1576" ph="{...}" />
+                <marker date="1553528230932" expanded="true" signature="0:182" ph="/* ReSharper disable UnusedMember.Global ... */" />
+                <marker date="1553528230932" expanded="true" signature="215:1732" ph="{...}" />
+                <marker date="1553528230932" expanded="true" signature="246:1730" ph="{...}" />
+                <marker date="1553528230932" expanded="true" signature="261:383" ph="/// List of possible I2C addresses. ... " />
+                <marker date="1553528230932" expanded="true" signature="453:541" ph="/// Internal driver specific offset to use. ... " />
+                <marker date="1553528230932" expanded="true" signature="607:683" ph="/// Width of display in pixels. ... " />
+                <marker date="1553528230932" expanded="true" signature="739:816" ph="/// Height of display in pixels. ... " />
+                <marker date="1553528230932" expanded="true" signature="874:994" ph="/// Size of the display described by the length of its diagonal, in inches. ... " />
+                <marker date="1553528230932" expanded="true" signature="1117:1371" ph="{...}" />
+                <marker date="1553528230932" expanded="true" signature="1164:1261" ph="{...}" />
+                <marker date="1553528230932" expanded="true" signature="1463:1714" ph="{...}" />
+                <marker date="1553528230932" expanded="true" signature="1510:1604" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -133,8 +55,8 @@
         <entry file="file://$PROJECT_DIR$/ReleaseNotes.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="209">
-                <caret line="11" selection-start-line="11" selection-end-line="11" />
+              <first_editor relative-caret-position="228">
+                <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               </first_editor>
               <second_editor />
             </state>
@@ -223,6 +145,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AssemblyExplorer" />
       <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
@@ -231,12 +154,16 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
             </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Solution Items" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="AssemblyExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,11 +235,12 @@
       <workItem from="1553262870512" duration="13000" />
       <workItem from="1553525800590" duration="998000" />
       <workItem from="1553526890133" duration="6000" />
+      <workItem from="1553528113639" duration="231000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16458000" />
+    <option name="totallyTimeSpent" value="16689000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -326,7 +254,7 @@
   <component name="ToolWindowManager">
     <frame x="395" y="353" width="1853" height="1053" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49882904" visible="true" weight="0.2097399" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49882904" visible="true" weight="0.21195352" />
       <window_info id="Structure" order="1" sideWeight="0.50117093" side_tool="true" weight="0.3612869" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -342,7 +270,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info active="true" anchor="bottom" id="Unit Tests" order="11" visible="true" weight="0.32824427" />
+      <window_info active="true" anchor="bottom" id="Unit Tests" order="11" visible="true" weight="0.32715377" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="14" weight="0.3293348" />
@@ -821,13 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RasPiSample/RasPiSample.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledDisplaySSD1306.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -903,22 +824,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/RasPiSample/RasPiSample.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.Display/OledProfile.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="893">
-          <caret line="47" selection-start-line="47" selection-end-line="48" />
+        <state relative-caret-position="377">
+          <caret line="45" column="10" lean-forward="true" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
           <folding>
-            <marker date="1553526645190" expanded="true" signature="0:182" ph="/* ReSharper disable UnusedMember.Global ... */" />
-            <marker date="1553526645190" expanded="true" signature="246:1702" ph="{...}" />
-            <marker date="1553526645190" expanded="true" signature="261:383" ph="///  ... " />
-            <marker date="1553526645190" expanded="true" signature="456:544" ph="///  ... " />
-            <marker date="1553526645190" expanded="true" signature="610:686" ph="///  ... " />
-            <marker date="1553526645190" expanded="true" signature="742:819" ph="/// / ... " />
-            <marker date="1553526645190" expanded="true" signature="877:997" ph="///  ... " />
-            <marker date="1553526645190" expanded="true" signature="1120:1373" ph="{...}" />
-            <marker date="1553526645190" expanded="true" signature="1170:1263" ph="{...}" />
-            <marker date="1553526645190" expanded="true" signature="1465:1686" ph="{...}" />
-            <marker date="1553526645190" expanded="true" signature="1515:1576" ph="{...}" />
+            <marker date="1553528230932" expanded="true" signature="0:182" ph="/* ReSharper disable UnusedMember.Global ... */" />
+            <marker date="1553528230932" expanded="true" signature="215:1732" ph="{...}" />
+            <marker date="1553528230932" expanded="true" signature="246:1730" ph="{...}" />
+            <marker date="1553528230932" expanded="true" signature="261:383" ph="/// List of possible I2C addresses. ... " />
+            <marker date="1553528230932" expanded="true" signature="453:541" ph="/// Internal driver specific offset to use. ... " />
+            <marker date="1553528230932" expanded="true" signature="607:683" ph="/// Width of display in pixels. ... " />
+            <marker date="1553528230932" expanded="true" signature="739:816" ph="/// Height of display in pixels. ... " />
+            <marker date="1553528230932" expanded="true" signature="874:994" ph="/// Size of the display described by the length of its diagonal, in inches. ... " />
+            <marker date="1553528230932" expanded="true" signature="1117:1371" ph="{...}" />
+            <marker date="1553528230932" expanded="true" signature="1164:1261" ph="{...}" />
+            <marker date="1553528230932" expanded="true" signature="1463:1714" ph="{...}" />
+            <marker date="1553528230932" expanded="true" signature="1510:1604" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -926,8 +855,8 @@
     <entry file="file://$PROJECT_DIR$/ReleaseNotes.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="209">
-            <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <first_editor relative-caret-position="228">
+            <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           </first_editor>
           <second_editor />
         </state>
