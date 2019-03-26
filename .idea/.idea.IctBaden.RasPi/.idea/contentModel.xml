@@ -107,6 +107,7 @@
       </e>
       <e p="IctBaden.RasPi.nuspec" t="Include" />
       <e p="IctBaden.RasPi.sln" t="IncludeFlat" />
+      <e p="OledDisplay.md" t="Include" />
       <e p="README.md" t="Include" />
       <e p="RasPiSample" t="IncludeRecursive">
         <e p="Program.cs" t="Include" />

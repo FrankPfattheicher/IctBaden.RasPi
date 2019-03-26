@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 		ReleaseNotes.md = ReleaseNotes.md
 		SetPacketVersion.ps1 = SetPacketVersion.ps1
+		OledDisplay.md = OledDisplay.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IctBaden.RasPi.Test", "IctBaden.RasPi.Test\IctBaden.RasPi.Test\IctBaden.RasPi.Test.csproj", "{C7A033F5-3D74-4A38-BBAF-5E894C0B1EFC}"
