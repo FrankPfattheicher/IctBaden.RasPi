@@ -8,7 +8,7 @@ using System.Reflection;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ICT Baden GmbH")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Copyright ©2013-2018 ICT Baden GmbH")]
+[assembly: AssemblyCopyright("Copyright ©2013-2019 ICT Baden GmbH")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

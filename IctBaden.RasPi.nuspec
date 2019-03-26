@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Basic hardware access library for Raspberry Pi .NET Core, Full Framework and Mono programs</description>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright ICT Baden GmbH 2013-2018</copyright>
+    <copyright>Copyright ©2013-2019 ICT Baden GmbH</copyright>
     <tags>.NET Core Raspberry Pi GPIO</tags>
     <!-- <dependencies> -->
       <!-- <group targetFramework="net40"> -->
@@ -20,12 +20,12 @@
       <!-- <group targetFramework=".NETStandard2.0"> -->
       <!-- </group> -->
     <!-- </dependencies> -->
-    <!-- <references> -->
-      <!-- <group targetFramework="net40"> -->
-      <!-- </group> -->
-      <!-- <group targetFramework=".NETStandard2.0"> -->
-      <!-- </group> -->
-    <!-- </references> -->
+    <references>
+      <group>
+        <reference file="IctBaden.RasPi.dll" />
+        <reference file="IctBaden.RasPi.Display.dll" />
+      </group>
+    </references>
   </metadata>
   <files>
     <file src="icon64.png" target="icon64.png" />
