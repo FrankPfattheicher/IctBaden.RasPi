@@ -54,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+            <state relative-caret-position="171">
+              <caret line="90" selection-start-line="90" selection-end-line="90" />
               <folding>
                 <marker date="1549201067754" expanded="true" signature="60:4815" ph="{...}" />
                 <marker date="1549201067754" expanded="true" signature="67:368" ph="/// Class for I2C communication. ... " />
@@ -81,6 +81,44 @@
                 <marker date="1549201067754" expanded="true" signature="3543:3668" ph="///  ... " />
                 <marker date="1549201067754" expanded="true" signature="3716:4807" ph="{...}" />
                 <marker date="1549201067754" expanded="true" signature="3739:4635" ph="/* var mem = Marshal.AllocCoTaskMem(2); ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="93" column="75" lean-forward="true" selection-start-line="93" selection-start-column="50" selection-end-line="93" selection-end-column="75" />
+              <folding>
+                <marker date="1553182800748" expanded="false" signature="6:82" ph="..." />
+                <marker date="1553182800748" expanded="true" signature="83:224" ph="/* ReSharper disable UnusedMember.Global ... */" />
+                <marker date="1553182800748" expanded="true" signature="257:7857" ph="{...}" />
+                <marker date="1553182800748" expanded="true" signature="264:473" ph="/// Model information about the current device. ... " />
+                <marker date="1553182800748" expanded="true" signature="507:7855" ph="{...}" />
+                <marker date="1553182800748" expanded="true" signature="522:599" ph="/// Serial number of this board. ... " />
+                <marker date="1553182800748" expanded="true" signature="666:748" ph="/// Generic model number 1, 2, 3, ... ... " />
+                <marker date="1553182800748" expanded="true" signature="811:951" ph="/// see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md ... " />
+                <marker date="1553182800748" expanded="true" signature="1020:1088" ph="/// Board manufacturer. ... " />
+                <marker date="1553182800748" expanded="true" signature="1161:1746" ph="/// Old-style revision codes ... " />
+                <marker date="1553182800748" expanded="true" signature="1816:1896" ph="/// Public known name of the model. ... " />
+                <marker date="1553182800748" expanded="true" signature="1961:2025" ph="/// RAM size in MB. ... " />
+                <marker date="1553182800748" expanded="true" signature="2092:2198" ph="/// Device supports hardware floating point support (arm-hf). ... " />
+                <marker date="1553182800748" expanded="true" signature="2266:2382" ph="/// Physical addresses range starting from thi address for peripherals. ... " />
+                <marker date="1553182800748" expanded="true" signature="2462:2570" ph="/// Base address of the Broadcom VideoCore IV Architecture GPU. ... " />
+                <marker date="1553182800748" expanded="true" signature="2650:2720" ph="/// Device has P5 header. ... " />
+                <marker date="1553182800748" expanded="true" signature="2790:2860" ph="/// Device has J8 header. ... " />
+                <marker date="1553182800748" expanded="true" signature="2930:3070" ph="/// Number of pins on P1 header (26, 40). ... " />
+                <marker date="1553182800748" expanded="true" signature="3144:3223" ph="/// Device has 3.5mm audio output. ... " />
+                <marker date="1553182800748" expanded="true" signature="3290:3339" ph="///  ... " />
+                <marker date="1553182800748" expanded="true" signature="3441:3733" ph="{...}" />
+                <marker date="1553182800748" expanded="true" signature="3617:3723" ph="{...}" />
+                <marker date="1553182800748" expanded="true" signature="3801:7839" ph="{...}" />
+                <marker date="1553182800748" expanded="true" signature="3820:3945" ph="/* Hardware    : BCM2835 ... */" />
+                <marker date="1553182800748" expanded="true" signature="4533:7348" ph="{...}" />
+                <marker date="1553182800748" expanded="true" signature="7381:7759" ph="{...}" />
+                <marker date="1553182800748" expanded="true" signature="7673:7745" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -220,8 +258,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="664" />
-    <option name="y" value="226" />
+    <option name="x" value="486" />
+    <option name="y" value="303" />
     <option name="width" value="1853" />
     <option name="height" value="1192" />
   </component>
@@ -231,6 +269,7 @@
     </navigator>
     <panes>
       <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -247,20 +286,24 @@
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Comm" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="System" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="IctBaden.RasPi.Net40" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="IctBaden.RasPi" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="IO" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="IctBaden.RasPi.Net40" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Comm" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -269,6 +312,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/IctBaden.RasPi/System/RevisionCode.cs" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -339,11 +385,12 @@
       <workItem from="1553612606994" duration="213000" />
       <workItem from="1554109506786" duration="23000" />
       <workItem from="1558278050795" duration="916000" />
+      <workItem from="1559743959957" duration="1305000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19529000" />
+    <option name="totallyTimeSpent" value="20834000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -355,15 +402,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="664" y="226" width="1853" height="1192" extended-state="0" />
+    <frame x="486" y="303" width="1853" height="1192" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4973545" visible="true" weight="0.2241284" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.5026455" side_tool="true" visible="true" weight="0.2241284" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49603173" visible="true" weight="0.2268954" />
+      <window_info id="Structure" order="1" sideWeight="0.50396824" side_tool="true" visible="true" weight="0.2268954" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Performance Profiler" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -375,11 +421,11 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Unit Tests" order="11" sideWeight="0.4975097" visible="true" weight="0.2840909" />
+      <window_info anchor="bottom" id="Unit Tests" order="11" sideWeight="0.4969563" visible="true" weight="0.2840909" />
       <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50249034" side_tool="true" visible="true" weight="0.2840909" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5030437" side_tool="true" visible="true" weight="0.2840909" />
       <window_info anchor="bottom" id="Build" order="14" sideWeight="0.4997233" weight="0.3285985" />
-      <window_info anchor="right" id="Unit Tests Coverage" />
+      <window_info anchor="bottom" id="Performance Profiler" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -387,6 +433,7 @@
       <window_info anchor="right" id="Errors In Solution" order="4" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="PlantUML" order="6" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="7" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25389475" />
@@ -678,41 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3940">
-          <caret line="218" selection-start-line="218" selection-end-line="218" />
-          <folding>
-            <marker date="1549229327846" expanded="false" signature="6:121" ph="..." />
-            <marker date="1549229327846" expanded="true" signature="122:263" ph="/* ReSharper disable UnusedMember.Global ... */" />
-            <marker date="1549229327846" expanded="true" signature="296:7794" ph="{...}" />
-            <marker date="1549229327846" expanded="true" signature="303:512" ph="/// Model information about the current device. ... " />
-            <marker date="1549229327846" expanded="true" signature="546:7792" ph="{...}" />
-            <marker date="1549229327846" expanded="true" signature="561:638" ph="/// Serial number of this board. ... " />
-            <marker date="1549229327846" expanded="true" signature="705:787" ph="/// Generic model number 1, 2, 3, ... ... " />
-            <marker date="1549229327846" expanded="true" signature="850:990" ph="/// see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md ... " />
-            <marker date="1549229327846" expanded="true" signature="1059:1127" ph="/// Board manufacturer. ... " />
-            <marker date="1549229327846" expanded="true" signature="1200:1785" ph="/// Old-style revision codes ... " />
-            <marker date="1549229327846" expanded="true" signature="1855:1935" ph="/// Public known name of the model. ... " />
-            <marker date="1549229327846" expanded="true" signature="2000:2064" ph="/// RAM size in MB. ... " />
-            <marker date="1549229327846" expanded="true" signature="2131:2237" ph="/// Device supports hardware floating point support (arm-hf). ... " />
-            <marker date="1549229327846" expanded="true" signature="2305:2421" ph="/// Physical addresses range starting from thi address for peripherals. ... " />
-            <marker date="1549229327846" expanded="true" signature="2501:2609" ph="/// Base address of the Broadcom VideoCore IV Architecture GPU. ... " />
-            <marker date="1549229327846" expanded="true" signature="2689:2759" ph="/// Device has P5 header. ... " />
-            <marker date="1549229327846" expanded="true" signature="2829:2899" ph="/// Device has J8 header. ... " />
-            <marker date="1549229327846" expanded="true" signature="2969:3109" ph="/// Number of pins on P1 header (26, 40). ... " />
-            <marker date="1549229327846" expanded="true" signature="3183:3262" ph="/// Device has 3.5mm audio output. ... " />
-            <marker date="1549229327846" expanded="true" signature="3329:3378" ph="///  ... " />
-            <marker date="1549229327846" expanded="true" signature="3480:3670" ph="{...}" />
-            <marker date="1549229327846" expanded="true" signature="3738:7776" ph="{...}" />
-            <marker date="1549229327846" expanded="true" signature="3757:3882" ph="/* Hardware    : BCM2835 ... */" />
-            <marker date="1549229327846" expanded="true" signature="4470:7285" ph="{...}" />
-            <marker date="1549229327846" expanded="true" signature="7318:7696" ph="{...}" />
-            <marker date="1549229327846" expanded="true" signature="7610:7682" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/RaspiSoCs.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -910,6 +922,7 @@
           <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
           <folding>
             <marker date="1553528230932" expanded="true" signature="0:182" ph="/* ReSharper disable UnusedMember.Global ... */" />
+            <marker date="1553528230932" expanded="true" signature="215:1732" ph="{...}" />
             <marker date="1553528230932" expanded="true" signature="246:1730" ph="{...}" />
             <marker date="1553528230932" expanded="true" signature="261:383" ph="/// List of possible I2C addresses. ... " />
             <marker date="1553528230932" expanded="true" signature="453:541" ph="/// Internal driver specific offset to use. ... " />
@@ -921,34 +934,6 @@
             <marker date="1553528230932" expanded="true" signature="1463:1714" ph="{...}" />
             <marker date="1553528230932" expanded="true" signature="1510:1604" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.nuspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="15" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OledDisplay.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="475">
-            <caret line="25" selection-start-line="25" selection-end-line="25" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="380">
-            <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -983,10 +968,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi.nuspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="15" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OledDisplay.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="475">
+            <caret line="25" selection-start-line="25" selection-end-line="25" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="380">
+            <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/Comm/I2C.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+        <state relative-caret-position="171">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
           <folding>
             <marker date="1549201067754" expanded="true" signature="60:4815" ph="{...}" />
             <marker date="1549201067754" expanded="true" signature="67:368" ph="/// Class for I2C communication. ... " />
@@ -1009,6 +1022,42 @@
             <marker date="1549201067754" expanded="true" signature="3543:3668" ph="///  ... " />
             <marker date="1549201067754" expanded="true" signature="3716:4807" ph="{...}" />
             <marker date="1549201067754" expanded="true" signature="3739:4635" ph="/* var mem = Marshal.AllocCoTaskMem(2); ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IctBaden.RasPi/System/ModelInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="93" column="75" lean-forward="true" selection-start-line="93" selection-start-column="50" selection-end-line="93" selection-end-column="75" />
+          <folding>
+            <marker date="1553182800748" expanded="false" signature="6:82" ph="..." />
+            <marker date="1553182800748" expanded="true" signature="83:224" ph="/* ReSharper disable UnusedMember.Global ... */" />
+            <marker date="1553182800748" expanded="true" signature="257:7857" ph="{...}" />
+            <marker date="1553182800748" expanded="true" signature="264:473" ph="/// Model information about the current device. ... " />
+            <marker date="1553182800748" expanded="true" signature="507:7855" ph="{...}" />
+            <marker date="1553182800748" expanded="true" signature="522:599" ph="/// Serial number of this board. ... " />
+            <marker date="1553182800748" expanded="true" signature="666:748" ph="/// Generic model number 1, 2, 3, ... ... " />
+            <marker date="1553182800748" expanded="true" signature="811:951" ph="/// see https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md ... " />
+            <marker date="1553182800748" expanded="true" signature="1020:1088" ph="/// Board manufacturer. ... " />
+            <marker date="1553182800748" expanded="true" signature="1161:1746" ph="/// Old-style revision codes ... " />
+            <marker date="1553182800748" expanded="true" signature="1816:1896" ph="/// Public known name of the model. ... " />
+            <marker date="1553182800748" expanded="true" signature="1961:2025" ph="/// RAM size in MB. ... " />
+            <marker date="1553182800748" expanded="true" signature="2092:2198" ph="/// Device supports hardware floating point support (arm-hf). ... " />
+            <marker date="1553182800748" expanded="true" signature="2266:2382" ph="/// Physical addresses range starting from thi address for peripherals. ... " />
+            <marker date="1553182800748" expanded="true" signature="2462:2570" ph="/// Base address of the Broadcom VideoCore IV Architecture GPU. ... " />
+            <marker date="1553182800748" expanded="true" signature="2650:2720" ph="/// Device has P5 header. ... " />
+            <marker date="1553182800748" expanded="true" signature="2790:2860" ph="/// Device has J8 header. ... " />
+            <marker date="1553182800748" expanded="true" signature="2930:3070" ph="/// Number of pins on P1 header (26, 40). ... " />
+            <marker date="1553182800748" expanded="true" signature="3144:3223" ph="/// Device has 3.5mm audio output. ... " />
+            <marker date="1553182800748" expanded="true" signature="3290:3339" ph="///  ... " />
+            <marker date="1553182800748" expanded="true" signature="3441:3733" ph="{...}" />
+            <marker date="1553182800748" expanded="true" signature="3617:3723" ph="{...}" />
+            <marker date="1553182800748" expanded="true" signature="3801:7839" ph="{...}" />
+            <marker date="1553182800748" expanded="true" signature="3820:3945" ph="/* Hardware    : BCM2835 ... */" />
+            <marker date="1553182800748" expanded="true" signature="4533:7348" ph="{...}" />
+            <marker date="1553182800748" expanded="true" signature="7381:7759" ph="{...}" />
+            <marker date="1553182800748" expanded="true" signature="7673:7745" ph="{...}" />
           </folding>
         </state>
       </provider>
