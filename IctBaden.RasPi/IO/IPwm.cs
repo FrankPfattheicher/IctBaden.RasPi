@@ -1,4 +1,5 @@
 ﻿// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedMemberInSuper.Global
 namespace IctBaden.RasPi.IO
 {
     public interface IPwm

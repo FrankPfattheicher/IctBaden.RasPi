@@ -4,6 +4,11 @@ using System.Runtime.InteropServices;
 using System.Threading;
 // ReSharper disable UnusedMember.Global
 // ReSharper disable InconsistentNaming
+// ReSharper disable UnusedType.Global
+// ReSharper disable IdentifierTypo
+// ReSharper disable NotAccessedField.Global
+// ReSharper disable MemberCanBePrivate.Global
+#pragma warning disable 414
 
 namespace IctBaden.RasPi.IO
 {

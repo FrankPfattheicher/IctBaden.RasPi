@@ -1,4 +1,5 @@
 ﻿using IctBaden.RasPi.Interop;
+// ReSharper disable MemberCanBeProtected.Global
 
 namespace IctBaden.RasPi.IO
 {

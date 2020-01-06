@@ -1,6 +1,9 @@
+
 *.suo
 bin
 obj
 *.userprefs
 .vs
 .idea
+.DotSettings
+
