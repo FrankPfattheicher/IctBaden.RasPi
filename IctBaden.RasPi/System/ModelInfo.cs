@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Local
 // ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Global
 
 namespace IctBaden.RasPi.System
 {

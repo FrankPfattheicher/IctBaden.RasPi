@@ -1,5 +1,6 @@
 using IctBaden.RasPi.System;
 using Xunit;
+// ReSharper disable InconsistentNaming
 
 namespace IctBaden.RasPi.Test
 {

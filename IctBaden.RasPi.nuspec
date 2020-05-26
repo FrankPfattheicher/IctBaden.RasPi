@@ -5,18 +5,16 @@
     <version>0.0.0.0</version>
     <authors>Frank Pfattheicher</authors>
     <owners>Frank Pfattheicher</owners>
-    <summary>Basic hardware access library for Raspberry Pi .NET Core, Full Framework and Mono programs</summary>
+    <summary>Basic hardware access library for Raspberry Pi .NET Core</summary>
     <licenseUrl>https://github.com/FrankPfattheicher/IctBaden_RasPi</licenseUrl>
     <projectUrl>https://github.com/FrankPfattheicher/IctBaden_RasPi</projectUrl>
     <iconUrl>https://image.ibb.co/eR0yHf/icon64.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Basic hardware access library for Raspberry Pi .NET Core, Full Framework and Mono programs</description>
-    <releaseNotes></releaseNotes>
-    <copyright>Copyright ©2013-2019 ICT Baden GmbH</copyright>
+    <releaseNotes>.NET Core 3.1</releaseNotes>
+    <copyright>Copyright ©2013-2020 ICT Baden GmbH</copyright>
     <tags>.NET Core Raspberry Pi GPIO</tags>
     <!-- <dependencies> -->
-      <!-- <group targetFramework="net40"> -->
-      <!-- </group> -->
       <!-- <group targetFramework=".NETStandard2.0"> -->
       <!-- </group> -->
     <!-- </dependencies> -->
@@ -29,8 +27,6 @@
   </metadata>
   <files>
     <file src="icon64.png" target="icon64.png" />
-    <file src="nuget\lib\net40\*.dll" target="lib\net40" />
-    <file src="nuget\lib\net40\*.pdb" target="lib\net40" />
     <file src="nuget\lib\netstandard2.0\*.dll" target="lib\netstandard2.0" />
     <file src="nuget\lib\netstandard2.0\*.pdb" target="lib\netstandard2.0" />
   </files>

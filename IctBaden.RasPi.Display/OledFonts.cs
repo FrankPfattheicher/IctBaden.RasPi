@@ -1,4 +1,5 @@
 // ReSharper disable UnusedMember.Global
+// ReSharper disable InconsistentNaming
 namespace IctBaden.RasPi.Display
 {
     public static class OledFonts

@@ -14,6 +14,7 @@ namespace IctBaden.RasPi.Comm
     /// </summary>
     public class I2C
     {
+        // ReSharper disable once InconsistentNaming
         public const string Device1 = "/dev/i2c-1";
         
         

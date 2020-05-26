@@ -17,7 +17,7 @@ namespace RasPiSample
 
         private static void Main()
         {
-            Console.WriteLine("Raspi Sample Core " + Assembly.GetEntryAssembly().GetName().Version);
+            Console.WriteLine("Raspi Sample Core " + Assembly.GetAssembly(typeof(Program))!.GetName().Version);
             
             Console.WriteLine("1-wire Temperature Sensors");
             _devices = OneWireTemp.GetDevices();
@@ -84,7 +84,7 @@ namespace RasPiSample
 
             Help();
 
-            Task.Run(() => UpdateTemp());
+            Task.Run(UpdateTemp);
 
             while (true)
             {

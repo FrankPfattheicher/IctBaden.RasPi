@@ -1,4 +1,5 @@
-﻿namespace IctBaden.RasPi.System
+﻿// ReSharper disable InconsistentNaming
+namespace IctBaden.RasPi.System
 {
     public enum HdmiConnectors
     {

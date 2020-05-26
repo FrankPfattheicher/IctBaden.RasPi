@@ -38,9 +38,9 @@ namespace IctBaden.RasPi.Sensor
     /// 08 03 4b 46 7f ff 08 10 9e : crc=9e YES
     /// 08 03 4b 46 7f ff 08 10 9e t=48500
     /// </summary>
-    public class OneWireTemp
+    public static class OneWireTemp
     {
-        public const string DevicesDirectory = "/sys/bus/w1/devices";
+        private const string DevicesDirectory = "/sys/bus/w1/devices";
 
         public static List<string> GetDevices()
         {

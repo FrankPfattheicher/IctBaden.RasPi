@@ -1,4 +1,5 @@
-﻿namespace IctBaden.RasPi.System
+﻿// ReSharper disable InconsistentNaming
+namespace IctBaden.RasPi.System
 {
     /// <summary>
     /// List of used Broadcom SoCs (System On Chip)
