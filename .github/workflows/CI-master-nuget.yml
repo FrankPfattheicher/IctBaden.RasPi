@@ -30,12 +30,11 @@ jobs:
       run: |
         mkdir artifacts
         mkdir artifacts/lib
-        cp IctBaden.Stonehenge3/bin/Release/netstandard2.0/IctBaden.Stonehenge3.dll artifacts/lib
-        cp IctBaden.Stonehenge3.Kestrel/bin/Release/netstandard2.0/IctBaden.Stonehenge3.Kestrel.dll artifacts/lib
-        cp IctBaden.Stonehenge3.SimpleHttp/bin/Release/netstandard2.0/IctBaden.Stonehenge3.SimpleHttp.dll artifacts/lib
-        cp IctBaden.Stonehenge3.Vue/bin/Release/netstandard2.0/IctBaden.Stonehenge3.Vue.dll artifacts/lib
+        mkdir artifacts/lib/netstandard2.0
+        cp RasPiSample/bin/Release/netcoreapp3.1/IctBaden.RasPi.dll artifacts/lib/netstandard2.0
+        cp RasPiSample/bin/Release/netcoreapp3.1/IctBaden.RasPi.Display.dll artifacts/lib/netstandard2.0
         cd artifacts
-        version=$(grep -oP -m 1 '\* \K[0-9]*\.[0-9]*\.[0-9]*' ../ReleaseNotes3.md)
-        nuget pack ../Stonehenge3.nuspec -BasePath . -Version $version
+        version=$(grep -oP -m 1 '\* \K[0-9]*\.[0-9]*\.[0-9]*' ../ReleaseNotes.md)
+        nuget pack ../IctBaden.RasPi.nuspec -BasePath . -Version $version
     - name: Publish NuGet
       run: dotnet nuget push artifacts/*.nupkg --source https://www.nuget.org --api-key ${{ secrets.NugetKey }}
