@@ -22,7 +22,7 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
     - name: Build with dotnet
       run: |
-        version=$(grep -oP -m 1 '\* \K[0-9]*\.[0-9]*\.[0-9]*' ReleaseNotes3.md)
+        version=$(grep -oP -m 1 '\* \K[0-9]*\.[0-9]*\.[0-9]*' ReleaseNotes.md)
         dotnet build --configuration Release ./IctBaden.RasPi.sln -p:Version=$version
     - name: Test with dotnet
       env: 
