@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI-develop
+
+on: 
+  push:
+    branches: 
+      - develop
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.100
+    - name: Setup Nuget
+      uses: NuGet/setup-nuget@v1.0.2
+    - name: Build with dotnet
+      run: |
+        version=$(grep -oP -m 1 '\* \K[0-9]*\.[0-9]*\.[0-9]*' ReleaseNotes3.md)
+        dotnet build --configuration Release ./IctBaden.RasPi.sln -p:Version=$version
+    - name: Test with dotnet
+      env: 
+        SkipPerformanceTests: true
+      run: dotnet test ./IctBaden.RasPi.sln --configuration Release
+    - name: Copy artifacts
+      run: |
+        mkdir artifacts
+        mkdir artifacts/lib
+        mkdir artifacts/lib/netstandard2.0
+        cp RasPiSample/bin/Release/netcoreapp3.1/IctBaden.RasPi.dll artifacts/lib/netstandard2.0
+        cp RasPiSample/bin/Release/netcoreapp3.1/IctBaden.RasPi.Display.dll artifacts/lib/netstandard2.0
+        cd artifacts
+        version=$(grep -oP -m 1 '\* \K[0-9]*\.[0-9]*\.[0-9]*' ../ReleaseNotes.md)
+        nuget pack ../IctBaden.RasPi.nuspec -BasePath . -Version $version
