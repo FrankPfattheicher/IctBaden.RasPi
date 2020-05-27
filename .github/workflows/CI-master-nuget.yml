@@ -31,6 +31,7 @@ jobs:
         mkdir artifacts
         mkdir artifacts/lib
         mkdir artifacts/lib/netstandard2.0
+        cp icon64.png artifacts
         cp IctBaden.RasPi/bin/Release/netstandard2.0/IctBaden.RasPi.dll artifacts/lib/netstandard2.0
         cp IctBaden.RasPi.Display/bin/Release/netstandard2.0/IctBaden.RasPi.Display.dll artifacts/lib/netstandard2.0
         cd artifacts
