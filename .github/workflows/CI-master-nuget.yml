@@ -31,8 +31,8 @@ jobs:
         mkdir artifacts
         mkdir artifacts/lib
         mkdir artifacts/lib/netstandard2.0
-        cp IctBaden.RasPi/IctBaden.RasPi/bin/Release/netstandard2.0/IctBaden.RasPi.dll artifacts/lib/netstandard2.0
-        cp IctBaden.RasPi/IctBaden.RasPi.Display/bin/Release/netstandard2.0/IctBaden.RasPi.Display.dll artifacts/lib/netstandard2.0
+        cp IctBaden.RasPi/bin/Release/netstandard2.0/IctBaden.RasPi.dll artifacts/lib/netstandard2.0
+        cp IctBaden.RasPi.Display/bin/Release/netstandard2.0/IctBaden.RasPi.Display.dll artifacts/lib/netstandard2.0
         cd artifacts
         version=$(grep -oP -m 1 '\* \K[0-9]*\.[0-9]*\.[0-9]*' ../ReleaseNotes.md)
         nuget pack ../IctBaden.RasPi.nuspec -BasePath . -Version $version
