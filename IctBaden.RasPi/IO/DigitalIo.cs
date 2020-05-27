@@ -44,7 +44,7 @@ namespace IctBaden.RasPi.IO
 
         public ulong GetAllInputs()
         {
-            ulong inputs = RawGpio.GPIO_IN0;
+            ulong inputs = RawGpio.GPIO_IN0();
             return inputs;
         }
 

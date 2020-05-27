@@ -8,7 +8,7 @@ namespace IctBaden.RasPi.IO
 {
     /// <summary>
     /// RPi GPIO: J8 40-pin header
-    /// --------------------------------
+    /// ---------------------------------
     ///         +3V3  1  2   +5V
     /// GPIO2   SDA1  3  4   +5V
     /// GPIO3   SCL1  5  6   GND
@@ -29,7 +29,7 @@ namespace IctBaden.RasPi.IO
     /// GPIO19        35 36        GPIO16
     /// GPIO26        37 38        GPIO20
     ///          GND  39 40        GPIO21
-    /// --------------------------------
+    /// ---------------------------------
     /// </summary>
     [DebuggerDisplay("GPIO{Bit} P{Header} Pin {Pin}")]
     public class Gpio

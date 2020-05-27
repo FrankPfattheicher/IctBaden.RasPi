@@ -11,7 +11,7 @@ namespace IctBaden.RasPi.IO
             _gpio = gpio;
 
             // set pin mode to input
-            RawGpio.INP_GPIO(_gpio.Mask);
+            RawGpio.INP_GPIO(_gpio.Bit);
         }
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace IctBaden.RasPi.IO
         /// <param name="input">Input to be queried</param>
         public static implicit operator bool(Input input)
         {
-            return (RawGpio.GPIO_IN0 & input._gpio.Mask) != 0;
+            return (RawGpio.GPIO_IN0() & input._gpio.Mask) != 0;
         }
 
     }

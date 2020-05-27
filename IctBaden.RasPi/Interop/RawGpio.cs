@@ -59,7 +59,10 @@ namespace IctBaden.RasPi.Interop
         /// <summary>
         /// Get data 
         /// </summary>
-        public static uint GPIO_IN0 => *(gpio + 13);
+        public static uint GPIO_IN0()
+        {
+            return *(gpio + 13);
+        }
 
         internal static void Initialize()
         {
@@ -127,6 +130,7 @@ namespace IctBaden.RasPi.Interop
             }
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
         public static bool IsInitialized => gpio != null;
     }
     // ReSharper restore InconsistentNaming

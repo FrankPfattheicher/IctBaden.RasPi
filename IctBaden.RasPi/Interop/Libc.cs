@@ -1,6 +1,9 @@
 using System;
 using System.Runtime.InteropServices;
 // ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable FieldCanBeMadeReadOnly.Global
+#pragma warning disable 414
 
 namespace IctBaden.RasPi.Interop
 {
@@ -118,6 +121,7 @@ namespace IctBaden.RasPi.Interop
         public static extern int ioctl_dword(int file, int command, ulong data);
 
         // constants for CD control
+        // ReSharper disable IdentifierTypo
         public const int CDROMPAUSE = 0x5301;
         public const int CDROMRESUME = 0x5302;
         public const int CDROMPLAYMSF = 0x5303;
@@ -191,6 +195,7 @@ namespace IctBaden.RasPi.Interop
         public static int MAP_NORESERVE = 0x4000; // don't check for reservations
          
         public static void* MAP_FAILED = (void*) -1;
+        // ReSharper restore IdentifierTypo
 
         [DllImport("libc.so.6", SetLastError = true)]
         public static extern void* mmap(void* addr, uint length, int prot, int flags, int fd, uint offset);

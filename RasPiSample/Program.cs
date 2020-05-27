@@ -112,7 +112,7 @@ namespace RasPiSample
                 Console.WriteLine("Inputs = {0:X8}", newInp);
 
                 oldInp = newInp;
-                if ((newInp & 0x0F) == 0x0F)
+                if (in0 && in1 && in2 && in3)
                 {
                     // exit if all buttons are pressed
                     break;
@@ -166,6 +166,7 @@ namespace RasPiSample
                 _lcd.Clear();
             }
             Console.WriteLine("done.");
+            Environment.Exit(0);
         }
 
         private static void UpdateTemp()

@@ -12,8 +12,8 @@ namespace IctBaden.RasPi.IO
             _gpio = gpio;
 
             // set pin mode to output
-            RawGpio.INP_GPIO(_gpio.Mask); // must use INP_GPIO before we can use OUT_GPIO
-            RawGpio.OUT_GPIO(_gpio.Mask);
+            RawGpio.INP_GPIO(_gpio.Bit); // must use INP_GPIO before we can use OUT_GPIO
+            RawGpio.OUT_GPIO(_gpio.Bit);
         }
 
         public Gpio GetGpio()
@@ -27,7 +27,7 @@ namespace IctBaden.RasPi.IO
         /// <param name="output">Output to be queried</param>
         public static implicit operator bool(Output output)
         {
-            return (RawGpio.GPIO_IN0 & output._gpio.Mask) != 0;
+            return (RawGpio.GPIO_IN0() & output._gpio.Mask) != 0;
         }
 
         /// <summary>
