@@ -1,0 +1,40 @@
+name: CI-master-nuget
+
+on: 
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.100
+    - name: Setup Nuget
+      uses: NuGet/setup-nuget@v1.0.2
+    - name: Build with dotnet
+      run: |
+        version=$(grep -oP -m 1 '\* \K[0-9]*\.[0-9]*\.[0-9]*' ReleaseNotes.md)
+        dotnet build --configuration Release ./IctBaden.RasPi.sln -p:Version=$version
+    - name: Test with dotnet
+      env: 
+        SkipPerformanceTests: true
+      run: dotnet test ./IctBaden.RasPi.sln --configuration Release
+    - name: Copy artifacts
+      run: |
+        mkdir artifacts
+        mkdir artifacts/lib
+        mkdir artifacts/lib/netstandard2.0
+        cp IctBaden.RasPi/bin/Release/netstandard2.0/IctBaden.RasPi.dll artifacts/lib/netstandard2.0
+        cp IctBaden.RasPi.Display/bin/Release/netstandard2.0/IctBaden.RasPi.Display.dll artifacts/lib/netstandard2.0
+        cd artifacts
+        version=$(grep -oP -m 1 '\* \K[0-9]*\.[0-9]*\.[0-9]*' ../ReleaseNotes.md)
+        nuget pack ../IctBaden.RasPi.nuspec -BasePath . -Version $version
+    - name: Publish NuGet
+      run: dotnet nuget push artifacts/*.nupkg --source https://www.nuget.org --api-key ${{ secrets.NugetKey }}
