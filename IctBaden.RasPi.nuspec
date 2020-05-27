@@ -27,7 +27,7 @@
   </metadata>
   <files>
     <file src="icon64.png" target="icon64.png" />
-    <file src="nuget\lib\netstandard2.0\*.dll" target="lib\netstandard2.0" />
-    <file src="nuget\lib\netstandard2.0\*.pdb" target="lib\netstandard2.0" />
+    <file src="lib\netstandard2.0\*.dll" target="lib\netstandard2.0" />
+    <file src="lib\netstandard2.0\*.pdb" target="lib\netstandard2.0" />
   </files>
 </package>
